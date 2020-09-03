@@ -36,7 +36,6 @@ export class RegistroComponent implements OnInit {
       contrasenha: this.contrasenha,
       rol: ''
     }
-
     if(!this.rut){
       alert("Rut vacio");
       return;
@@ -85,5 +84,4 @@ export class RegistroComponent implements OnInit {
       error => {alert("Este correo ya se encuentra en uso")} 
     )
   }
-
 }
