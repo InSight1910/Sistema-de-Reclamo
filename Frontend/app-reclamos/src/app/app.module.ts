@@ -1,0 +1,40 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { MaterialModule } from './material/material.module';
+import { IngresarReclamoComponent } from './components/ingresar-reclamo/ingresar-reclamo.component';
+import { VerReclamosComponent } from './components/ver-reclamos/ver-reclamos.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    RegistroComponent,
+    UsuarioComponent,
+    AdminComponent,
+    IngresarReclamoComponent,
+    VerReclamosComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MaterialModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule
+
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
