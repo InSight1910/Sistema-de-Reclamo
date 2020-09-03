@@ -51,4 +51,18 @@ export class AdminComponent implements OnInit {
     const dialogRef = this.dialog.open(EditarEstadoComponent, dialogconfig);
   }
 
+  borrarReclamo(reclamo, i){
+
+    
+    this.service.borrarReclamo(reclamo.numeroReclamo).subscribe(_ => this.obtenerReclamoAct())
+
+    this.data.splice(i, 1)
+    this.dataSource = new MatTableDataSource(this.data)
+  }
+
+
+
+  obtenerReclamoAct(){
+    this.service.obtenerAllAdmin().subscribe(reclamos => this.data = reclamos)
+  }
 }

@@ -9,17 +9,17 @@
     <mat-table [dataSource]="dataSource">
         <ng-container *ngFor="let columna of columnas"  matColumnDef="{{columna.name}}">
             <mat-header-cell *matHeaderCellDef> {{columna.title}} </mat-header-cell>
-            <mat-cell *matCellDef="let usuario"> {{usuario[columna.name]}} </mat-cell>
+            <mat-cell *matCellDef="let reclamo"> {{reclamo[columna.name]}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="opciones">
             <mat-header-cell *matHeaderCellDef> Eliminar o Modificar </mat-header-cell>
-            <mat-cell *matCellDef="let usuario; index as i">
-                <button mat-mini-fab color="warn">
+            <mat-cell *matCellDef="let reclamo; index as i">
+                <button (click)="borrarReclamo(reclamo, i)" mat-mini-fab color="warn">
                     <mat-icon>delete</mat-icon>
                 </button>
                 <div style="padding-right: 2em;"></div>
-                <button (click)="openEstado(usuario)" href="#contenido"  data-toggle="modal" mat-mini-fab color="warn">
+                <button (click)="openEstado(reclamo)" href="#contenido"  data-toggle="modal" mat-mini-fab color="warn">
                     <mat-icon>edit</mat-icon>
                 </button>
             </mat-cell>

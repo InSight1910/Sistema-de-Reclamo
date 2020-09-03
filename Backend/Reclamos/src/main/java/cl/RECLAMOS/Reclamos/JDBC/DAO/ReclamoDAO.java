@@ -97,7 +97,7 @@ public class ReclamoDAO {
         ps.executeUpdate();
     }
     public void UPDATEESTADO(int i) throws SQLException {
-        String sql = "UPADTE RECLAMOS SET TIPORECLAMO = 'Resuelto' WHERE NUMERORECLAMO = ?";
+        String sql = "UPDATE RECLAMOS SET TIPORECLAMO = 'Resuelto' WHERE NUMERORECLAMO = ?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1,i);
         ps.executeUpdate();

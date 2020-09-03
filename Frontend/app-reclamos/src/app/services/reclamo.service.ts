@@ -19,8 +19,8 @@ export class ReclamoService {
   updateEstados = "http://localhost:8080/updateEstado/"
 
   obtenerAllAdmin(): Observable<Reclamo[]> {
-    const url = "allAdmin"
-    return this.http.get<Reclamo[]>(this.api+url);
+   
+    return this.http.get<Reclamo[]>(this.obtenerAdminURL);
   }
 
   obtenerUsuario(): Observable<Usuario[]> {
@@ -43,5 +43,10 @@ export class ReclamoService {
   }
   updateEstado(numeroReclamo){
     return this.http.put(`${this.updateEstados}${numeroReclamo}`,numeroReclamo)
+  }
+
+  borrarReclamo(NUMERORECLAMO: number): Observable<{}> {
+    const url = "delete/"
+    return this.http.delete(this.api+url+NUMERORECLAMO)
   }
 }
