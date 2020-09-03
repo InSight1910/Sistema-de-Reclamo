@@ -9,7 +9,7 @@ import { Usuario } from 'src/app/interfaces/usuario.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @Input() usuario : Usuario;
+  datoss: Usuario;
   constructor(private service: ReclamoService, private router: Router) { }
 
   ngOnInit(): void {
@@ -24,12 +24,12 @@ export class LoginComponent implements OnInit {
     else if(!contrasenha.trim()){
       alert("Campo contraseña vacio");
     }
-    
-/* 
+
+/*
     verificación de logueo */
     else{
       let usuarioDatos = JSON.parse(localStorage.getItem("usuario"));
-      this.service.loginUsuario({correo, contrasenha} as Usuario).subscribe(_ => { alert("Logueo exitoso"); this.router.navigate(['usuario'])},  error => {alert("Los datos no coinciden")})
+      this.service.loginUsuario({correo, contrasenha} as Usuario).subscribe(_ => { alert("Logueo exitoso"); this.router.navigate(['usuario']); this.datoss = _},  error => {alert("Los datos no coinciden")})
     }
   }
 
