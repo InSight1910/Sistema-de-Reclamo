@@ -1,0 +1,80 @@
+
+.titulo-reclamos a{
+    color: white;
+}
+
+.titulo-reclamos{
+    background-color: #0B4E85;
+}
+.card{
+    box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.2);
+    border: 0px transparent;
+}
+.Btn-login {
+    background: #0B4E85;
+    color:  white;
+    border-radius: 50px;
+    padding: 12px 36px;
+    border: 1px solid #0B4E85;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+    /* margin: 0 auto; */
+    max-height: 48px;
+    z-index: 1;
+    cursor: pointer;
+    min-width: 165px;
+}
+.Btn-cancelar  {
+    background: transparent;
+    color: #545454;
+    border-radius: 50px;
+    padding: 12px 36px;
+    border: 1px solid #545454;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+    /* box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.2); */
+    font-size: 0.9rem;
+    max-height: 48px;
+    z-index: 1;
+    cursor: pointer;
+    min-width: 165px;
+}
+input{
+    border-radius: 20px;
+}
+
+.formulario{
+    padding: 60px;
+    border-radius: 31px;
+}
+.formulario a{
+    color: #0B4E85;
+}
+
+textarea {
+    overflow: auto;
+    resize: vertical;
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: 15px;
+}
+
+select{
+    border-radius: 20px;
+}
+
+/**Footer**/
+.footer-reclamos{
+    background-color: #0B4E85;
+    color:white
+}
+
+.footer-reclamos a{
+    color:white;
+}
