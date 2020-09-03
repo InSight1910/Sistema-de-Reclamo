@@ -96,6 +96,12 @@ public class ReclamoDAO {
         ps.setInt(3,i);
         ps.executeUpdate();
     }
+    public void UPDATEESTADO(int i) throws SQLException {
+        String sql = "UPADTE RECLAMOS SET TIPORECLAMO = 'Resuelto' WHERE NUMERORECLAMO = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1,i);
+        ps.executeUpdate();
+    }
     public void DELETE(int i) throws SQLException {
         String sql = "DELETE from RECLAMOS " +
                 "WHERE NUMERORECLAMO = ?";

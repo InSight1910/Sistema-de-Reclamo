@@ -5,35 +5,21 @@
     <a class="btn-admin" href="/home">Cerrar Sesión</a>
 </nav>
 
-<div style="width: 70%; margin: 1em auto;" class="mat-elevation-z2">
-    <mat-table [dataSource]="usuarios">
-        <ng-container matColumnDef="correo">
-            <mat-header-cell *matHeaderCellDef> Correo </mat-header-cell>
-            <mat-cell *matCellDef="let usuario"> {{usuario.correo}} </mat-cell>
+<div style="width: 90%; margin: 1em auto;" class="mat-elevation-z2">
+    <mat-table [dataSource]="dataSource">
+        <ng-container *ngFor="let columna of columnas"  matColumnDef="{{columna.name}}">
+            <mat-header-cell *matHeaderCellDef> {{columna.title}} </mat-header-cell>
+            <mat-cell *matCellDef="let usuario"> {{usuario[columna.name]}} </mat-cell>
         </ng-container>
-        <ng-container matColumnDef="nombre">
-            <mat-header-cell *matHeaderCellDef> Nombres </mat-header-cell>
-            <mat-cell *matCellDef="let usuario"> {{usuario.nombre}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="contrasenha">
-            <mat-header-cell *matHeaderCellDef> Contraseña </mat-header-cell>
-            <mat-cell *matCellDef="let usuario"> {{usuario.contrasenha}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="rut">
-            <mat-header-cell *matHeaderCellDef> Rut </mat-header-cell>
-            <mat-cell *matCellDef="let usuario"> {{usuario.rut}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="rol">
-            <mat-header-cell *matHeaderCellDef> Rol </mat-header-cell>
-            <mat-cell *matCellDef="let usuario"> {{usuario.rol}} </mat-cell>
-        </ng-container>
+
         <ng-container matColumnDef="opciones">
-            <mat-header-cell *matHeaderCellDef> Eliminar </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> Eliminar o Modificar </mat-header-cell>
             <mat-cell *matCellDef="let usuario; index as i">
                 <button mat-mini-fab color="warn">
                     <mat-icon>delete</mat-icon>
                 </button>
-                <button href="#contenido" data-toggle="modal" mat-mini-fab color="warn">
+                <div style="padding-right: 2em;"></div>
+                <button (click)="openEstado(usuario)" href="#contenido"  data-toggle="modal" mat-mini-fab color="warn">
                     <mat-icon>edit</mat-icon>
                 </button>
             </mat-cell>

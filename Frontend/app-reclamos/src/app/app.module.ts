@@ -13,6 +13,8 @@ import { IngresarReclamoComponent } from './components/ingresar-reclamo/ingresar
 import { VerReclamosComponent } from './components/ver-reclamos/ver-reclamos.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditarEstadoComponent } from './components/dialogs/editar-estado/editar-estado.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UsuarioComponent,
     AdminComponent,
     IngresarReclamoComponent,
-    VerReclamosComponent
+    VerReclamosComponent,
+    EditarEstadoComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
 
   ],
   providers: [],

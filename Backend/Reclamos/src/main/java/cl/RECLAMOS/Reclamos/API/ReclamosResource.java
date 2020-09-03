@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping("/")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ReclamosResource {
     @RequestMapping(method = RequestMethod.GET, value = "allAdmin")
@@ -40,5 +40,9 @@ public class ReclamosResource {
     @RequestMapping(method = RequestMethod.PUT, value = "update/{id}")
     public void UPDATE(@PathVariable("id") int i, @RequestBody Reclamos r) throws SQLException {
         new ReclamoDAO().UPDATE(r, i);
+    }
+    @RequestMapping(method = RequestMethod.PUT, value = "updateEstado/{id}")
+    public void UPDATE(@PathVariable("id") int i) throws SQLException {
+        new ReclamoDAO().UPDATEESTADO(i);
     }
 }
