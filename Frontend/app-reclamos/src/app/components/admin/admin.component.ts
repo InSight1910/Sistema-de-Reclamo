@@ -39,15 +39,12 @@ export class AdminComponent implements OnInit {
     });
 
   }
-  openEstado(reclamo: Reclamo){
-    console.log(reclamo)
+  openEstado(reclamo){
     const dialogconfig = new MatDialogConfig();
-    dialogconfig.disableClose = true;
-    dialogconfig.autoFocus = true;
     dialogconfig.data = {
-      numero: reclamo.NUMERORECLAMO
+      numero: reclamo.numeroReclamo
     };
-    console.log(dialogconfig.data);
+    console.log(dialogconfig.data );
     const dialogRef = this.dialog.open(EditarEstadoComponent, dialogconfig);
   }
 

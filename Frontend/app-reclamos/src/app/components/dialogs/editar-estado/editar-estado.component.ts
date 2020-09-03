@@ -15,7 +15,7 @@ export class EditarEstadoComponent implements OnInit {
   }
 
   editarEstado(){
-      console.log(this.values)
+    this.service.updateEstado(this.values.numero).subscribe();
   }
 
 }
