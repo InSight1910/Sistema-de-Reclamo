@@ -19,7 +19,8 @@ export class ReclamoService {
   updateEstados = "http://localhost:8080/updateEstado/"
 
   obtenerAllAdmin(): Observable<Reclamo[]> {
-    return this.http.get<Reclamo[]>(this.obtenerAdminURL);
+    const url = "allAdmin"
+    return this.http.get<Reclamo[]>(this.api+url);
   }
 
   obtenerUsuario(): Observable<Usuario[]> {
