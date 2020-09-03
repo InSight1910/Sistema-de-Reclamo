@@ -44,13 +44,13 @@ export class AdminComponent implements OnInit {
     dialogconfig.data = {
       numero: reclamo.numeroReclamo
     };
-    console.log(dialogconfig.data );
     const dialogRef = this.dialog.open(EditarEstadoComponent, dialogconfig);
+
   }
 
   borrarReclamo(reclamo, i){
 
-    
+
     this.service.borrarReclamo(reclamo.numeroReclamo).subscribe(_ => this.obtenerReclamoAct())
 
     this.data.splice(i, 1)
@@ -60,6 +60,6 @@ export class AdminComponent implements OnInit {
 
 
   obtenerReclamoAct(){
-    this.service.obtenerAllAdmin().subscribe(reclamos => this.data = reclamos)
+    this.service.obtenerAllAdmin().subscribe(reclamos => this.data = reclamos);
   }
 }

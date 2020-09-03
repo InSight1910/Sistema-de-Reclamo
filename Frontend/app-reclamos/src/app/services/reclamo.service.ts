@@ -19,7 +19,6 @@ export class ReclamoService {
   updateEstados = "http://localhost:8080/updateEstado"
 
   obtenerAllAdmin(): Observable<Reclamo[]> {
-   
     return this.http.get<Reclamo[]>(this.obtenerAdminURL);
   }
 
@@ -29,20 +28,19 @@ export class ReclamoService {
 
   registrarUsuario(usuario: Usuario) {
     return this.http.post<Usuario>(this.registroUserURL, usuario);
-
   }
 
   loginUsuario(usuario: Usuario): Observable<Usuario> {
     const url = 'loginUsuario/'
-    return this.http.post<Usuario>(this.api+url, usuario);
+    return this.http.post<Usuario>(this.api + url, usuario);
   }
 
   obtenerUsuarioPorId(rut): Observable<Usuario>{
     const suffix = 'usuarios/'
-    return this.http.get<Usuario>(this.api + suffix + rut)
+    return this.http.get<Usuario>(this.api + suffix + rut);
   }
   updateEstado(numeroReclamo){
-    return this.http.put(`${this.updateEstados}/${numeroReclamo}`, numeroReclamo )
+    return this.http.put(`${this.updateEstados}/${numeroReclamo}`, numeroReclamo );
   }
 
   borrarReclamo(NUMERORECLAMO: number): Observable<{}> {
