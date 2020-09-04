@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ReclamoService } from 'src/app/services/reclamo.service';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import { RouteReuseStrategy, Router } from '@angular/router';
+import swal from 'sweetalert'
+import { ReadKeyExpr } from '@angular/compiler';
 
 
 
@@ -37,27 +39,39 @@ export class RegistroComponent implements OnInit {
       rol: ''
     }
     if(!this.rut){
-      alert("Rut vacio");
+      swal('Campo vacio',
+      'Por favor ingresa tu rut',
+      'error')
       return;
     }
     if(!this.usuario){
-      alert("Nombre vacio");
+      swal('Campo vacio',
+      'Por favor ingresa tu nombre',
+      'error')
       return;
     }
     if(!this.direccion){
-      alert("Dirección vacia");
+      swal('Campo vacio',
+      'Por favor ingresa tu dirección',
+      'error')
       return;
     }
     if(!this.numerotelefono){
-      alert("Número de teléfono vacio");
+      swal('Campo vacio',
+      'Por favor ingresa tu número de télefono',
+      'error')
       return;
     }
     if(!this.correo){
-      alert("Correo vacio");
+      swal('Campo vacio',
+      'Por favor ingresa tu correo',
+      'error')
       return;
     }
     if(!this.contrasenha){
-      alert("Contraseña vacia");
+      swal('Campo vacio',
+      'Por favor ingresa tu contraseña',
+      'error')
       return;
     }
     
@@ -71,17 +85,27 @@ export class RegistroComponent implements OnInit {
         this.hasLower = true;
         
       }
+
+      const emailValido = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if(emailValido.test(this.contrasenha)){
+        swal('¡Error!',
+      'Ingresa un correo válido. Ej: example@example.com',
+      'error')
+      return;
+      }
     
     }else{
-      alert("La contraseña necesita tener al menos una letra y un número");
+      swal('¡Contraseña débil!',
+      'Tu contraseña debe tener al menos: 4 carácteres, una letra y un número',
+      'error')
       return;
     }
 
 
     
     this.service.registrarUsuario(this.user).subscribe(
-      _ => {alert("Registro exitoso"); this.router.navigate(['usuario'])},
-      error => {alert("Este correo ya se encuentra en uso")} 
+      _ => {swal('¡Yayy!', 'Gracias por registrarte, esperamos que disfrutes de nuestros servicios', 'success'); this.router.navigate(['usuario'])},
+      error => {swal('Este correo ya se encuentra en uso, o ingresaste un formato equivocado', 'error')} 
     )
   }
 }
