@@ -9,16 +9,29 @@ CREATE TABLE USUARIOS(
     NUMEROTELEFONO varchar(20),
     DIRECCION varchar(100)
 )
+
 drop table RECLAMOS
 CREATE TABLE RECLAMOS(
     TIPORECLAMO varchar(100),
     NUMERORECLAMO int identity(1,1) primary key,
     DESCRIPCION varchar(8000),
-    FECHA varchar(100),
+    FECHA DATE,
     ESTADO varchar(100),
     ANTECEDENTES varchar(8000),
     RUT varchar(20),
     foreign key (rut) REFERENCES USUARIOS(RUT)
+)
+alter TABLE Reclamos add FECHA_TOPE DATE
+
+CREATE TABLE RESPUESTA(
+    N_RECLAMO INT,
+    RUT VARCHAR(20),
+    TEXTO VARCHAR(2000),
+    FECHA_RESPUESTA DATE,
+    LIMITE_RESPUESTA VARCHAR(500)
+    PRIMARY KEY(N_RECLAMO)
+    FOREIGN KEY (N_RECLAMO) REFERENCES RECLAMOS(NUMERORECLAMO),
+    FOREIGN KEY (RUT) REFERENCES USUARIOS(RUT)
 )
 alter table RECLAMOS alter COLUMN NUMERORECLAMO int 
 
@@ -55,7 +68,8 @@ use RECLAMOS
 alter table RECLAMOS add COMENTARIOS varchar(8000)
 use RECLAmos
 alter table RECLAMOS alter COLUMN FECHA DATE
-select * from RECLAMOS order by FECHA desc
+select * from RECLAMOS where NUMERORECLAMO = 74
 use RECLAMOS
-select * from USUARIOS where rol = 'Usuario'
+select * from USUARIOS where correo = 'Mauris.magna.Duis@Suspendisseeleifend.net'
+use RECLAMOS
 update RECLAMOS set estado = 'Resuelto' where NUMERORECLAMO = '8'
