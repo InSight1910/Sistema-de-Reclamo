@@ -24,7 +24,7 @@ export class UsuarioComponent implements OnInit {
 
   obtenerDatosUsuario() {
     const rut = +this.ruta.snapshot.paramMap.get('rut');
-    this.service.obtenerUsuarioPorId(rut).subscribe(data => console.log);;
+    this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuario= usuario);;
   }
 
 }
