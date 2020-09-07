@@ -13,7 +13,7 @@ import { MatTableDataSource } from '@angular/material/table';
 
 export class UsuarioComponent implements OnInit {
   @Input() usuario: Usuario;
-
+  
   constructor(private service: ReclamoService, private ruta: ActivatedRoute) { }
 
   ngOnInit(): void {
