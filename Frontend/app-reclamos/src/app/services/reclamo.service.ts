@@ -16,7 +16,8 @@ export class ReclamoService {
   obtenerAdminURL = "http://localhost:8080/allAdmin";
   registroUserURL = "http://localhost:8080/registrar";
   api = "http://localhost:8080/";
-  updateEstados = "http://localhost:8080/updateEstado"
+  updateEstados = "http://localhost:8080/updateEstado";
+  obtenerReclamosRut = "http://localhost:8080/allUser/"
 
   obtenerAllAdmin(): Observable<Reclamo[]> {
     return this.http.get<Reclamo[]>(this.obtenerAdminURL);
@@ -31,7 +32,7 @@ export class ReclamoService {
   }
 
   loginUsuario(usuario: Usuario): Observable<Usuario> {
-    const url = 'loginUsuario/'
+    const url = 'loginUsuario/';
     return this.http.post<Usuario>(this.api + url, usuario);
   }
 
@@ -47,4 +48,5 @@ export class ReclamoService {
     const url = "delete/"
     return this.http.delete(this.api+url+NUMERORECLAMO)
   }
+
 }

@@ -80,19 +80,18 @@ public class UsuarioDAO {
     }
 
 
-    public static Usuario loginAdmin(Usuario u) throws SQLException {
-        String sql = "SELECT * FROM USUARIOS WHERE CORREO = '" + u.getCorreo() + "' AND CONTRASEÑA = '" + u.getContrasenha() +
-                "' AND ROL = 'Admin'";
+    public Usuario loginAdmin(Usuario u) throws SQLException {
+        String sql = "SELECT * FROM USUARIOS WHERE CORREO = '" + u.getCorreo() +"' AND CONTRASEÑA = '" + u.getContrasenha() + "' AND ROL = 'Admin'";
               PreparedStatement ps = connection.prepareStatement(sql);
               ResultSet rs = ps.executeQuery();
               rs.next();
-              String correoU = rs.getString(1);
-              String nombresU = rs.getString(2);
-              String contrasenhaU = rs.getString(3);
-              String rutU = rs.getString(4);
-              String rolU = rs.getString(5);
-              String numTelefonoU = rs.getString(6);
-              String direccionU = rs.getString(7);
+              String correoU = rs.getString("CORREO");
+              String nombresU = rs.getString("NOMBRE");
+              String contrasenhaU = rs.getString("CONTRASEÑA");
+              String rutU = rs.getString("RUT");
+              String rolU = rs.getString("ROL");
+              String numTelefonoU = rs.getString("NUMEROTELEFONO");
+              String direccionU = rs.getString("DIRECCION");
 
               return new Usuario(correoU, nombresU, contrasenhaU, rutU, rolU, numTelefonoU, direccionU);
     }

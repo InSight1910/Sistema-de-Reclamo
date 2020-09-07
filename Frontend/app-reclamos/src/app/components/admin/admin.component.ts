@@ -25,8 +25,9 @@ export class AdminComponent implements OnInit {
     {name: 'rut', title: 'Rut'},
 
   ]
-  data: Reclamo[] = [];
-  dataSource = new MatTableDataSource(this.data);
+  search;
+  datas: Reclamo[] = [];
+  dataSource = new MatTableDataSource(this.datas);
 
   //Constructor
   constructor(private service: ReclamoService, private dialog: MatDialog) { }
@@ -34,9 +35,13 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.service.obtenerAllAdmin().subscribe(
       usuario => {
-        this.data = usuario;
-        this.dataSource = new MatTableDataSource(this.data);
+        this.datas = usuario;
+        this.dataSource = new MatTableDataSource(this.datas);
     });
+
+    this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
+      return data.RUT == filter;
+    }
 
   }
   openEstado(reclamo){
@@ -53,13 +58,18 @@ export class AdminComponent implements OnInit {
 
     this.service.borrarReclamo(reclamo.numeroReclamo).subscribe(_ => this.obtenerReclamoAct())
 
-    this.data.splice(i, 1)
-    this.dataSource = new MatTableDataSource(this.data)
+    this.datas.splice(i, 1);
+    this.dataSource = new MatTableDataSource(this.datas);
   }
 
 
 
   obtenerReclamoAct(){
-    this.service.obtenerAllAdmin().subscribe(reclamos => this.data = reclamos);
+    this.service.obtenerAllAdmin().subscribe(reclamos => this.datas = reclamos);
+  };
+
+  searchDef(filterValue){
+    this.dataSource.filter = filterValue;
   }
+
 }

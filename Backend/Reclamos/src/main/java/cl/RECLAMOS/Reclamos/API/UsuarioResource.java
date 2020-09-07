@@ -44,15 +44,8 @@ public class UsuarioResource {
         String correoUser = new UsuarioDAO().obtenerCorreoPorRut(u.getRut());
         String body = "Sr.(a) "+u.getNombre() +"\nSu cuenta ha sido creada exitosamente.\nEsperamos ser de mucha ayuda para usted." +
                 "\n\nAtentamente el equipo de ReclamosChile.";
-        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com","cvveglia@hotmail.com","Registro ReclamosChile",body);
-        TimerTask timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com","cvveglia@hotmail.com","Registro ReclamosChile",body);
-            }
-        };
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(timerTask, 0, 60000);
+        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",u.getCorreo(),"Registro ReclamosChile",body);
+
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "loginAdmin")

@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ReclamoService } from 'src/app/services/reclamo.service';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario.model';
-import {swal} from 'sweetalert'
+import swal from 'sweetalert';
+
 
 @Component({
   selector: 'app-login',
