@@ -25,6 +25,7 @@ public class ReclamoDAO {
         while (rs.next()){
             Reclamos re = new Reclamos(
                     rs.getString("TIPORECLAMO"),
+                    rs.getDate("FECHA_TOPE"),
                     rs.getInt("NUMERORECLAMO"),
                     rs.getString("DESCRIPCION"),
                     rs.getDate("FECHA"),
@@ -45,6 +46,7 @@ public class ReclamoDAO {
         while (rs.next()){
             Reclamos re = new Reclamos(
                     rs.getString("TIPORECLAMO"),
+                    rs.getDate("FECHA_TOPE"),
                     rs.getInt("NUMERORECLAMO"),
                     rs.getString("DESCRIPCION"),
                     rs.getDate("FECHA"),
@@ -65,6 +67,7 @@ public class ReclamoDAO {
         while (rs.next()){
             Reclamos re = new Reclamos(
                     rs.getString("TIPORECLAMO"),
+                    rs.getDate("FECHA_TOPE"),
                     rs.getInt("NUMERORECLAMO"),
                     rs.getString("DESCRIPCION"),
                     rs.getDate("FECHA"),
@@ -77,7 +80,7 @@ public class ReclamoDAO {
         return  r;
     }
     public void CREATE(Reclamos r) throws SQLException{
-        String sql = "INSERT INTO RECLAMOS([TIPORECLAMO],[DESCRIPCION],[FECHA],[ESTADO],[ANTECEDENTES],[RUT]) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO RECLAMOS(TIPORECLAMO,[DESCRIPCION],[FECHA],[ESTADO],[ANTECEDENTES],[RUT]) VALUES(?,?,?,?,?,?)";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1,r.getTipoReclamo());
         ps.setString(2,r.getDescripcion());

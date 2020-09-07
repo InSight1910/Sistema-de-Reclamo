@@ -10,6 +10,9 @@ public class Reclamos {
     private String Estado;
     private String Antecedentes;
     private String Rut;
+    private Date Fecha_tope;
+
+
 
     public String getTipoReclamo() {
         return TipoReclamo;
@@ -67,7 +70,7 @@ public class Reclamos {
         Rut = rut;
     }
 
-    public Reclamos(String tipoReclamo, int numeroReclamo, String descripcion, Date fecha, String estado, String antecedentes, String rut) {
+    public Reclamos(String tipoReclamo, Date fecha_tope, int numeroReclamo, String descripcion, Date fecha, String estado, String antecedentes, String rut) {
         TipoReclamo = tipoReclamo;
         NumeroReclamo = numeroReclamo;
         Descripcion = descripcion;
@@ -75,5 +78,6 @@ public class Reclamos {
         Estado = estado;
         Antecedentes = antecedentes;
         Rut = rut;
+        Fecha_tope = fecha_tope;
     }
 }

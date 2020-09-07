@@ -22,6 +22,10 @@ CREATE TABLE RECLAMOS(
     foreign key (rut) REFERENCES USUARIOS(RUT)
 )
 alter TABLE Reclamos add FECHA_TOPE DATE
+select (cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) as tiempo, (cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(day, DATEADD("day", 2, getdate())) as varchar) as Date))
+
+SELECT DATEadd("day", 2 ,GETDATE())
+Insert into RESPUESTA(N_RECLAMO, RUT, TEXTO, FECHA_RESPUESTA, LIMITE_RESPUESTA) VALUES(9,'34052653-8','hdfghdgfh',(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) ,GETDATE())
 
 CREATE TABLE RESPUESTA(
     N_RECLAMO INT,
@@ -73,3 +77,4 @@ use RECLAMOS
 select * from USUARIOS where correo = 'Mauris.magna.Duis@Suspendisseeleifend.net'
 use RECLAMOS
 update RECLAMOS set estado = 'Resuelto' where NUMERORECLAMO = '8'
+|
