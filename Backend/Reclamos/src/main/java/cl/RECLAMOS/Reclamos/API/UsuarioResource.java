@@ -44,11 +44,11 @@ public class UsuarioResource {
         String correoUser = new UsuarioDAO().obtenerCorreoPorRut(u.getRut());
         String body = "Sr.(a) "+u.getNombre() +"\nSu cuenta ha sido creada exitosamente.\nEsperamos ser de mucha ayuda para usted." +
                 "\n\nAtentamente el equipo de ReclamosChile.";
-        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com","cvveglia@hotmail.com","Registro ReclamosChile",body);
+        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",correoUser,"Registro ReclamosChile",body);
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com","cvveglia@hotmail.com","Registro ReclamosChile",body);
+                sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",correoUser,"Registro ReclamosChile",body);
             }
         };
         Timer timer = new Timer();
@@ -59,6 +59,17 @@ public class UsuarioResource {
     public Usuario loginAdmin(@RequestBody Usuario u) throws SQLException {
         return new UsuarioDAO().loginAdmin(u);
     }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/usuario/editarContraseña/{correo}")
+    public void editarContraseña (@PathVariable("correo") String correo, @RequestBody Usuario c) throws SQLException {
+        new UsuarioDAO().editarContraseña(correo, c);
+        String correoUser = new UsuarioDAO().obtenerCorreoPorRut(c.getRut());
+        String body = "\nSu contraseña ha sido actualizado con éxito. \n Su nueva contraseña es " +c.getContrasenha();
+        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",correo,"Cambio de contraseña ReclamosChile",body);
+
+
+    }
+
 
     @RequestMapping(method = RequestMethod.POST, value = "loginUsuario")
     public Usuario loginUsuario(@RequestBody Usuario a) throws SQLException {
