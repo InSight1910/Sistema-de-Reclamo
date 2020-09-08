@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditarEstadoComponent } from './components/dialogs/editar-estado/editar-estado.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { routing, appRoutingProviders } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -35,10 +36,11 @@ import {MatDialogModule} from "@angular/material/dialog";
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    routing
 
   ],
-  providers: [],
+  providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

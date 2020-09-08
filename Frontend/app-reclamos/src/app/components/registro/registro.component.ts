@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ReclamoService } from 'src/app/services/reclamo.service';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import { RouteReuseStrategy, Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { ReadKeyExpr } from '@angular/compiler';
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
+
 export class RegistroComponent implements OnInit {
   user: Usuario;
   rut;

@@ -25,8 +25,8 @@ alter TABLE Reclamos add FECHA_TOPE DATE
 select (cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) as tiempo, (cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(day, DATEADD("day", 2, getdate())) as varchar) as Date))
 
 SELECT DATEadd("day", 2 ,GETDATE())
-Insert into RESPUESTA(N_RECLAMO, RUT, TEXTO, FECHA_RESPUESTA, LIMITE_RESPUESTA) VALUES(9,'34052653-8','hdfghdgfh',(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) ,GETDATE())
-
+Insert into RESPUESTA(N_RECLAMO, RUT, TEXTO, FECHA_RESPUESTA, LIMITE_RESPUESTA) VALUES(12,'34052653-8','hdfghdgfh',(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) ,(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(day, DATEADD("day", 2, getdate())) as varchar) as Date)))
+select * from RESPUESTA
 CREATE TABLE RESPUESTA(
     N_RECLAMO INT,
     RUT VARCHAR(20),
@@ -65,8 +65,10 @@ INSERT INTO RECLAMOS([TIPORECLAMO],[DESCRIPCION],[FECHA],[ESTADO],[ANTECEDENTES]
 INSERT INTO RECLAMOS([TIPORECLAMO],[DESCRIPCION],[FECHA],[ESTADO],[ANTECEDENTES],[RUT]) VALUES('SobreCargo','dui, in sodales elit erat vitae risus. Duis a mi','08/09/1968','Resuelto','Lorem','34052653-8'),('SobreCargo','ornare sagittis felis. Donec tempor, est ac mattis semper, dui','12/11/1961','Pendiente','Lorem ipsum dolor sit amet, consectetuer adipiscing elit.','34052653-8'),('SobreCargo','congue a, aliquet vel, vulputate eu, odio. Phasellus at augue','08/29/1858','Resuelto','Lorem ipsum dolor sit amet, consectetuer adipiscing elit.','34052653-8'),('Mala atencion','metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh.','11/22/1857','Resuelto','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur','34052653-8'),('Mala atencion','netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus','02/25/1976','Resuelto','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur','34052653-8');
 INSERT INTO RECLAMOS([TIPORECLAMO],[DESCRIPCION],[FECHA],[ESTADO],[ANTECEDENTES],[RUT]) VALUES('SobreCargo','porttitor eros nec tellus. Nunc lectus pede, ultrices a, auctor','11/22/1923','Pendiente','Lorem ipsum dolor sit amet,','34052653-8'),('SobreCargo','metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus','11/02/1918','Pendiente','Lorem ipsum dolor sit amet, consectetuer adipiscing','34052653-8'),('SobreCargo','imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,','01/14/1869','Pendiente','Lorem ipsum dolor sit','34052653-8'),('Mala atencion','volutpat ornare, facilisis eget, ipsum. Donec sollicitudin adipiscing ligula. Aenean','02/14/1968','Pendiente','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur','34052653-8'),('Mala atencion','nunc ac mattis ornare, lectus ante dictum mi, ac mattis','01/09/1933','Pendiente','Lorem ipsum dolor sit amet, consectetuer','34052653-8');
 INSERT INTO RECLAMOS([TIPORECLAMO],[DESCRIPCION],[FECHA],[ESTADO],[ANTECEDENTES],[RUT]) VALUES('Mala atencion','eget, ipsum. Donec sollicitudin adipiscing ligula. Aenean gravida nunc sed','10/03/1894','Pendiente','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur','34052653-8'),('SobreCargo','risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed','04/19/2018','Resuelto','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur','34052653-8'),('SobreCargo','nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in','10/13/1961','Pendiente','Lorem ipsum','34052653-8'),('Mala atencion','auctor, velit eget laoreet posuere, enim nisl elementum purus, accumsan','07/15/1977','Pendiente','Lorem ipsum dolor sit amet, consectetuer adipiscing','34052653-8'),('Mala atencion','in sodales elit erat vitae risus. Duis a mi fringilla','09/06/1922','Pendiente','Lorem ipsum','34052653-8');
+INSERT INTO RECLAMOS([TIPORECLAMO],[DESCRIPCION],[FECHA],[ESTADO],[ANTECEDENTES],[RUT]) VALUES('Mala atencion','eget, ipsum. Donec sollicitudin adipiscing ligula. Aenean gravida nunc sed','10/03/1894','Pendiente','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur','12874408-8'),('SobreCargo','risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed','04/19/2018','Resuelto','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur','12874408-8'),('SobreCargo','nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in','10/13/1961','Pendiente','Lorem ipsum','12874408-8'),('Mala atencion','auctor, velit eget laoreet posuere, enim nisl elementum purus, accumsan','07/15/1977','Pendiente','Lorem ipsum dolor sit amet, consectetuer adipiscing','12874408-8'),('Mala atencion','in sodales elit erat vitae risus. Duis a mi fringilla','09/06/1922','Pendiente','Lorem ipsum','12874408-8');
 
-SELECT * from RECLAMOS
+SELECT * from Usuarios
+select * from RECLAMOS where ESTADO = 'Pendiente'
 
 use RECLAMOS
 alter table RECLAMOS add COMENTARIOS varchar(8000)
@@ -77,4 +79,4 @@ use RECLAMOS
 select * from USUARIOS where correo = 'Mauris.magna.Duis@Suspendisseeleifend.net'
 use RECLAMOS
 update RECLAMOS set estado = 'Resuelto' where NUMERORECLAMO = '8'
-|
+SELECT rut, ESTADO FROM RECLAMOS

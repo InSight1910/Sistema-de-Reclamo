@@ -12,7 +12,10 @@ import { MatTableDataSource } from '@angular/material/table';
 
 
 export class UsuarioComponent implements OnInit {
-  @Input() usuario: Usuario;
+  newUsuario: Usuario;
+  @Input() usuario: Usuario = this.newUsuario;
+
+
 
   constructor(private service: ReclamoService, private ruta: ActivatedRoute) { }
 
@@ -20,11 +23,11 @@ export class UsuarioComponent implements OnInit {
     this.obtenerDatosUsuario();
   }
 
-  
+
 
   obtenerDatosUsuario() {
     const rut = +this.ruta.snapshot.paramMap.get('rut');
-    this.service.obtenerUsuarioPorId(rut).subscribe(data => console.log);;
+    this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.newUsuario  = usuario);
   }
 
 }

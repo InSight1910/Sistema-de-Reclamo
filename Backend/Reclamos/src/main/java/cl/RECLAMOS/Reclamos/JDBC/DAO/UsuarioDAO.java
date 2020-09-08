@@ -125,4 +125,12 @@ public class UsuarioDAO {
         return correo1;
     }
 
+
+    public void editarContraseña(String correo, Usuario c) throws SQLException {
+        String sql = "UPDATE USUARIOS SET CONTRASEÑA = ? WHERE CORREO = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, c.getContrasenha());
+        ps.setString(2, correo);
+        ps.executeUpdate();
+    }
 }

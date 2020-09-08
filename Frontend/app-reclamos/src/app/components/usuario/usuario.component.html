@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row my-5">
             <div class="col">
-                <h1>Hola @UserName</h1>
+                <h1>Hola {{newUsuario.nombre}}</h1>
             </div>
         </div>
         <div class="row my-5">
@@ -43,11 +43,11 @@
                         <div class="contenedor" *ngIf="usuario">
                         <h5 class="card-title">Editar Perfil</h5>
                         <h3>Edita tu cuenta</h3>
-    
+
                         <br>
-                        
+
                         <form style="width: 80%;">
-                            
+
                             <div>
                                 <mat-form-field style="width: 40%;padding-right: 30px;">
                                     <mat-label>Rut</mat-label>
@@ -70,7 +70,7 @@
                                 <input matInput #telefono value="{{usuario.numTelefono}}">
                             </mat-form-field>
                             </div>
-                            
+
                         </form>
                     </div>
                 </div>

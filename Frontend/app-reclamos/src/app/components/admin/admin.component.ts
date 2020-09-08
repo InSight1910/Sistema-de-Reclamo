@@ -39,9 +39,11 @@ export class AdminComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.datas);
     });
 
-    this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
-      return data.RUT == filter;
-    }
+    /*this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
+      return data.TIPORECLAMO.trim().toLocaleLowerCase().indexOf(filter.trim().toLowerCase()) >= 0;
+      //return data.TIPORECLAMO.trim().toLocaleLowerCase() = filter;
+    }*/
+    this.dataSource.filterPredicate = (data: Reclamo, filter: string) => data.tipoReclamo.trim().toLowerCase().indexOf(filter) != -1;
 
   }
   openEstado(reclamo){

@@ -11,7 +11,7 @@ import swal from 'sweetalert';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  datoss: Usuario;
+  @Input() usuario: Usuario;
   constructor(private service: ReclamoService, private router: Router) { }
 
   ngOnInit(): void {
@@ -36,9 +36,13 @@ export class LoginComponent implements OnInit {
     verificación de logueo */
     else{
       let usuarioDatos = JSON.parse(localStorage.getItem("usuario"));
-      this.service.loginUsuario({correo, contrasenha} as Usuario).subscribe(_ => { swal('¡Súper', 'Nos alegramos de tenerte de vuelta', 'success'); this.router.navigate(['usuario'])},  error => { swal('¡Ups!',
-      'Los datos no coinciden, intenta de nuevo',
-      'error');
+      this.service.loginUsuario({correo, contrasenha} as Usuario).subscribe(userResponse => {
+        localStorage.setItem("usuario", JSON.stringify(userResponse));
+
+        let usuarioDatos = JSON.parse(localStorage.getItem("usuario"));
+        this.router.navigate(["usuario", usuarioDatos.rut]);
+
+        console.log(localStorage.getItem("usuario"));
     });
     }
   }

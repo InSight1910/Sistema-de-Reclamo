@@ -1,10 +1,10 @@
 export interface Reclamo {
-    TIPORECLAMO: string;
-    NUMERORECLAMO: number;
-    DESCRIPCION: string;
-    FECHA: Date;
-    ESTADO: string;
-    ANTECEDENTES: string;
-    RUT: string;
-    COMENTARIOS: string;
+    tipoReclamo: string;
+    numeroReclamo: number;
+    descripcion: string;
+    fecha: Date;
+    estado: string;
+    antecendentes: string;
+    rut: string;
+    comentarios: string;
 }
