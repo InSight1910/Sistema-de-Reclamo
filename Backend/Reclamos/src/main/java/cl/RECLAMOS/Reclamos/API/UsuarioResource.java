@@ -22,8 +22,8 @@ public class UsuarioResource {
     private SendEmailService sendEmailService;
 
     @RequestMapping(method = RequestMethod.PUT, value = "editarUsuario")
-    public Usuario modifificarUsuario (@RequestBody Usuario a) throws SQLException {
-        return UsuarioDAO.modificar(a);
+    public void modifificarUsuario (@RequestBody Usuario a) throws SQLException {
+        new UsuarioDAO().modificar(a);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "usuarios/{rut}")

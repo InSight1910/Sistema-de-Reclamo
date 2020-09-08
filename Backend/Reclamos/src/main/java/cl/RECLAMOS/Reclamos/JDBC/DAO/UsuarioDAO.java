@@ -19,7 +19,7 @@ public class UsuarioDAO {
 
     }
 
-    public static Usuario modificar(Usuario a) throws SQLException {
+    public void modificar(Usuario a) throws SQLException {
         String sql = "UPDATE USUARIOS SET CORREO = ?, NOMBRE = ?, CONTRASEÑA = ?, ROL = ?, NUMEROTELEFONO = ?, DIRECCION = ? where RUT = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, a.getCorreo());
@@ -30,7 +30,6 @@ public class UsuarioDAO {
         ps.setString(6, a.getDireccion());
         ps.setString(7, a.getRut());
         ps.executeUpdate();
-        return null;
     }
 
     private List<Usuario> obtenerResultados(String sql, String parametro) throws SQLException {

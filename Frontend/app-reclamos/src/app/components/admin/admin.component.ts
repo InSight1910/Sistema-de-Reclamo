@@ -71,7 +71,7 @@ export class AdminComponent implements OnInit {
   };
 
   searchDef(filterValue){
-    this.dataSource.filter = filterValue;
+    this.dataSource.   = filterValue;
   }
 
 }

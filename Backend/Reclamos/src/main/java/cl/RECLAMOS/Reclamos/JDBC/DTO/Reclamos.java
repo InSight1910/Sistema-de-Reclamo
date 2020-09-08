@@ -11,6 +11,7 @@ public class Reclamos {
     private String Antecedentes;
     private String Rut;
     private Date Fecha_tope;
+    private String Comentarios;
 
 
 
@@ -70,7 +71,23 @@ public class Reclamos {
         Rut = rut;
     }
 
-    public Reclamos(String tipoReclamo, Date fecha_tope, int numeroReclamo, String descripcion, Date fecha, String estado, String antecedentes, String rut) {
+    public Date getFecha_tope() {
+        return Fecha_tope;
+    }
+
+    public void setFecha_tope(Date fecha_tope) {
+        Fecha_tope = fecha_tope;
+    }
+
+    public String getComentarios() {
+        return Comentarios;
+    }
+
+    public void setComentarios(String comentarios) {
+        Comentarios = comentarios;
+    }
+
+    public Reclamos(String tipoReclamo, Date fecha_tope, int numeroReclamo, String descripcion, Date fecha, String estado, String antecedentes, String rut, String comentarios) {
         TipoReclamo = tipoReclamo;
         NumeroReclamo = numeroReclamo;
         Descripcion = descripcion;
@@ -79,5 +96,6 @@ public class Reclamos {
         Antecedentes = antecedentes;
         Rut = rut;
         Fecha_tope = fecha_tope;
+        Comentarios = comentarios;
     }
 }

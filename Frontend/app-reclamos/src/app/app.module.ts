@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditarEstadoComponent } from './components/dialogs/editar-estado/editar-estado.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { routing, appRoutingProviders } from './app-routing.module';
+import { FilterAdminPipe } from './Pipes/filter-admin.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { routing, appRoutingProviders } from './app-routing.module';
     AdminComponent,
     IngresarReclamoComponent,
     VerReclamosComponent,
-    EditarEstadoComponent
+    EditarEstadoComponent,
+    FilterAdminPipe
   ],
   imports: [
     BrowserModule,
