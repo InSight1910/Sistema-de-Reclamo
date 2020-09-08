@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { EditarEstadoComponent } from '../dialogs/editar-estado/editar-estado.component';
+import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.component';
 
 
 @Component({
@@ -78,7 +79,7 @@ export class AdminComponent implements OnInit {
     dialogconfig.data = {
       numero: reclamo.numeroReclamo
     };
-    const dialogRef  = this.dialog.open(,dialogconfig);
+    const dialogRef  = this.dialog.open(ViewReclamoComponent, dialogconfig);
   }
 
 }
