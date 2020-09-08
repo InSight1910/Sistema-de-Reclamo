@@ -23,6 +23,9 @@
         <button (click)="openEstado(reclamo)" href="#contenido" data-toggle="modal" mat-mini-fab color="warn">
           <mat-icon>edit</mat-icon>
         </button>
+        <button mat-mini-fab data-toggle="modal" (click)="openView(reclamo)">
+          Ver
+        </button>
       </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="columnasAMostrar"></mat-header-row>

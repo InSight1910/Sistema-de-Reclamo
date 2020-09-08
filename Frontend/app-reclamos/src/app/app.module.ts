@@ -14,9 +14,10 @@ import { VerReclamosComponent } from './components/ver-reclamos/ver-reclamos.com
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditarEstadoComponent } from './components/dialogs/editar-estado/editar-estado.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import { MatDialogModule } from "@angular/material/dialog";
 import { routing, appRoutingProviders } from './app-routing.module';
-import { FilterAdminPipe } from './Pipes/filter-admin.pipe';
+import { ViewReclamoComponent } from './components/dialogs/view-reclamo/view-reclamo.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FilterAdminPipe } from './Pipes/filter-admin.pipe';
     IngresarReclamoComponent,
     VerReclamosComponent,
     EditarEstadoComponent,
-    FilterAdminPipe
+    ViewReclamoComponent,
+
   ],
   imports: [
     BrowserModule,

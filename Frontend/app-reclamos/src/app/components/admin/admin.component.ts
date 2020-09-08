@@ -71,7 +71,14 @@ export class AdminComponent implements OnInit {
   };
 
   searchDef(filterValue){
-    this.dataSource.   = filterValue;
+    this.dataSource.filter = filterValue;
+  }
+  openView(reclamo){
+    const dialogconfig = new MatDialogConfig();
+    dialogconfig.data = {
+      numero: reclamo.numeroReclamo
+    };
+    const dialogRef  = this.dialog.open(,dialogconfig);
   }
 
 }
