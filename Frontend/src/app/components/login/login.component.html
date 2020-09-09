@@ -1,55 +1,83 @@
 <nav class="navbar  titulo-reclamos">
-    <a class="navbar-brand" href="/home">
-        <img src="/assets/img/logo/logo-white.png" width="17%" alt="">
-    </a>
+  <a class="navbar-brand" href="/home">
+    <img src="/assets/img/logo/logo-white.png" width="17%" alt="">
+  </a>
 </nav>
 
 <section class="mt-5 login-user">
-    <div class="container">
-        <div class="row">
-            <div class="col-6 mx-auto  mb-5">
-                <form class="formulario card">
-                    <img class="text-center mx-auto mb-3" src="/assets/img/icons/login-user.png" width="30%" alt="">
-                    <h1 class="mx-auto text-center">Iniciar Sesión</h1>
-                    <div class="form-group">
-                        <label for="nombreUser">Usuario</label>
-                        <input type="text" class="form-control" id="nombreUser" placeholder="Ingrese Usuario" #correo>
-                    </div>
-                    <div class="form-group">
-                        <label for="contrasenhaUser">Contraseña</label>
-                        <input type="password" class="form-control" id="contrasenhaUser" #contrasena
-                            placeholder="Ingrese Contraseña">
-                    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-6 mx-auto  mb-5">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <img class="text-center mx-auto mb-3" src="/assets/img/icons/login-user.png" width="30%" alt="">
+          <h1 class="mx-auto text-center">Iniciar Sesión</h1>
+          <div class="form-group">
+            <label for="nombreUser">Usuario</label>
+            <input type="text" class="form-control" id="nombreUser" formControlName='username'
+              placeholder="Ingrese Usuario" #correo>
+          </div>
+          <div class="form-group">
+            <label for="contrasenhaUser">Contraseña</label>
+            <input type="password" class="form-control" id="contrasenhaUser" #contrasena
+              placeholder="Ingrese Contraseña" formControlName='password'>
+          </div>
 
-                    <button type="button" class="btn btn-lg Btn-login  btn-block" value="Acceder"
-                        (click)="loginUsuario(correo.value, contrasena.value)">Iniciar Sesión</button>
-                    <div class="form-group text-center mt-5">
-                        <p>¿No tienes una cuenta? Registrate <a routerLink="/registro">aquí</a></p>
-                        <p>Recupera tu contraseña <a routerLink="/recuperarContrasena"> aquí</a></p>
-                    </div>
-                </form>
+          <<<<<<< HEAD <button type="button" class="btn btn-lg Btn-login  btn-block" value="Acceder"
+            (click)="loginUsuario(correo.value, contrasena.value)">Iniciar Sesión</button>
+            =======
+            <button class="btn btn-lg btn-success btn-block" value="Acceder">Iniciar Sesión</button>
+            >>>>>>> 780cc0e54172c41d1e177818ab7940116b37f700
+            <div class="form-group text-center mt-5">
+              <p>¿No tienes una cuenta? Registrate <a routerLink="/registro">aquí</a></p>
+              <p>Recupera tu contraseña <a routerLink="/recuperarContrasena"> aquí</a></p>
             </div>
-        </div>
+        </form>
+      </div>
     </div>
+  </div>
 </section>
 <!-- Footer -->
+<!-- <mat-card>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h2>Log In</h2>
+        <mat-error *ngIf="loginInvalid">
+         nombre de usuario o contraseña invalidos
+        </mat-error>
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="Correo" formControlName="username" required>
+          <mat-error>
+           Por favor ingrese un correo
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="Contraseña" formControlName="password" required>
+          <mat-error>
+            Por favor ingrese una contraseña
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card> -->
+
 <footer class="footer-reclamos">
-    <div class="container">
-        <div class="row text-center d-flex justify-content-center pt-5 ">
-            <div class="col-md-3 mb-3">
-                <h6>
-                    <a href="#!">Sugerencias</a>
-                </h6>
-            </div>
-            <div class="col-md-3 mb-3">
-                <h6>
-                    <a href="/preguntasFrecuentes">Preguntas Frecuentes</a>
-                </h6>
-            </div>
-        </div>
-        <hr class="rgba-white-light" style="margin: 0 15%;">
+  <div class="container">
+    <div class="row text-center d-flex justify-content-center pt-5 ">
+      <div class="col-md-3 mb-3">
+        <h6>
+          <a href="#!">Sugerencias</a>
+        </h6>
+      </div>
+      <div class="col-md-3 mb-3">
+        <h6>
+          <a href="/preguntasFrecuentes">Preguntas Frecuentes</a>
+        </h6>
+      </div>
     </div>
-    <div class="footer-copyright text-center py-3">Grupo 3 © 2020 Copyright:
-        <a href="/home"> ReclamosChile.cl</a>
-    </div>
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+  </div>
+  <div class="footer-copyright text-center py-3">Grupo 3 © 2020 Copyright:
+    <a href="/home"> ReclamosChile.cl</a>
+  </div>
 </footer>

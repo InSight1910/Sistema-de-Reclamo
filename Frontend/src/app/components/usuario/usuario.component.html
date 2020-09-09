@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row my-5">
             <div class="col">
-                <h1>Hola {{usuario.correo}}</h1>
+                <h1>Hola {{usuarios.nombre}}</h1>
             </div>
         </div>
         <div class="row my-5">
@@ -40,7 +40,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <div class="contenedor" *ngIf="usuario">
+                        <div class="contenedor" *ngIf="usuarios">
                             <h5 class="card-title">Editar Perfil</h5>
                             <h3>Edita tu cuenta</h3>
 
@@ -51,23 +51,23 @@
                                 <div>
                                     <mat-form-field style="width: 40%;padding-right: 30px;">
                                         <mat-label>Rut</mat-label>
-                                        <input matInput #rut value="{{usuario.rut}}">
+                                        <input matInput #rut value="{{usuarios.rut}}">
                                     </mat-form-field>
                                     <mat-form-field style="width: 40%;padding-right: 30px;">
                                         <mat-label>Nombre</mat-label>
-                                        <input matInput #nombre value="{{usuario.nombre}}">
+                                        <input matInput #nombre value="{{usuarios.nombre}}">
                                     </mat-form-field>
                                     <mat-form-field style="width: 40%;padding-right: 30px;">
                                         <mat-label>Correo</mat-label>
-                                        <input matInput #correo value="{{usuario.correo}}">
+                                        <input matInput #correo value="{{usuarios.correo}}">
                                     </mat-form-field>
                                     <mat-form-field style="width: 40%;padding-right: 30px;">
                                         <mat-label>Dirección</mat-label>
-                                        <input matInput #direccion value="{{usuario.direccion}}">
+                                        <input matInput #direccion value="{{usuarios.direccion}}">
                                     </mat-form-field>
                                     <mat-form-field style="width: 40%;">
                                         <mat-label>Teléfono</mat-label>
-                                        <input matInput #telefono value="{{usuario.numTelefono}}">
+                                        <input matInput #telefono value="{{usuarios.numTelefono}}">
                                     </mat-form-field>
                                 </div>
 

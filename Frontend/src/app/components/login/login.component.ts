@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ReclamoService } from 'src/app/services/reclamo.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import swal from 'sweetalert';
+import { AuthService } from '../../services/auth.service';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -12,10 +14,22 @@ import swal from 'sweetalert';
 })
 export class LoginComponent implements OnInit {
   @Input() usuario: Usuario;
-  constructor(private service: ReclamoService, private router: Router) { }
+  constructor(private fb: FormBuilder, private service: ReclamoService, private router: Router, private route: ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit(): void {
+
+    this.form = this.fb.group({
+      username: ['', Validators.email],
+      password: ['', Validators.required]
+    });
+
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'usuario';
   }
+
+  form: FormGroup;
+  public loginInvalid: boolean;
+  private formSubmitAttempt: boolean;
+  private returnUrl: string;
 
   loginUsuario(correo: String, contrasenha: String) {
 
@@ -31,20 +45,34 @@ export class LoginComponent implements OnInit {
         'Por favor ingresa tu contraseña',
         'error')
     }
+  }
+  /*
+      verificación de logueo */
 
-    /*
-        verificación de logueo */
-    else {
-      let usuarioDatos = JSON.parse(localStorage.getItem("usuario"));
-      this.service.loginUsuario({ correo, contrasenha } as Usuario).subscribe(userResponse => {
-        localStorage.setItem("usuario", JSON.stringify(userResponse));
+  onSubmit() {
+    this.loginInvalid = false;
+    this.formSubmitAttempt = false;
+    if (this.form.valid) {
+      try {
+        const username = this.form.get('username').value;
+        const password = this.form.get('password').value;
 
-        let usuarioDatos = JSON.parse(localStorage.getItem("usuario"));
-        this.router.navigate(["usuario", usuarioDatos.rut]);
+        let usuario: Usuario = { correo: username, contrasenha: password } as Usuario;
+        this.authService.loginUsuario(usuario).subscribe(userResponse => {
+          localStorage.setItem("usuario", JSON.stringify(userResponse));
+          this.router.navigate(['usuario'])
+        });
 
-        console.log(localStorage.getItem("usuario"));
-      });
+      } catch (err) {
+        console.log(err);
+        this.loginInvalid = true;
+      }
+    } else {
+      this.formSubmitAttempt = true;
     }
   }
 
 }
+
+
+

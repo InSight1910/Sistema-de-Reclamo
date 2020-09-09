@@ -11,7 +11,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { MaterialModule } from './material/material.module';
 import { IngresarReclamoComponent } from './components/ingresar-reclamo/ingresar-reclamo.component';
 import { VerReclamosComponent } from './components/ver-reclamos/ver-reclamos.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditarEstadoComponent } from './components/dialogs/editar-estado/editar-estado.component';
 import { MatDialogModule } from "@angular/material/dialog";
@@ -21,6 +21,8 @@ import { LoginAdminComponent } from './components/login-admin/login-admin.compon
 import { RecuperarContrasenaComponent } from './components/recuperar-contrasena/recuperar-contrasena.component';
 import { PreguntasFrecuentesComponent } from './components/preguntas-frecuentes/preguntas-frecuentes.component';
 import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -49,7 +51,10 @@ import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotr
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    routing
+    routing,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatCardModule
 
   ],
   providers: [appRoutingProviders],
