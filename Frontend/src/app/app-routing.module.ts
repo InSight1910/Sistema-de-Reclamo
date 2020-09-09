@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ModuleWithProviders } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: "admin", component: AdminComponent },
   { path: "verReclamos", component: VerReclamosComponent },
   { path: "ingresarReclamo", component: IngresarReclamoComponent },
-  {path:'usuario', component:UsuarioComponent}
+  { path: 'usuario', component: UsuarioComponent }
 
 ];
 export const appRoutingProviders: any[] = [];
