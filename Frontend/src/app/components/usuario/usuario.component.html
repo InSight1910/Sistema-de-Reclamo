@@ -5,11 +5,11 @@
     <a class="btn-admin" href="/home">Cerrar Sesión</a>
 </nav>
 
-<section class="usuario" >
-    <div  class="container" >
-        <div class="row my-5" >
+<section class="usuario">
+    <div class="container">
+        <div class="row my-5">
             <div class="col">
-                <h1>Hola {{usuario.correo}}</h1>
+                <h1>Hola {{usuarios.nombre}}</h1>
             </div>
         </div>
         <div class="row my-5">
@@ -36,49 +36,123 @@
                 </div>
             </div>
         </div>
+
+
         <div class="row mb-5">
             <div class="col">
-                <div class="card">
+                <div class="well span8 offset2">
+                    <div class="row-fluid user-row">
+                        <div class="span1">
+                            <img class="img-circle"
+                                src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
+                                alt="User Pic">
+                        </div>
+                        <div class="span10">
+                            <strong>Cyruxx</strong><br>
+                            <span class="text-muted">User level: Administrator</span>
+                        </div>
+                        <div class="span1 dropdown-user" data-for=".cyruxx">
+                            <i class="icon-chevron-down text-muted"></i>
+                        </div>
+                    </div>
+                    <div class="row-fluid user-infos cyruxx">
+                        <div class="span10 offset1">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">User information</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row-fluid">
+                                        <div class="span3">
+                                            <img class="img-circle"
+                                                src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
+                                                alt="User Pic">
+                                        </div>
+                                        <div class="span6">
+                                            <strong>Cyruxx</strong><br>
+                                            <table
+                                                class="table table-condensed table-responsive table-user-information" style="width:100%;">
+                                                <tbody>
+                                                    <tr style= "padding:10em 0">
+                                                        <td>Nombre:</td>
+                                                        <td>{{usuarios.nombre}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Rut</td>
+                                                        <td>{{usuarios.rut}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>correo</td>
+                                                        <td>{{usuarios.correo}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Dirección</td>
+                                                        <td>{{usuarios.nombre}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn  btn-primary" type="button" data-toggle="tooltip"
+                                        data-original-title="Send message to user"><i
+                                            class="icon-envelope icon-white"></i></button>
+                                    <span class="pull-right">
+                                        <button class="btn btn-warning" type="button" data-toggle="tooltip"
+                                            data-original-title="Edit this user"><i
+                                                class="icon-edit icon-white"></i></button>
+                                        <button class="btn btn-danger" type="button" data-toggle="tooltip"
+                                            data-original-title="Remove this user"><i
+                                                class="icon-remove icon-white"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+                    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+                    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+                    
+                    <!--  <div class="card">
                     <div class="card-body">
-                        <div class="contenedor" *ngIf="usuario">
-                        
+                        <div class="contenedor" *ngIf="usuarios">
                         <h3>Perfil de usuario</h3>
-
-                        <br>
 
                         <form style="width: 80%;">
 
                             <div>
                                 <mat-form-field style="width: 40%;padding-right: 30px;">
                                     <mat-label>Rut</mat-label>
-                                    <h4 #rut > {{usuario.rut}}</h4>
+                                    <h4 #rut > {{usuarios.rut}}</h4>
                                 </mat-form-field>
                                 <mat-label>Nombre</mat-label>
                                 <mat-form-field style="width: 40%;padding-right: 30px;">
                                     <mat-label>Nombre</mat-label>
-                                    <input matInput  #nombre value="{{usuario.nombre}}">
+                                    <input matInput  #nombre value="{{usuarios.nombre}}">
                                 </mat-form-field>
                             <mat-form-field style="width: 40%;padding-right: 30px;">
                                 <mat-label>Correo</mat-label>
-                                <input matInput  #correo value="{{usuario.correo}}">
+                                <input matInput  #correo value="{{usuarios.correo}}">
                             </mat-form-field>
                             <mat-form-field style="width: 40%;padding-right: 30px;">
                                 <mat-label>Dirección</mat-label>
-                                <input matInput #direccion value="{{usuario.direccion}}">
+                                <input matInput #direccion value="{{usuarios.direccion}}">
                             </mat-form-field>
                             <mat-form-field style="width: 40%;" >
                                 <mat-label >Teléfono</mat-label>
-                                <input matInput #telefono value="{{usuario.numTelefono}}">
+                                <input matInput #telefono value="{{usuarios.numTelefono}}">
                             </mat-form-field>
                             </div>
 
                         </form>
                     </div>
                 </div>
+            </div> -->
+                </div>
             </div>
         </div>
     </div>
-</div>
 </section>
 
 <!-- Footer -->
