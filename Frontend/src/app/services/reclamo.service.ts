@@ -35,18 +35,22 @@ export class ReclamoService {
     const url = 'loginUsuario/';
     return this.http.post<Usuario>(this.api + url, usuario);
   }
+  loginAdmin(usuario: Usuario): Observable<Usuario> {
+    const url = 'loginAdmin'
+    return this.http.post<Usuario>(this.api + url, usuario);
+  }
 
-  obtenerUsuarioPorId(rut): Observable<Usuario>{
+  obtenerUsuarioPorId(rut): Observable<Usuario> {
     const suffix = 'usuarios/'
     return this.http.get<Usuario>(this.api + suffix + rut);
   }
-  updateEstado(numeroReclamo){
-    return this.http.put(`${this.updateEstados}/${numeroReclamo}`, numeroReclamo );
+  updateEstado(numeroReclamo) {
+    return this.http.put(`${this.updateEstados}/${numeroReclamo}`, numeroReclamo);
   }
 
   borrarReclamo(NUMERORECLAMO: number): Observable<{}> {
     const url = "delete/"
-    return this.http.delete(this.api+url+NUMERORECLAMO)
+    return this.http.delete(this.api + url + NUMERORECLAMO)
   }
   
   actualizarAntecedente(reclamo: Reclamo) {

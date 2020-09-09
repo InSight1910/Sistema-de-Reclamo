@@ -17,6 +17,10 @@ import { EditarEstadoComponent } from './components/dialogs/editar-estado/editar
 import { MatDialogModule } from "@angular/material/dialog";
 import { routing, appRoutingProviders } from './app-routing.module';
 import { ViewReclamoComponent } from './components/dialogs/view-reclamo/view-reclamo.component';
+import { LoginAdminComponent } from './components/login-admin/login-admin.component';
+import { RecuperarContrasenaComponent } from './components/recuperar-contrasena/recuperar-contrasena.component';
+import { PreguntasFrecuentesComponent } from './components/preguntas-frecuentes/preguntas-frecuentes.component';
+import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 
@@ -33,6 +37,10 @@ import { MatCardModule } from '@angular/material/card';
     VerReclamosComponent,
     EditarEstadoComponent,
     ViewReclamoComponent,
+    LoginAdminComponent,
+    RecuperarContrasenaComponent,
+    PreguntasFrecuentesComponent,
+    SobreNosotrosComponent,
 
   ],
   imports: [
