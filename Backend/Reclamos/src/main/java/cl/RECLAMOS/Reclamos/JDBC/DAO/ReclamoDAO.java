@@ -118,4 +118,11 @@ public class ReclamoDAO {
     }
 
 
+    public void modificarAntecedente(Reclamos u) throws SQLException {
+        String sql = "update reclamos set ANTECEDENTES = ? where NUMERORECLAMO =?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, u.getAntecedentes());
+        ps.setInt(2, u.getNumeroReclamo());
+        ps.executeUpdate();
+    }
 }

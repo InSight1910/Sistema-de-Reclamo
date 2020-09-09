@@ -17,6 +17,8 @@ export class ViewReclamoComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.values)
   }
-
+  guardar(){
+    this.service.actualizarAntecedente(this.values).subscribe()
+  }
 
 }
