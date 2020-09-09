@@ -11,17 +11,17 @@
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
                     <img class="text-center mx-auto mb-3" src="/assets/img/icons/login-user.png" width="30%" alt="">
                     <h1 class="mx-auto text-center">Iniciar Sesión</h1>
-                    <mat-form-field>
+                    <div class="form-group">
                         <label for="nombreUser">Usuario</label>
-                        <input matInput type="text" class="form-control" id="nombreUser" formControlName = 'username' placeholder="Ingrese Usuario" #correo >
-                    </mat-form-field>
-                    <mat-form-field>
+                        <input type="text" class="form-control"  id="nombreUser" formControlName = 'username' placeholder="Ingrese Usuario" #correo >
+                    </div>
+                    <div class="form-group">
                         <label for="contrasenhaUser">Contraseña</label>
-                        <input matInput type="password" class="form-control" id="contrasenhaUser" #contrasena
+                        <input type="password" class="form-control"  id="contrasenhaUser" #contrasena
                             placeholder="Ingrese Contraseña" formControlName = 'password'>
-                    </mat-form-field>
+                    </div>
 
-                    <button class="btn btn-lg btn-success btn-block" value="Acceder">Iniciar Sesión</button>
+                    <button class="btn btn-lg btn-success btn-block" value="Acceder" >Iniciar Sesión</button>
                     <div class="form-group text-center mt-5">
                         <p>¿No tienes una cuenta? Registrate <a routerLink="/registro">aquí</a></p>
                         <p>Recupera tu contraseña<a routerLink="/registro">aquí</a></p>
@@ -57,24 +57,22 @@
   </mat-card> -->
 
 <footer class="footer-reclamos">
-    <div class="container">
-        <div class="row text-center d-flex justify-content-center pt-5 ">
-            <div class="col-md-3 mb-3">
-                <h6>
-                    <a href="#!">Sugerencias</a>
-                </h6>
-            </div>
-            <div class="col-md-3 mb-3">
-                <h6>
-                    <a href="#!">Preguntas Frecuentes</a>
-                </h6>
-            </div>
-        </div>
-        <hr class="rgba-white-light" style="margin: 0 15%;">
+  <div class="container">
+    <div class="row text-center d-flex justify-content-center pt-5 ">
+      <div class="col-md-3 mb-3">
+        <h6>
+          <a href="#!">Sugerencias</a>
+        </h6>
+      </div>
+      <div class="col-md-3 mb-3">
+        <h6>
+          <a href="#!">Preguntas Frecuentes</a>
+        </h6>
+      </div>
     </div>
-    <div class="footer-copyright text-center py-3">Grupo 3 © 2020 Copyright:
-        <a href="/home"> ReclamosChile.cl</a>
-    </div>
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+  </div>
+  <div class="footer-copyright text-center py-3">Grupo 3 © 2020 Copyright:
+    <a href="/home"> ReclamosChile.cl</a>
+  </div>
 </footer>
-
-

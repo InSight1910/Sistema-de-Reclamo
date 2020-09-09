@@ -13,7 +13,15 @@ import { MatTableDataSource } from '@angular/material/table';
 
 export class UsuarioComponent implements OnInit {
   newUsuario: Usuario;
-  usuario: Usuario;
+  usuarios: Usuario  = {
+    correo: null,
+    nombre: null,
+    contrasenha: null,
+    rut: null,
+    rol: null,
+    numTelefono: null,
+    direccion: null
+  };
 
 
 
@@ -21,11 +29,12 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerDatosUsuario();
+
   }
 
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
-    this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuario = usuario[0]);
+    this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
 
 }
