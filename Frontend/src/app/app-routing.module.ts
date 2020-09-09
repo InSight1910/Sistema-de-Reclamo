@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: "admin", component: AdminComponent },
   { path: "verReclamos", component: VerReclamosComponent },
   { path: "ingresarReclamo", component: IngresarReclamoComponent },
-  {path:'usuario/:rut', component:UsuarioComponent}
+  {path:'usuario', component:UsuarioComponent}
 
 ];
 export const appRoutingProviders: any[] = [];

@@ -11,12 +11,14 @@ import { AdminComponent } from './components/admin/admin.component';
 import { MaterialModule } from './material/material.module';
 import { IngresarReclamoComponent } from './components/ingresar-reclamo/ingresar-reclamo.component';
 import { VerReclamosComponent } from './components/ver-reclamos/ver-reclamos.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditarEstadoComponent } from './components/dialogs/editar-estado/editar-estado.component';
 import { MatDialogModule } from "@angular/material/dialog";
 import { routing, appRoutingProviders } from './app-routing.module';
 import { ViewReclamoComponent } from './components/dialogs/view-reclamo/view-reclamo.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -41,7 +43,10 @@ import { ViewReclamoComponent } from './components/dialogs/view-reclamo/view-rec
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    routing
+    routing,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatCardModule
 
   ],
   providers: [appRoutingProviders],
