@@ -116,4 +116,6 @@ public class ReclamoDAO {
         ps.setInt(1, i);
         ps.executeUpdate();
     }
+
+
 }

@@ -15,8 +15,9 @@ export class LoginComponent implements OnInit {
   constructor(private service: ReclamoService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.values)
   }
-
+  values;
   loginUsuario(correo: String, contrasenha: String){
 
     /* ningun campo vacío */
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
         let usuarioDatos = JSON.parse(localStorage.getItem("usuario"));
         this.router.navigate(["usuario", usuarioDatos.rut]);
 
-        console.log(localStorage.getItem("usuario"));
+        this.values =localStorage.getItem("usuario");
     });
     }
   }
