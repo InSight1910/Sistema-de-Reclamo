@@ -6,12 +6,12 @@ import java.sql.SQLException;
 
 public class ConnectionManager {
     private static Connection connection = null;
-    private static String connectionString = "jdbc:sqlserver://localhost:1433; databasename=RECLAMOS;integratedSecurity=true";
+    private static String connectionString = "jdbc:sqlserver://localhost:1433; databasename=RECLAMOS; " +
+            "user=SA; password=<YourStrong@Passw0rd>";
+
     public static Connection obtenerConexion() throws SQLException {
-        if(connection ==null)
+        if(connection==null)
             connection = DriverManager.getConnection(connectionString);
         return connection;
     }
-
-
 }

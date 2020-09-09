@@ -1,0 +1,34 @@
+.titulo-reclamos{
+    background-color: #0B4E85;
+}
+.titulo-reclamos a{
+    color: white;
+}
+.home{
+    padding-bottom: 3em;
+    padding-top: 2rem;
+}
+h1{
+    padding: 2% 0% 3% 0%;
+    color:#0b4e85;
+}
+.card-header {
+    border-radius: 0;
+    margin-bottom: -1px;
+    background: #0b4e85;
+    color: white;
+}
+
+.card-header button{
+    color: white;
+}
+
+/**Footer**/
+.footer-reclamos{
+    background-color: #0B4E85;
+    color:white
+}
+
+.footer-reclamos a{
+    color:white;
+}
