@@ -1,103 +1,103 @@
 <nav class="navbar  titulo-reclamos">
-    <a class="navbar-brand" href="/home">
-        <img src="/assets/img/logo/logo-white.png" width="17%" alt="">
-    </a>
-    <a class="btn-admin" href="/home">Cerrar Sesión</a>
+  <a class="navbar-brand" href="/home">
+    <img src="/assets/img/logo/logo-white.png" width="17%" alt="">
+  </a>
+  <a class="btn-admin" href="/home">Cerrar Sesión</a>
 </nav>
 
-<section class="usuario" >
-    <div  class="container" >
-        <div class="row my-5" >
-            <div class="col">
-                <h1>Hola {{usuarios.nombre}}</h1>
-            </div>
-        </div>
-        <div class="row my-5">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Reclamo</h5>
-                        <p class="card-text">Ingréselo si una empresa ha vulnerado sus derechos como consumidor,
-                            generándole un problema de consumo particular. Enviaremos su reclamo a la empresa y
-                            buscaremos una respuesta a su solicitud.</p>
-                        <a href="/ingresarReclamo" class="Btn-login">Ingresar nuevo Reclamo</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Consultar </h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aperiam
-                            quas ipsum, aut omnis atque a eaque beatae dignissimos nemo unde ut, eius labore asperiores
-                            molestias quam! Debitis, fugit quis?</p>
-                        <a href="/verReclamos" class="Btn-login">Ver Reclamos</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-5">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="contenedor" *ngIf="usuarios">
-                        <h5 class="card-title">Editar Perfil</h5>
-                        <h3>Edita tu cuenta</h3>
-
-                        <br>
-
-                        <form style="width: 80%;">
-
-                            <div>
-                                <mat-form-field style="width: 40%;padding-right: 30px;">
-                                    <mat-label>Rut</mat-label>
-                                    <input matInput  #rut value="{{usuarios.rut}}">
-                                </mat-form-field>
-                                <mat-form-field style="width: 40%;padding-right: 30px;">
-                                    <mat-label>Nombre</mat-label>
-                                    <input matInput  #nombre value="{{usuarios.nombre}}">
-                                </mat-form-field>
-                            <mat-form-field style="width: 40%;padding-right: 30px;">
-                                <mat-label>Correo</mat-label>
-                                <input matInput  #correo value="{{usuarios.correo}}">
-                            </mat-form-field>
-                            <mat-form-field style="width: 40%;padding-right: 30px;">
-                                <mat-label>Dirección</mat-label>
-                                <input matInput #direccion value="{{usuarios.direccion}}">
-                            </mat-form-field>
-                            <mat-form-field style="width: 40%;" >
-                                <mat-label >Teléfono</mat-label>
-                                <input matInput #telefono value="{{usuarios.numTelefono}}">
-                            </mat-form-field>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+<section class="usuario">
+  <div class="container">
+    <div class="row my-5">
+      <div class="col">
+        <h1>Hola {{usuarios.nombre}}</h1>
+      </div>
     </div>
-</div>
+    <div class="row my-5">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Reclamo</h5>
+            <p class="card-text">Ingréselo si una empresa ha vulnerado sus derechos como consumidor,
+              generándole un problema de consumo particular. Enviaremos su reclamo a la empresa y
+              buscaremos una respuesta a su solicitud.</p>
+            <a href="/ingresarReclamo" class="Btn-login">Ingresar nuevo Reclamo</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Consultar </h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aperiam
+              quas ipsum, aut omnis atque a eaque beatae dignissimos nemo unde ut, eius labore asperiores
+              molestias quam! Debitis, fugit quis?</p>
+            <a href="/verReclamos" class="Btn-login">Ver Reclamos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <div class="contenedor" *ngIf="usuarios">
+              <h5 class="card-title">Editar Perfil</h5>
+              <h3>Edita tu cuenta</h3>
+
+              <br>
+
+              <form style="width: 80%;">
+
+                <div>
+                  <mat-form-field style="width: 40%;padding-right: 30px;">
+                    <mat-label>Rut</mat-label>
+                    <input matInput #rut value="{{usuarios.rut}}">
+                  </mat-form-field>
+                  <mat-form-field style="width: 40%;padding-right: 30px;">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput #nombre value="{{usuarios.nombre}}">
+                  </mat-form-field>
+                  <mat-form-field style="width: 40%;padding-right: 30px;">
+                    <mat-label>Correo</mat-label>
+                    <input matInput #correo value="{{usuarios.correo}}">
+                  </mat-form-field>
+                  <mat-form-field style="width: 40%;padding-right: 30px;">
+                    <mat-label>Dirección</mat-label>
+                    <input matInput #direccion value="{{usuarios.direccion}}">
+                  </mat-form-field>
+                  <mat-form-field style="width: 40%;">
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput #telefono value="{{usuarios.numTelefono}}">
+                  </mat-form-field>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer-reclamos">
-    <div class="container">
-        <div class="row text-center d-flex justify-content-center pt-5 ">
-            <div class="col-md-3 mb-3">
-                <h6>
-                    <a href="#!">Sugerencias</a>
-                </h6>
-            </div>
-            <div class="col-md-3 mb-3">
-                <h6>
-                    <a href="#!">Preguntas Frecuentes</a>
-                </h6>
-            </div>
-        </div>
-        <hr class="rgba-white-light" style="margin: 0 15%;">
+  <div class="container">
+    <div class="row text-center d-flex justify-content-center pt-5 ">
+      <div class="col-md-3 mb-3">
+        <h6>
+          <a href="#!">Sugerencias</a>
+        </h6>
+      </div>
+      <div class="col-md-3 mb-3">
+        <h6>
+          <a href="#!">Preguntas Frecuentes</a>
+        </h6>
+      </div>
     </div>
-    <div class="footer-copyright text-center py-3">Grupo 3 © 2020 Copyright:
-        <a href="/home"> ReclamosChile.cl</a>
-    </div>
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+  </div>
+  <div class="footer-copyright text-center py-3">Grupo 3 © 2020 Copyright:
+    <a href="/home"> ReclamosChile.cl</a>
+  </div>
 </footer>
