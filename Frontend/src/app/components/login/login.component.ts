@@ -43,7 +43,8 @@ export class LoginComponent implements OnInit {
         let usuarioDatos = JSON.parse(localStorage.getItem("usuario"));
         this.router.navigate(["usuario", usuarioDatos.rut]);
 
-        this.values =localStorage.getItem("usuario");
+        
+        console.log(localStorage.getItem("usuario"));
     });
     }
   }
