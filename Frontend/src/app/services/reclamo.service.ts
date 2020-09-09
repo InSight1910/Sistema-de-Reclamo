@@ -52,10 +52,16 @@ export class ReclamoService {
     const url = "delete/"
     return this.http.delete(this.api + url + NUMERORECLAMO)
   }
-  
+
   actualizarAntecedente(reclamo: Reclamo) {
     const url = 'insertarAntecedente/'
     return this.http.put<Usuario>(this.api+url, reclamo);
+  }
+
+  cambiarContraseña(usuario: Usuario) {
+    const url = '/usuario/editarContraseña';
+    return this.http.put(this.api+url, usuario)
+  
   }
 
 }
