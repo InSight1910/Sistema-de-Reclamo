@@ -17,13 +17,13 @@ export class AdminComponent implements OnInit {
 
   columnasAMostrar: string[] = ['tipoReclamo', 'numeroReclamo', 'descripcion', 'fecha', 'estado', 'antecedentes', 'rut', 'opciones'];
   columnas = [
-    {name: 'tipoReclamo', title: 'Tipo Reclamo'},
-    {name: 'numeroReclamo', title: 'Numero Reclamo'},
-    {name: 'descripcion', title: 'Descripcion'},
-    {name: 'fecha', title: 'Fecha'},
-    {name: 'estado', title: 'Estado'},
-    {name: 'antecedentes', title: 'Antecedentes'},
-    {name: 'rut', title: 'Rut'},
+    { name: 'tipoReclamo', title: 'Tipo Reclamo' },
+    { name: 'numeroReclamo', title: 'Numero Reclamo' },
+    { name: 'descripcion', title: 'Descripcion' },
+    { name: 'fecha', title: 'Fecha' },
+    { name: 'estado', title: 'Estado' },
+    { name: 'antecedentes', title: 'Antecedentes' },
+    { name: 'rut', title: 'Rut' },
 
   ]
   search;
@@ -38,7 +38,7 @@ export class AdminComponent implements OnInit {
       usuario => {
         this.datas = usuario;
         this.dataSource = new MatTableDataSource(this.datas);
-    });
+      });
 
     this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
       return data.tipoReclamo.trim().toLocaleLowerCase().indexOf(filter.trim().toLowerCase()) >= 0;
@@ -47,7 +47,7 @@ export class AdminComponent implements OnInit {
     //this.dataSource.filterPredicate = (data: Reclamo, filter: string) => data.tipoReclamo.trim().toLowerCase().indexOf(filter) != -1;
 
   }
-  openEstado(reclamo){
+  openEstado(reclamo) {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.data = {
       numero: reclamo.numeroReclamo
@@ -56,7 +56,7 @@ export class AdminComponent implements OnInit {
 
   }
 
-  borrarReclamo(reclamo, i){
+  borrarReclamo(reclamo, i) {
 
 
     this.service.borrarReclamo(reclamo.numeroReclamo).subscribe(_ => this.obtenerReclamoAct())
@@ -67,20 +67,21 @@ export class AdminComponent implements OnInit {
 
 
 
-  obtenerReclamoAct(){
+  obtenerReclamoAct() {
     this.service.obtenerAllAdmin().subscribe(reclamos => this.datas = reclamos);
   };
 
-  searchDef(filterValue){
+  searchDef(filterValue) {
     this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
-      return data.numeroReclamo.toString() === filter;};
+      return data.numeroReclamo.toString() === filter;
+    };
     this.dataSource.filter = filterValue;
 
   }
-  openView(reclamo){
+  openView(reclamo) {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.data = reclamo;
-    const dialogRef  = this.dialog.open(ViewReclamoComponent, dialogconfig);
+    const dialogRef = this.dialog.open(ViewReclamoComponent, dialogconfig);
   }
 
 }

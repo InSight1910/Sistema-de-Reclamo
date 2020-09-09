@@ -15,9 +15,11 @@ export class ReclamoService {
   obtenerUserURL = "http://localhost:8080/usuarios/13190294-8";
   obtenerAdminURL = "http://localhost:8080/allAdmin";
   registroUserURL = "http://localhost:8080/registrar";
-  api = "http://localhost:8080/";
+  api = "http://localhost:8080/usuario/correo";
+  getUsuarioCorreo = "http://localhost:8080/usuario/correo/";
   updateEstados = "http://localhost:8080/updateEstado";
-  obtenerReclamosRut = "http://localhost:8080/allUser/"
+  obtenerReclamosRut = "http://localhost:8080/allUser/";
+  updateContraseha = "http://localhost:8080/usuario/editarContraseña/";
 
   obtenerAllAdmin(): Observable<Reclamo[]> {
     return this.http.get<Reclamo[]>(this.obtenerAdminURL);
@@ -35,23 +37,33 @@ export class ReclamoService {
     const url = 'loginUsuario/';
     return this.http.post<Usuario>(this.api + url, usuario);
   }
+  loginAdmin(usuario: Usuario): Observable<Usuario> {
+    const url = 'loginAdmin'
+    return this.http.post<Usuario>(this.api + url, usuario);
+  }
 
-  obtenerUsuarioPorId(rut): Observable<Usuario>{
+  obtenerUsuarioPorId(rut): Observable<Usuario> {
     const suffix = 'usuarios/'
     return this.http.get<Usuario>(this.api + suffix + rut);
   }
-  updateEstado(numeroReclamo){
-    return this.http.put(`${this.updateEstados}/${numeroReclamo}`, numeroReclamo );
+  updateEstado(numeroReclamo) {
+    return this.http.put(`${this.updateEstados}/${numeroReclamo}`, numeroReclamo);
   }
 
   borrarReclamo(NUMERORECLAMO: number): Observable<{}> {
     const url = "delete/"
-    return this.http.delete(this.api+url+NUMERORECLAMO)
+    return this.http.delete(this.api + url + NUMERORECLAMO)
   }
-  
+
   actualizarAntecedente(reclamo: Reclamo) {
     const url = 'insertarAntecedente/'
     return this.http.put<Usuario>(this.api+url, reclamo);
   }
 
+  updateContraseña(usuario: Usuario){
+    return this.http.put( this.updateContraseha, usuario)
+  }
+  getUsuarioxCorreo(correo): Observable<any>{
+    return this.http.get<Usuario>(this.getUsuarioCorreo +correo)
+  }
 }

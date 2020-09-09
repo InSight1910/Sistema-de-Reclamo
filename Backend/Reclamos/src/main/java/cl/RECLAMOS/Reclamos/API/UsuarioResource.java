@@ -53,15 +53,7 @@ public class UsuarioResource {
         return new UsuarioDAO().loginAdmin(u);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/usuario/editarContraseña/{correo}")
-    public void editarContraseña (@PathVariable("correo") String correo, @RequestBody Usuario c) throws SQLException {
-        new UsuarioDAO().editarContraseña(correo, c);
-        String correoUser = new UsuarioDAO().obtenerCorreoPorRut(c.getRut());
-        String body = "\nSu contraseña ha sido actualizado con éxito. \n Su nueva contraseña es " +c.getContrasenha();
-        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",correo,"Cambio de contraseña ReclamosChile",body);
 
-
-    }
 
 
     @RequestMapping(method = RequestMethod.POST, value = "loginUsuario")

@@ -37,7 +37,7 @@ public class UsuarioDAO {
         ps.setString(1, parametro);
         ResultSet rs = ps.executeQuery();
         List<Usuario> usuarios = new LinkedList<>();
-        while (rs.next()){
+        while (rs.next()) {
             Usuario p = new Usuario(
                     rs.getString("CORREO"),
                     rs.getString("NOMBRE"),
@@ -80,19 +80,19 @@ public class UsuarioDAO {
 
 
     public Usuario loginAdmin(Usuario u) throws SQLException {
-        String sql = "SELECT * FROM USUARIOS WHERE CORREO = '" + u.getCorreo() +"' AND CONTRASEÑA = '" + u.getContrasenha() + "' AND ROL = 'Admin'";
-              PreparedStatement ps = connection.prepareStatement(sql);
-              ResultSet rs = ps.executeQuery();
-              rs.next();
-              String correoU = rs.getString("CORREO");
-              String nombresU = rs.getString("NOMBRE");
-              String contrasenhaU = rs.getString("CONTRASEÑA");
-              String rutU = rs.getString("RUT");
-              String rolU = rs.getString("ROL");
-              String numTelefonoU = rs.getString("NUMEROTELEFONO");
-              String direccionU = rs.getString("DIRECCION");
+        String sql = "SELECT * FROM USUARIOS WHERE CORREO = '" + u.getCorreo() + "' AND CONTRASEÑA = '" + u.getContrasenha() + "' AND ROL = 'Admin'";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        String correoU = rs.getString("CORREO");
+        String nombresU = rs.getString("NOMBRE");
+        String contrasenhaU = rs.getString("CONTRASEÑA");
+        String rutU = rs.getString("RUT");
+        String rolU = rs.getString("ROL");
+        String numTelefonoU = rs.getString("NUMEROTELEFONO");
+        String direccionU = rs.getString("DIRECCION");
 
-              return new Usuario(correoU, nombresU, contrasenhaU, rutU, rolU, numTelefonoU, direccionU);
+        return new Usuario(correoU, nombresU, contrasenhaU, rutU, rolU, numTelefonoU, direccionU);
     }
 
     public Usuario loginUsuario(Usuario a) throws SQLException {
@@ -118,18 +118,12 @@ public class UsuarioDAO {
         ps.setString(1, rut);
         ResultSet correo = ps.executeQuery();
         String correo1 = "";
-        while(correo.next()){
+        while (correo.next()) {
             correo1 = correo.getString("CORREO");
         }
         return correo1;
     }
+    
 
-
-    public void editarContraseña(String correo, Usuario c) throws SQLException {
-        String sql = "UPDATE USUARIOS SET CONTRASEÑA = ? WHERE CORREO = ?";
-        PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setString(1, c.getContrasenha());
-        ps.setString(2, correo);
-        ps.executeUpdate();
-    }
 }
+
