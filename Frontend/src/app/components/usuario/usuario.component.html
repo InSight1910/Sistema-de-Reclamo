@@ -2,7 +2,7 @@
     <a class="navbar-brand" href="/home">
         <img src="/assets/img/logo/logo-white.png" width="17%" alt="">
     </a>
-    <a class="btn-admin" href="/home">Cerrar Sesión</a>
+    <a class="btn-admin" href="/home" (click)="logout()">Cerrar Sesión</a>
 </nav>
 
 <section class="usuario">
@@ -106,7 +106,7 @@
                                                             <span></span>
                                                         </td>
                                                         <td class="text-right">
-                                                            <button class="btn btn-editar">Editar Perfil</button>
+                                                            <button class="btn btn-editar" (click)="openEditar(usuarios)">Editar Perfil</button>
                                                         </td>
                                                     </tr>
                                                 </tbody>

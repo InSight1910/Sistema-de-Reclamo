@@ -84,14 +84,13 @@ public class ReclamoDAO {
         return  r;
     }
     public void CREATE(Reclamos r) throws SQLException{
-        String sql = "INSERT INTO RECLAMOS(TIPORECLAMO,[DESCRIPCION],[FECHA],[ESTADO],[ANTECEDENTES],[RUT]) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO RECLAMOS(TIPORECLAMO,[DESCRIPCION],[FECHA],[ESTADO],[ANTECEDENTES],[RUT]) VALUES(?,?,?,'Pendiente',?,?)";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1,r.getTipoReclamo());
         ps.setString(2,r.getDescripcion());
         ps.setDate(3,r.getFecha());
-        ps.setString(4,r.getEstado());
-        ps.setString(5,r.getAntecedentes());
-        ps.setString(6,r.getRut());
+        ps.setString(4,r.getAntecedentes());
+        ps.setString(5,r.getRut());
         ps.executeUpdate();
     }
     public void UPDATE(Reclamos r, int i) throws SQLException {

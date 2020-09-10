@@ -24,6 +24,7 @@ import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotr
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { FooterComponent } from './components/footer/footer.component';
+import { EditarPerfilComponent } from './dialogs/editar-perfil/editar-perfil.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { FooterComponent } from './components/footer/footer.component';
     PreguntasFrecuentesComponent,
     SobreNosotrosComponent,
     FooterComponent,
+    EditarPerfilComponent,
 
   ],
   imports: [
