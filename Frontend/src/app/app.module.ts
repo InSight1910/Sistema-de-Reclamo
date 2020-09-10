@@ -23,6 +23,7 @@ import { PreguntasFrecuentesComponent } from './components/preguntas-frecuentes/
 import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { MatCardModule } from '@angular/material/card';
     RecuperarContrasenaComponent,
     PreguntasFrecuentesComponent,
     SobreNosotrosComponent,
+    FooterComponent,
 
   ],
   imports: [

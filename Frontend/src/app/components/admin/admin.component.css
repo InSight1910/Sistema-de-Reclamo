@@ -15,5 +15,14 @@
     min-width: 119px;
     font-size: 0.8em;
     max-height: 48px;
+    text-transform: uppercase;
+    min-width: 150px;
     z-index: 1;
+}
+
+.input-filtrar{
+    margin: 10px;
+    border-radius: 30px;
+    border: 1px solid #0b4e85;
+    padding: 9px;
 }

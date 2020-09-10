@@ -6,7 +6,9 @@
 </nav>
 
 <div style="width: 90%; margin: 1em auto;" class="mat-elevation-z2">
-  <input matInput placeholder="Ingresa un rut" (keypress)="searchDef(search)"  [(ngModel)]="search">
+  <span class="p-4">Filtrar por Rut</span>
+  <input class="input-filtrar" matInput placeholder="Ingresa un rut" (keypress)="searchDef(search)"
+    [(ngModel)]="search">
   <mat-table [dataSource]="dataSource">
     <ng-container *ngFor="let columna of columnas" matColumnDef="{{columna.name}}">
       <mat-header-cell *matHeaderCellDef> {{columna.title}} </mat-header-cell>
