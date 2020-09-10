@@ -60,10 +60,10 @@ export class ReclamoService {
     return this.http.put<Usuario>(this.api+url, reclamo);
   }
 
-  updateContraseña(usuario: Usuario){
-    return this.http.put( this.updateContraseha, usuario)
+  cambiarContraseña(usuario: Usuario) {
+    const url = '/usuario/editarContraseña';
+    return this.http.put(this.api+url, usuario)
+
   }
-  getUsuarioxCorreo(correo): Observable<any>{
-    return this.http.get<Usuario>(this.getUsuarioCorreo +correo)
-  }
+
 }

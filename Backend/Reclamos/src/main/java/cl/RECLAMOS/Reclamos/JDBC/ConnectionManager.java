@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConnectionManager {
     private static Connection connection = null;
     private static String connectionString = "jdbc:sqlserver://localhost:1433; databasename=RECLAMOS; " +
-            "integratedSecurity=true";
+            "IntegratedSecurity=true";
 
     public static Connection obtenerConexion() throws SQLException {
         if(connection==null)

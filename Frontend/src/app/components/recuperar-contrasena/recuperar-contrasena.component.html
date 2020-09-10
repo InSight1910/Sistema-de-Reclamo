@@ -13,20 +13,21 @@
                     <h1 class="mx-auto text-center">Recuperar Contraseña</h1>
                     <div class="form-group">
                         <label for="nombreUser">Correo</label>
-                        <input type="email" class="form-control" name="mail" id="correo" placeholder="Ingrese  Correo" [(ngModel)]="correo1">
+                        <input type="email" class="form-control" name="mail" id="correo" placeholder="Ingrese  Correo" #correo>
                     </div>
                     <div class="form-group">
                         <label for="contrasenhaUser">Ingrese su nueva contraseña</label>
-                        <input type="password" class="form-control" name="password1" id="contrasenarecuperaruno" [(ngModel)]="contrasena1"
+                        <input type="password" class="form-control" name="password1" id="contrasenarecuperaruno" #contrasena
                             placeholder="Ingrese Contraseña">
                     </div>
                     <div class="form-group">
                         <label for="contrasenhaUser">Ingrese nuevamente su nueva contraseña</label>
-                        <input type="password" class="form-control" name="password2" id="contrasenarecuperardos" [(ngModel)]="contrasena2"
+                        <input type="password" class="form-control" name="password2" id="contrasenarecuperardos" #contrasena
                             placeholder="Ingrese Contraseña">
                     </div>
 
-
+                    <button type="button" class="btn btn-lg Btn-login  btn-block" value="Acceder" (click)="recuperar(correo.value, contrasena.value)">Iniciar
+                        Sesión</button>
                     <div class="form-group text-center mt-5">
                         <p>¿No tienes una cuenta? Registrate <a routerLink="/registro">aquí</a></p>
                         <p>¿Tienes cuenta? Inicia Sesión <a routerLink="/login">aquí</a></p>

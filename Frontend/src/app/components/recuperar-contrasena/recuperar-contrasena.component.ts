@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ReclamoService } from 'src/app/services/reclamo.service';
-import { ActivatedRoute } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 
 @Component({
@@ -16,5 +15,8 @@ export class RecuperarContrasenaComponent implements OnInit {
 
   }
 
+  recuperar(correo, contrasenha){
+    this.service.cambiarContraseña({correo, contrasenha} as Usuario).subscribe(data => console.log(data))
 
+  }
 }
