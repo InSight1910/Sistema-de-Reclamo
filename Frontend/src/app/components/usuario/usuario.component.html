@@ -6,6 +6,7 @@
 </nav>
 
 <section class="usuario">
+<<<<<<< HEAD
   <div class="container">
     <div class="row my-5">
       <div class="col">
@@ -41,66 +42,117 @@
                   molestias quam! Debitis, fugit quis?</p>
                 <a href="/verReclamos" class="Btn-login">Ver Reclamos</a>
               </div>
+=======
+    <div class="container">
+        <div class="row my-5">
+            <div class="col">
+                <h1>Hola <strong>{{usuarios.nombre}}</strong></h1>
             </div>
         </div>
-
-
-        <div class="row mb-5">
-            <div class="col">
-                <div class="well span8 offset2">
-                    <div class="row-fluid user-row">
-                        <div class="span1">
-                            <img class="img-circle"
-                                src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50"
-                                alt="User Pic">
-                        </div>
-                        <div class="span10">
-                            <strong>Cyruxx</strong><br>
-                            <span class="text-muted">User level: Administrator</span>
-                        </div>
-                        <div class="span1 dropdown-user" data-for=".cyruxx">
-                            <i class="icon-chevron-down text-muted"></i>
-                        </div>
+        <div class="row my-5">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 19px;">Reclamo</h5>
+                        <p class="card-text p-espacio">Ingréselo si una empresa ha vulnerado sus derechos como
+                            consumidor,
+                            generándole un problema de consumo particular. Enviaremos su reclamo a la empresa y
+                            buscaremos una respuesta a su solicitud.</p>
+                        <a href="/ingresarReclamo" class="Btn-login">Ingresar nuevo Reclamo</a>
                     </div>
-                    <div class="row-fluid user-infos cyruxx">
-                        <div class="span10 offset1">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">User information</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row-fluid">
-                                        <div class="span3">
-                                            <img class="img-circle"
-                                                src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100"
-                                                alt="User Pic">
-                                        </div>
-                                        <div class="span6">
-                                            <strong>Cyruxx</strong><br>
-                                            <table
-                                                class="table table-condensed table-responsive table-user-information" style="width:100%;">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 19px;">Consultar </h5>
+                        <p class="card-text p-espacio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+                            aperiam
+                            quas ipsum, aut omnis atque a eaque beatae dignissimos nemo unde ut, eius labore asperiores
+                            molestias quam! Debitis, fugit quis?</p>
+                        <a href="/verReclamos" class="Btn-login">Ver Reclamos</a>
+                    </div>
+                </div>
+>>>>>>> 8d6409ab28290c270e20dfc795f38ec10627aaa3
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container bootstrap snippets bootdey">
+                            <div class="panel-body inf-content">
+                                <div class="row">
+                                    <div class="col">
+                                        <strong style="font-size: 19px;">Información de su Cuenta</strong><br>
+                                        <div class="table-responsive">
+                                            <table class="table table-user-information">
                                                 <tbody>
-                                                    <tr style= "padding:10em 0">
-                                                        <td>Nombre:</td>
-                                                        <td>{{usuarios.nombre}}</td>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                Rut
+                                                            </strong>
+                                                        </td>
+                                                        <td>
+                                                            <p>{{usuarios.rut}}</p>
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Rut</td>
-                                                        <td>{{usuarios.rut}}</td>
+                                                        <td>
+                                                            <strong>
+                                                                Nombre
+                                                            </strong>
+                                                        </td>
+                                                        <td>
+                                                            <p>{{usuarios.nombre}}</p>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                Dirección
+                                                            </strong>
+                                                        </td>
+                                                        <td>
+                                                            <p>{{usuarios.direccion}}</p>
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>correo</td>
-                                                        <td>{{usuarios.correo}}</td>
+                                                        <td>
+                                                            <strong>
+                                                                Telefono
+                                                            </strong>
+                                                        </td>
+                                                        <td>
+                                                            <p>{{usuarios.numTelefono}}</p>
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Dirección</td>
-                                                        <td>{{usuarios.nombre}}</td>
+                                                        <td>
+                                                            <strong>
+                                                                Correo
+                                                            </strong>
+                                                        </td>
+                                                        <td>
+                                                            <p>{{usuarios.correo}}</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span></span>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <button class="btn btn-editar">Editar Perfil</button>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="panel-footer">
                                     <button class="btn  btn-primary" type="button" data-toggle="tooltip"
                                         data-original-title="Send message to user"><i
@@ -173,12 +225,16 @@
                             <mat-label>Teléfono</mat-label>
                             <input matInput #telefono value="{{usuarios.numTelefono}}">
                           </mat-form-field>
+=======
+                            </div>
+>>>>>>> 8d6409ab28290c270e20dfc795f38ec10627aaa3
                         </div>
 
                       </form>
                     </div>
                   </div>
                 </div>
+<<<<<<< HEAD
             </div> -->
                 </div>
             </div>
@@ -210,3 +266,9 @@
     <a href="/home"> ReclamosChile.cl</a>
   </div>
 </footer>
+=======
+            </div>
+        </div>
+    </div>
+</section>
+>>>>>>> 8d6409ab28290c270e20dfc795f38ec10627aaa3
