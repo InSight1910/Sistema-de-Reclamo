@@ -68,13 +68,3 @@ textarea {
 select{
     border-radius: 20px;
 }
-
-/**Footer**/
-.footer-reclamos{
-    background-color: #0B4E85;
-    color:white
-}
-
-.footer-reclamos a{
-    color:white;
-}
