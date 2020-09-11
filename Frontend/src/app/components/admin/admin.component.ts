@@ -73,8 +73,9 @@ export class AdminComponent implements OnInit {
 
   searchDef(filterValue) {
     this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
-      return data.numeroReclamo.toString() === filter;
+      return data.numeroReclamo.toString() === filter || data.rut === filter;
     };
+    
     this.dataSource.filter = filterValue;
 
   }
