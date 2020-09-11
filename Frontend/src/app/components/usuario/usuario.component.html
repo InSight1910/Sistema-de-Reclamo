@@ -2,273 +2,126 @@
   <a class="navbar-brand" href="/home">
     <img src="/assets/img/logo/logo-white.png" width="17%" alt="">
   </a>
-  <a class="btn-admin" href="/home">Cerrar Sesión</a>
+  <a class="btn-admin" href="/home" (click)="logout()">Cerrar Sesión</a>
 </nav>
 
 <section class="usuario">
-<<<<<<< HEAD
   <div class="container">
     <div class="row my-5">
       <div class="col">
-        <h1>Hola {{usuarios.nombre}}</h1>
-
+        <h1>Hola <strong>{{usuarios.nombre}}</strong></h1>
       </div>
     </div>
     <div class="row my-5">
       <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Reclamo</h5>
-            <p class="card-text">Ingréselo si una empresa ha vulnerado sus derechos como consumidor,
+            <h5 class="card-title" style="font-size: 19px;">Reclamo</h5>
+            <p class="card-text p-espacio">Ingréselo si una empresa ha vulnerado sus derechos como
+              consumidor,
               generándole un problema de consumo particular. Enviaremos su reclamo a la empresa y
               buscaremos una respuesta a su solicitud.</p>
             <a href="/ingresarReclamo" class="Btn-login">Ingresar nuevo Reclamo</a>
           </div>
-
-          <div class="container">
-            <div class="row my-5">
-              <div class="col">
-                <h1>Hola {{usuarios.nombre}}</h1>
-              </div>
-
-            </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 19px;">Consultar </h5>
+            <p class="card-text p-espacio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+              aperiam
+              quas ipsum, aut omnis atque a eaque beatae dignissimos nemo unde ut, eius labore asperiores
+              molestias quam! Debitis, fugit quis?</p>
+            <a href="/verReclamos" class="Btn-login">Ver Reclamos</a>
           </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Consultar </h5>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aperiam
-                  quas ipsum, aut omnis atque a eaque beatae dignissimos nemo unde ut, eius labore asperiores
-                  molestias quam! Debitis, fugit quis?</p>
-                <a href="/verReclamos" class="Btn-login">Ver Reclamos</a>
-              </div>
-=======
-    <div class="container">
-        <div class="row my-5">
-            <div class="col">
-                <h1>Hola <strong>{{usuarios.nombre}}</strong></h1>
-            </div>
         </div>
-        <div class="row my-5">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-size: 19px;">Reclamo</h5>
-                        <p class="card-text p-espacio">Ingréselo si una empresa ha vulnerado sus derechos como
-                            consumidor,
-                            generándole un problema de consumo particular. Enviaremos su reclamo a la empresa y
-                            buscaremos una respuesta a su solicitud.</p>
-                        <a href="/ingresarReclamo" class="Btn-login">Ingresar nuevo Reclamo</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-size: 19px;">Consultar </h5>
-                        <p class="card-text p-espacio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                            aperiam
-                            quas ipsum, aut omnis atque a eaque beatae dignissimos nemo unde ut, eius labore asperiores
-                            molestias quam! Debitis, fugit quis?</p>
-                        <a href="/verReclamos" class="Btn-login">Ver Reclamos</a>
-                    </div>
-                </div>
->>>>>>> 8d6409ab28290c270e20dfc795f38ec10627aaa3
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="container bootstrap snippets bootdey">
-                            <div class="panel-body inf-content">
-                                <div class="row">
-                                    <div class="col">
-                                        <strong style="font-size: 19px;">Información de su Cuenta</strong><br>
-                                        <div class="table-responsive">
-                                            <table class="table table-user-information">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Rut
-                                                            </strong>
-                                                        </td>
-                                                        <td>
-                                                            <p>{{usuarios.rut}}</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Nombre
-                                                            </strong>
-                                                        </td>
-                                                        <td>
-                                                            <p>{{usuarios.nombre}}</p>
-                                                        </td>
-                                                    </tr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <div class="container bootstrap snippets bootdey">
+              <div class="panel-body inf-content">
+                <div class="row">
+                  <div class="col">
+                    <strong style="font-size: 19px;">Información de su Cuenta</strong><br>
+                    <div class="table-responsive">
+                      <table class="table table-user-information">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <strong>
+                                Rut
+                              </strong>
+                            </td>
+                            <td>
+                              <p>{{usuarios.rut}}</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>
+                                Nombre
+                              </strong>
+                            </td>
+                            <td>
+                              <p>{{usuarios.nombre}}</p>
+                            </td>
+                          </tr>
 
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Dirección
-                                                            </strong>
-                                                        </td>
-                                                        <td>
-                                                            <p>{{usuarios.direccion}}</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Telefono
-                                                            </strong>
-                                                        </td>
-                                                        <td>
-                                                            <p>{{usuarios.numTelefono}}</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Correo
-                                                            </strong>
-                                                        </td>
-                                                        <td>
-                                                            <p>{{usuarios.correo}}</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <span></span>
-                                                        </td>
-                                                        <td class="text-right">
-                                                            <button class="btn btn-editar">Editar Perfil</button>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-<<<<<<< HEAD
-                                <div class="panel-footer">
-                                    <button class="btn  btn-primary" type="button" data-toggle="tooltip"
-                                        data-original-title="Send message to user"><i
-                                            class="icon-envelope icon-white"></i></button>
-                                    <span class="pull-right">
-                                        <button class="btn btn-warning" type="button" data-toggle="tooltip"
-                                            data-original-title="Edit this user"><i
-                                                class="icon-edit icon-white"></i></button>
-                                        <button class="btn btn-danger" type="button" data-toggle="tooltip"
-                                            data-original-title="Remove this user"><i
-                                                class="icon-remove icon-white"></i></button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-                    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-                    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-                    <!--  <div class="card">
-                    <div class="card-body">
-                        <div class="contenedor" *ngIf="usuarios">
-                        <h3>Perfil de usuario</h3>
-
-                      <br>
-
-                            <div>
-                                <mat-form-field style="width: 40%;padding-right: 30px;">
-                                    <mat-label>Rut</mat-label>
-                                    <h4 #rut > {{usuarios.rut}}</h4>
-                                </mat-form-field>
-                                <mat-label>Nombre</mat-label>
-                                <mat-form-field style="width: 40%;padding-right: 30px;">
-                                    <mat-label>Nombre</mat-label>
-                                    <input matInput  #nombre value="{{usuarios.nombre}}">
-                                </mat-form-field>
-                            <mat-form-field style="width: 40%;padding-right: 30px;">
-                                <mat-label>Correo</mat-label>
-                                <input matInput  #correo value="{{usuarios.correo}}">
-                            </mat-form-field>
-                            <mat-form-field style="width: 40%;padding-right: 30px;">
-                                <mat-label>Dirección</mat-label>
-                                <input matInput #direccion value="{{usuarios.direccion}}">
-                            </mat-form-field>
-                            <mat-form-field style="width: 40%;" >
-                                <mat-label >Teléfono</mat-label>
-                                <input matInput #telefono value="{{usuarios.numTelefono}}">
-                            </mat-form-field>
-                            </div>
-
-                        <div>
-                          <mat-form-field style="width: 40%;padding-right: 30px;">
-                            <mat-label>Rut</mat-label>
-                            <input matInput #rut value="{{usuarios.rut}}">
-                          </mat-form-field>
-                          <mat-form-field style="width: 40%;padding-right: 30px;">
-                            <mat-label>Nombre</mat-label>
-                            <input matInput #nombre value="{{usuarios.nombre}}">
-                          </mat-form-field>
-                          <mat-form-field style="width: 40%;padding-right: 30px;">
-                            <mat-label>Correo</mat-label>
-                            <input matInput #correo value="{{usuarios.correo}}">
-                          </mat-form-field>
-                          <mat-form-field style="width: 40%;padding-right: 30px;">
-                            <mat-label>Dirección</mat-label>
-                            <input matInput #direccion value="{{usuarios.direccion}}">
-                          </mat-form-field>
-                          <mat-form-field style="width: 40%;">
-                            <mat-label>Teléfono</mat-label>
-                            <input matInput #telefono value="{{usuarios.numTelefono}}">
-                          </mat-form-field>
-=======
-                            </div>
->>>>>>> 8d6409ab28290c270e20dfc795f38ec10627aaa3
-                        </div>
-
-                      </form>
+                          <tr>
+                            <td>
+                              <strong>
+                                Dirección
+                              </strong>
+                            </td>
+                            <td>
+                              <p>{{usuarios.direccion}}</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>
+                                Telefono
+                              </strong>
+                            </td>
+                            <td>
+                              <p>{{usuarios.numTelefono}}</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>
+                                Correo
+                              </strong>
+                            </td>
+                            <td>
+                              <p>{{usuarios.correo}}</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span></span>
+                            </td>
+                            <td class="text-right">
+                              <button class="btn btn-editar" (click)="openEditar(usuarios)">Editar Perfil</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
-<<<<<<< HEAD
-            </div> -->
-                </div>
+              </div>
             </div>
+
+
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- Footer -->
-<footer class="footer-reclamos">
-  <div class="container">
-    <div class="row text-center d-flex justify-content-center pt-5 ">
-      <div class="col-md-3 mb-3">
-        <h6>
-          <a href="#!">Sugerencias</a>
-        </h6>
-      </div>
-      <div class="col-md-3 mb-3">
-        <h6>
-          <a href="/preguntasFrecuentes">Preguntas Frecuentes</a>
-        </h6>
-      </div>
-    </div>
-    <hr class="rgba-white-light" style="margin: 0 15%;">
-  </div>
-  <div class="footer-copyright text-center py-3">Grupo 3 © 2020 Copyright:
-    <a href="/home"> ReclamosChile.cl</a>
-  </div>
-</footer>
-=======
-            </div>
-        </div>
-    </div>
 </section>
->>>>>>> 8d6409ab28290c270e20dfc795f38ec10627aaa3

@@ -57,8 +57,9 @@ public class UsuarioResource {
     public void editarContraseña (@RequestBody Usuario c) throws SQLException {
         new UsuarioDAO().editarContraseña(c);
         String correoUser = new UsuarioDAO().obtenerCorreoPorRut(c.getRut());
-        String body = "\nSu contraseña ha sido actualizado con éxito. \n Su nueva contraseña es " +c.getContrasenha();
-        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",c.getCorreo(),"Cambio de contraseña ReclamosChile",body);
+        String body = "\nSu contraseña ha sido actualizado con éxito. \n Su nueva contraseña es " + c.getContrasenha();
+        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com", c.getCorreo(), "Cambio de contraseña ReclamosChile", body);
+    }
 
 
 

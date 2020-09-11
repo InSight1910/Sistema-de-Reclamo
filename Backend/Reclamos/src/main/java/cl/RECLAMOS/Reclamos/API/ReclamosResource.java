@@ -1,7 +1,10 @@
 package cl.RECLAMOS.Reclamos.API;
 
 import cl.RECLAMOS.Reclamos.JDBC.DAO.ReclamoDAO;
+import cl.RECLAMOS.Reclamos.JDBC.DAO.UsuarioDAO;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.Reclamos;
+import cl.RECLAMOS.Reclamos.JDBC.DTO.SendEmailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -11,6 +14,8 @@ import java.util.List;
 @RequestMapping("/")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ReclamosResource {
+    @Autowired
+    private SendEmailService sendEmailService;
     @RequestMapping(method = RequestMethod.GET, value = "allAdmin")
     public List<Reclamos> GETADMIN() throws SQLException {
         List<Reclamos> r = new ReclamoDAO().GETADMIN();
@@ -35,6 +40,9 @@ public class ReclamosResource {
     @RequestMapping(method = RequestMethod.POST, value = "create")
     public void CREATE(@RequestBody Reclamos r) throws SQLException {
         new ReclamoDAO().CREATE(r);
+        String correoUser = UsuarioDAO.obtenerCorreoPorRut(r.getRut());
+        String body = "El reclamo numero: #"+r.getNumeroReclamo()+" Ha sido ingresado con exito con fecha: "+r.getFecha();
+        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",correoUser,"Reclamo Ingresado",body);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "update/{id}")
@@ -50,4 +58,5 @@ public class ReclamosResource {
     public void antecedente(@RequestBody Reclamos u) throws SQLException {
         new ReclamoDAO().modificarAntecedente(u);
     }
+
 }

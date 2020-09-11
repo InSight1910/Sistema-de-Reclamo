@@ -66,4 +66,14 @@ export class ReclamoService {
 
   }
 
+  editarPerfil(usuario: Usuario) {
+    const url = "/editarUsuario"
+     return this.http.put<Usuario>(this.api+url, usuario)
+  }
+
+  eliminarUsuario(rut: string) {
+    const url = "borrarUser/"
+    return this.http.delete(this.api+url+rut)
+  }
+
 }
