@@ -112,7 +112,7 @@ public class UsuarioDAO {
         return new Usuario(correoA, nombresA, contrasenhaA, rutA, rolA, numTelefonoA, direccionA);
     }
 
-    public static String obtenerCorreoPorRut(String rut) throws SQLException {
+    public String obtenerCorreoPorRut(String rut) throws SQLException {
         String sql = "SELECT CORREO FROM USUARIOS WHERE RUT = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, rut);

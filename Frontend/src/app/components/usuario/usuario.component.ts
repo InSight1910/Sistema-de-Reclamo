@@ -1,4 +1,4 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ReclamoService } from 'src/app/services/reclamo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario.model';
@@ -15,7 +15,7 @@ import { EditarPerfilComponent } from 'src/app/dialogs/editar-perfil/editar-perf
 
 export class UsuarioComponent implements OnInit {
   newUsuario: Usuario;
-  usuarios: Usuario  = {
+  usuarios: Usuario = {
     correo: null,
     nombre: null,
     contrasenha: null,
@@ -25,9 +25,10 @@ export class UsuarioComponent implements OnInit {
     direccion: null
   };
 
-user: Usuario [];
+  user: Usuario[];
 
-  constructor(private router: Router, private service: ReclamoService, private ruta: ActivatedRoute,private dialog: MatDialog) { }
+  constructor(private router: Router, private service: ReclamoService, private ruta: ActivatedRoute, private dialog: MatDialog) { }
+
 
   ngOnInit(): void {
     this.obtenerDatosUsuario();
@@ -39,8 +40,8 @@ user: Usuario [];
     this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
 
-  
-  logout(){
+
+  logout() {
     localStorage.removeItem("usuario");
     this.router.navigate(['home'])
   }
@@ -51,5 +52,8 @@ user: Usuario [];
     const dialogRef = this.dialog.open(EditarPerfilComponent, dialogconfig);
 
   }
+
+
+
 
 }
