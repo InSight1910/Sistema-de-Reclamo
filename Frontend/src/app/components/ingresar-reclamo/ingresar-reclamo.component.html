@@ -12,11 +12,11 @@
                     <h1 class="mx-auto text-center">Ingrese su Reclamo</h1>
                     <div class="form-group">
                         <label for="rutReclamo">Rut</label>
-                        <input type="text" class="form-control" [(ngModel)]="usuarios.rut" name="rut" id="rutReclamo" placeholder="Ingrese Rut">
+                        <input type="text" class="form-control" [(ngModel)]="usuarios.rut" name="rut" #rut id="rutReclamo" placeholder="Ingrese Rut">
                     </div>
                     <div class=" form-group">
                         <label class="" for="tipoReclamo">Tipo de reclamo</label>
-                        <select class="custom-select" name="idCurso" id="tipoReclamo">
+                        <select class="custom-select" name="idCurso" id="tipoReclamo" #tipoReclamo>
                             <option disabled>Seleccione su tipo de reclamo:</option>
                             <option value="Gestion de deuda">Gestión de deuda</option>
                             <option value="Plan de Ahorro">Plan de Ahorro</option>
@@ -29,13 +29,13 @@
                     </div>
                     <div class="form-group">
                         <label for="contrasenhaUser">Descripción de su Reclamo</label>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <textarea #descripcion name="descripcion" id="" cols="30" rows="10"></textarea>
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col"><button type="submit" class="Btn-cancelar  mt-3"
                                     routerLink="/usuario">Cancelar</button></div>
-                            <div class="col"> <button type="submit" class="Btn-login  mt-3">Enviar</button></div>
+                            <div class="col"> <button type="submit" class="Btn-login  mt-3" (click)="ingresarReclamo(rut.value, tipoReclamo.value, descripcion.value)">Enviar</button></div>
                         </div>
                     </div>
                 </form>

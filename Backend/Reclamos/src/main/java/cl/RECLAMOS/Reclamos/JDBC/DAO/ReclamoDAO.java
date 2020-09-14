@@ -91,8 +91,7 @@ public class ReclamoDAO {
         ps.setString(1,r.getTipoReclamo());
         ps.setString(2,r.getDescripcion());
         ps.setDate(3,r.getFecha());
-        ps.setString(4,r.getAntecedentes());
-        ps.setString(5,r.getRut());
+        ps.setString(4,r.getRut());
         ps.executeUpdate();
     }
     public void UPDATE(Reclamos r, int i) throws SQLException {

@@ -7,4 +7,5 @@ export interface Reclamo {
     antecendentes: string;
     rut: string;
     comentarios: string;
+    fechaTope: Date;
 }

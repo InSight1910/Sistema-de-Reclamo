@@ -76,4 +76,8 @@ export class ReclamoService {
     return this.http.delete(this.api+url+rut)
   }
 
+  ingresarReclamo(reclamo: Reclamo) {
+    const url = "create"
+    return this.http.post(this.api+url, reclamo)
+  }
 }
