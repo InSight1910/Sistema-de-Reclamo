@@ -6,6 +6,7 @@ import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { EditarEstadoComponent } from '../dialogs/editar-estado/editar-estado.component';
 import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class AdminComponent implements OnInit {
   dataSource = new MatTableDataSource(this.datas);
 
   //Constructor
-  constructor(private service: ReclamoService, private dialog: MatDialog) { }
+  constructor(private service: ReclamoService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.service.obtenerAllAdmin().subscribe(
@@ -80,6 +81,11 @@ export class AdminComponent implements OnInit {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.data = reclamo;
     const dialogRef = this.dialog.open(ViewReclamoComponent, dialogconfig);
+  }
+
+  logout() {
+    localStorage.removeItem("usuario");
+    this.router.navigate(['home'])
   }
 
 }

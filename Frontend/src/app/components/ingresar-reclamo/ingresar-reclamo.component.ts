@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import { ReclamoService } from 'src/app/services/reclamo.service';
+import swal from 'sweetalert'
 
 @Component({
   selector: 'app-ingresar-reclamo',
@@ -36,6 +37,16 @@ export class IngresarReclamoComponent implements OnInit {
   }
 
   ingresarReclamo(rut: String,tipoReclamo: string, descripcion:string): void{
-    this.service.ingresarReclamo({rut, tipoReclamo, descripcion} as Reclamo).subscribe()
+
+   
+    if(!descripcion.trim()){
+      swal('Campo vacío',
+    'Por favor ingrese la descripción del problema',
+    'error')
+    }
+
+    this.service.ingresarReclamo({rut, tipoReclamo, descripcion} as Reclamo).subscribe(_ => {swal('Reclamo Ingresado con éxito',
+    'Esperamos comunicarnos pronto con usted',
+    'success'); this.router.navigate(['usuario'])})
   }
 }
