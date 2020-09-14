@@ -12,6 +12,7 @@ public class Reclamos {
     private String Rut;
     private Date Fecha_tope;
     private String Comentarios;
+    private String RutAdmin;
 
 
 
@@ -87,7 +88,15 @@ public class Reclamos {
         Comentarios = comentarios;
     }
 
-    public Reclamos(String tipoReclamo, Date fecha_tope, int numeroReclamo, String descripcion, Date fecha, String estado, String antecedentes, String rut, String comentarios) {
+    public String getRutAdmin() {
+        return RutAdmin;
+    }
+
+    public void setRutAdmin(String rutAdmin) {
+        RutAdmin = rutAdmin;
+    }
+
+    public Reclamos(String tipoReclamo, Date fecha_tope, int numeroReclamo, String descripcion, Date fecha, String estado, String antecedentes, String rut, String comentarios, String RutAdmin) {
         TipoReclamo = tipoReclamo;
         NumeroReclamo = numeroReclamo;
         Descripcion = descripcion;
@@ -97,5 +106,6 @@ public class Reclamos {
         Rut = rut;
         Fecha_tope = fecha_tope;
         Comentarios = comentarios;
+        this.RutAdmin = RutAdmin;
     }
 }

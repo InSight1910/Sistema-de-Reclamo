@@ -32,8 +32,8 @@ public class ReclamoDAO {
                     rs.getString("ESTADO"),
                     rs.getString("ANTECEDENTES"),
                     rs.getString("RUT"),
-                    rs.getString("COMENTARIOS")
-
+                    rs.getString("COMENTARIOS"),
+                    rs.getString("RUT_ADMIN")
             );
             r.add(re);
         }
@@ -55,7 +55,8 @@ public class ReclamoDAO {
                     rs.getString("ESTADO"),
                     rs.getString("ANTECEDENTES"),
                     rs.getString("RUT"),
-                    rs.getString("COMENTARIOS")
+                    rs.getString("COMENTARIOS"),
+                    rs.getString("RUT_ADMIN")
             );
             r.add(re);
         }
@@ -77,7 +78,8 @@ public class ReclamoDAO {
                     rs.getString("ESTADO"),
                     rs.getString("ANTECEDENTES"),
                     rs.getString("RUT"),
-                    rs.getString("COMENTARIOS")
+                    rs.getString("COMENTARIOS"),
+                    rs.getString("RUT_ADMIN")
             );
             r.add(re);
         }
