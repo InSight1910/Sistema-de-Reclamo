@@ -86,7 +86,7 @@ public class ReclamoDAO {
         return  r;
     }
     public void CREATE(Reclamos r) throws SQLException{
-        String sql = "INSERT INTO RECLAMOS(TIPORECLAMO,[DESCRIPCION],[FECHA],[ESTADO],[ANTECEDENTES],[RUT]) VALUES(?,?,?,'Pendiente',?,?)";
+        String sql = "INSERT INTO RECLAMOS(TIPORECLAMO,[DESCRIPCION],[FECHA],[ESTADO],[RUT]) VALUES(?,?,?,'Pendiente',?)";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1,r.getTipoReclamo());
         ps.setString(2,r.getDescripcion());
