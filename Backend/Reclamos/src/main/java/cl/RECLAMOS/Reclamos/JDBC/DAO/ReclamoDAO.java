@@ -3,10 +3,7 @@ package cl.RECLAMOS.Reclamos.JDBC.DAO;
 import cl.RECLAMOS.Reclamos.JDBC.ConnectionManager;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.Reclamos;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,13 +83,13 @@ public class ReclamoDAO {
         return  r;
     }
     public void CREATE(Reclamos r) throws SQLException{
-        String sql = "INSERT INTO RECLAMOS(TIPORECLAMO,[DESCRIPCION],[FECHA],[ESTADO],[RUT]) VALUES(?,?,?,'Pendiente',?)";
+        String fecha = "(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) ";
+        String FechaTope = "(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(day, DATEADD(day, 2, getdate())) as varchar) as Date))";
+        String sql = "INSERT INTO RECLAMOS(TIPORECLAMO,[DESCRIPCION],[FECHA],[FECHA_TOPE],[ESTADO],[RUT]) VALUES(?,?,"+ fecha +","+FechaTope+",'Pendiente',?)";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1,r.getTipoReclamo());
         ps.setString(2,r.getDescripcion());
-        ps.setDate(3,r.getFecha());
-        ps.setString(4,r.getAntecedentes());
-        ps.setString(5,r.getRut());
+        ps.setString(3, r.getRut());
         ps.executeUpdate();
     }
     public void UPDATE(Reclamos r, int i) throws SQLException {
