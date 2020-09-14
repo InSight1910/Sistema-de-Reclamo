@@ -17,8 +17,9 @@ export class ReclamoDetalleUSerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  comentario(comentarios: String){
-    this.service.addComentarioUser({comentarios} as Reclamo).subscribe()
+  guardar(){
+    this.service.editarReclamoUser(this.values).subscribe(data => console.log(data))
+    
   }
 
 

@@ -90,4 +90,9 @@ export class ReclamoService {
     const url = 'insertarComentario/'
     return this.http.put<Usuario>(this.api+url, reclamo);
   }
+
+  editarReclamoUser(reclamo: Reclamo) {
+    const url = "editarReclamo/"
+     return this.http.put<Reclamo>(this.api+url, reclamo)
+  }
 }

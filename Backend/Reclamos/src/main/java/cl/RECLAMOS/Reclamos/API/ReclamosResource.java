@@ -4,6 +4,7 @@ import cl.RECLAMOS.Reclamos.JDBC.DAO.ReclamoDAO;
 import cl.RECLAMOS.Reclamos.JDBC.DAO.UsuarioDAO;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.Reclamos;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.SendEmailService;
+import cl.RECLAMOS.Reclamos.JDBC.DTO.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -64,4 +65,8 @@ public class ReclamosResource {
         new ReclamoDAO().modificarComentario(u);
     }
 
+    @RequestMapping(method = RequestMethod.PUT, value = "editarReclamo")
+    public void modifificarReclamo (@RequestBody Reclamos a) throws SQLException {
+        new ReclamoDAO().modificar(a);
+    }
 }
