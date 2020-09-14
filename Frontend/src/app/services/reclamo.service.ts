@@ -81,8 +81,13 @@ export class ReclamoService {
     return this.http.post(this.api+url, reclamo)
   }
 
-  obtenerReclamosPorRut(rut: String): Observable<Reclamo[]> {
-    const suffix = '/reclamos/usuarioRut/'
-    return this.http.post<Reclamo[]>(this.api+suffix, rut);
+  obtenerReclamosPorRut(rut): Observable<Reclamo[]> {
+    const suffix = 'allUser/'
+    return this.http.get<Reclamo[]>(this.api+suffix+rut);
+  }
+
+  addComentarioUser(reclamo: Reclamo) {
+    const url = 'insertarComentario/'
+    return this.http.put<Usuario>(this.api+url, reclamo);
   }
 }

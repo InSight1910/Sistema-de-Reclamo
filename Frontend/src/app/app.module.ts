@@ -25,6 +25,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { FooterComponent } from './components/footer/footer.component';
 import { EditarPerfilComponent } from './dialogs/editar-perfil/editar-perfil.component';
+import { ReclamoDetalleUSerComponent } from './dialogs/reclamo-detalle-user/reclamo-detalle-user.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { EditarPerfilComponent } from './dialogs/editar-perfil/editar-perfil.com
     SobreNosotrosComponent,
     FooterComponent,
     EditarPerfilComponent,
+    ReclamoDetalleUSerComponent,
 
   ],
   imports: [

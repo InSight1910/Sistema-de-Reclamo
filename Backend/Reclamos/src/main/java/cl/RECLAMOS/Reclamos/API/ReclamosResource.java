@@ -59,4 +59,9 @@ public class ReclamosResource {
         new ReclamoDAO().modificarAntecedente(u);
     }
 
+    @RequestMapping(method = RequestMethod.PUT, value = "insertarComentario/{nreclamo}")
+    public void comentarioUsuario(@RequestBody Reclamos u) throws SQLException {
+        new ReclamoDAO().modificarComentario(u);
+    }
+
 }
