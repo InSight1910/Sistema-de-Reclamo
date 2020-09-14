@@ -55,7 +55,7 @@ public class ReclamosResource {
         new ReclamoDAO().UPDATEESTADO(i);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "insertarAntecedente/{nreclamo}")
+    @RequestMapping(method = RequestMethod.PUT, value = "insertarAntecedente")
     public void antecedente(@RequestBody Reclamos u) throws SQLException {
         new ReclamoDAO().modificarAntecedente(u);
     }

@@ -56,9 +56,10 @@ export class ReclamoService {
   }
 
   actualizarAntecedente(reclamo: Reclamo) {
-    const url = 'insertarAntecedente/'
-    return this.http.put<Usuario>(this.api+url, reclamo);
-  }
+      const url = "insertarAntecedente"
+       return this.http.put<Reclamo>(this.api+url, reclamo)
+    }
+  
 
   cambiarContraseña(usuario: Usuario) {
     const url = '/usuario/editarContraseña';
