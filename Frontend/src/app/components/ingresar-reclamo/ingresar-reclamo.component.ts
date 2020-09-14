@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import { ReclamoService } from 'src/app/services/reclamo.service';
 
@@ -11,7 +12,8 @@ import { ReclamoService } from 'src/app/services/reclamo.service';
 export class IngresarReclamoComponent implements OnInit {
  
   constructor(private router: Router, private service: ReclamoService, private ruta: ActivatedRoute) { }
-
+  @Input() reclamos: Reclamo;
+  @Input() usuario: Usuario;
   usuarios: Usuario = {
     correo: null,
     nombre: null,
@@ -21,6 +23,8 @@ export class IngresarReclamoComponent implements OnInit {
     numTelefono: null,
     direccion: null
   };
+
+  reclamo: Reclamo[];
   ngOnInit(): void {
     this.obtenerDatosUsuario();
 
@@ -31,4 +35,7 @@ export class IngresarReclamoComponent implements OnInit {
     this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
 
+  ingresarReclamo(rut: String,tipoReclamo: string, descripcion:string, fecha:string): void{
+    this.service.ingresarReclamo({rut, tipoReclamo, descripcion} as Reclamo).subscribe()
+  }
 }

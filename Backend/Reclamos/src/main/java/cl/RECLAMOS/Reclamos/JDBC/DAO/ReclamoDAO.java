@@ -1,4 +1,4 @@
-package cl.RECLAMOS.Reclamos.JDBC.DAO;
+|package cl.RECLAMOS.Reclamos.JDBC.DAO;
 
 import cl.RECLAMOS.Reclamos.JDBC.ConnectionManager;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.Reclamos;
