@@ -15,16 +15,13 @@ import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.compo
 })
 export class AdminComponent implements OnInit {
 
-  columnasAMostrar: string[] = ['tipoReclamo', 'numeroReclamo', 'descripcion', 'fecha', 'estado', 'antecedentes', 'rut', 'opciones'];
+  columnasAMostrar: string[] = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut', 'opciones'];
   columnas = [
     { name: 'tipoReclamo', title: 'Tipo Reclamo' },
     { name: 'numeroReclamo', title: 'Numero Reclamo' },
-    { name: 'descripcion', title: 'Descripcion' },
     { name: 'fecha', title: 'Fecha' },
     { name: 'estado', title: 'Estado' },
-    { name: 'antecedentes', title: 'Antecedentes' },
-    { name: 'rut', title: 'Rut' },
-
+    { name: 'rut', title: 'Rut' }
   ]
   search;
   datas: Reclamo[] = [];
@@ -73,8 +70,9 @@ export class AdminComponent implements OnInit {
 
   searchDef(filterValue) {
     this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
-      return data.numeroReclamo.toString() === filter;
+      return data.numeroReclamo.toString() === filter || data.rut === filter;
     };
+
     this.dataSource.filter = filterValue;
 
   }

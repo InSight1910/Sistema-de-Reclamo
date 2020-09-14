@@ -15,7 +15,7 @@
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
                 <label for="rutUser">Rut</label>
-                <input type="text" class="form-control" (keypress)="ValidadorRut(rut)" name="rut" id="rut" placeholder="Ingrese  Rut" [(ngModel)]="rut">
+                <input type="text" class="form-control"  name="rut" id="rut" (keydown)="ValidadorRut(rut)" placeholder="Ingrese  Rut" [(ngModel)]="rut">
               </div>
             </div>
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
