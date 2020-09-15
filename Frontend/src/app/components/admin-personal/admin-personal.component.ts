@@ -17,7 +17,7 @@ export class AdminPersonalComponent implements OnInit {
   constructor(private service: ReclamoService, private dialog: MatDialog) { }
 
 
-  columnShow = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut'];
+  columnShow = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut', 'opciones'];
   columns = [
     { name: 'tipoReclamo', title: 'Tipo Reclamo' },
     { name: 'numeroReclamo', title: 'Numero Reclamo' },

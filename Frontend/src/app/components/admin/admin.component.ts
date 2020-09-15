@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 
-  columnasAMostrar: string[] = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut', 'opciones'];
+  columnasAMostrar: string[] = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut'];
   columnas = [
     { name: 'tipoReclamo', title: 'Tipo Reclamo' },
     { name: 'numeroReclamo', title: 'Numero Reclamo' },
