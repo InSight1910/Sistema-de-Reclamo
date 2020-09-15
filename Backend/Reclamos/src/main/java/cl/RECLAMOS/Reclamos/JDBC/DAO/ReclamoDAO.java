@@ -149,10 +149,11 @@ public class ReclamoDAO {
         ps.executeUpdate();
     }
     public void asignarReclamoAdmin(Usuario u, int i) throws SQLException {
-        String sql = "update Reclamos set rut_admin = ?, estado = 'En revision' where numeroREclamo = ?";
+        String sql = "update Reclamos set rut_admin = ?, estado = 'En revision' where NUMERORECLAMO = ?";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1,u.getRut());
+        ps.setString(1, u.getRut());
         ps.setInt(2, i);
+    }
 
     public void modificarComentario(Reclamos u) throws SQLException {
         String sql = "update reclamos set COMENTARIOS = ? where NUMERORECLAMO =?";
