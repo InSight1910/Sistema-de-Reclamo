@@ -7,6 +7,7 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { EditarEstadoComponent } from '../dialogs/editar-estado/editar-estado.component';
 import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.component';
 import { AsignarReclamoComponent } from '../dialogs/asignar-reclamo/asignar-reclamo.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -38,7 +39,7 @@ export class AdminComponent implements OnInit {
   };
 
   //Constructor
-  constructor(private service: ReclamoService, private dialog: MatDialog) { }
+  constructor(private service: ReclamoService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.service.obtenerAllAdmin().subscribe(
@@ -92,6 +93,11 @@ export class AdminComponent implements OnInit {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.data = reclamo.numeroReclamo;
     const dialogRef = this.dialog.open(AsignarReclamoComponent, dialogconfig)
+  }
+
+  logout() {
+    localStorage.removeItem("usuario");
+    this.router.navigate(['home'])
   }
 
 }

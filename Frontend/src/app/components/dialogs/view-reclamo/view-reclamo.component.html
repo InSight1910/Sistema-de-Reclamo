@@ -1,14 +1,34 @@
-<h2 mat-dialog-title>Rut de reclamo</h2>
-<mat-dialog-content>{{values.rut}} </mat-dialog-content>
-<h2 mat-dialog-title>Rut de reclamo</h2>
-<mat-dialog-content>{{values.rut}} </mat-dialog-content>
-<h2 mat-dialog-title>Rut de reclamo</h2>
-<mat-dialog-content>{{values.rut}} </mat-dialog-content>
-<h2 mat-dialog-title>Rut de reclamo</h2>
-<mat-dialog-content>{{values.rut}} </mat-dialog-content>
-<mat-form-field style="width:100%;">
-    <mat-label #contra >Antecedentes</mat-label>
-    <input matInput style="width:80%;" [(ngModel)]="values.antecedentes" name="antecedentes">
-  </mat-form-field>
-  <button [mat-dialog-close]="true" mat-raised-button color="primary" (click)="guardar()" style="margin-left: 6em;">Guardar cambios</button>
-
+<div style="height:500px; width:400px;">
+  <h2 mat-dialog-title style="background-color: darkblue; color:white; text-align: center; box-shadow: 0px 3px 3px; width:100%; height:50px; padding-top:7px; text-shadow: 0 0 1em white
+;">Detalle</h2>
+  <div class="form-group">
+      <label for="rutReclamo">Rut de usuario:</label>
+      <input type="text" class="form-control" [(ngModel)]="values.rut" name="rut" #rut id="rutReclamo" disabled>
+  </div>
+  <div class="form-group">
+    <label for="rutReclamo">Tipo de problema:</label>
+    <input type="text" class="form-control" [(ngModel)]="values.tipoReclamo" name="tipoReclamo" disabled>
+</div>
+    <div class="form-group">
+      <label for="rutReclamo">Descripción del problema:</label>
+      <input type="text" class="form-control" [(ngModel)]="values.descripcion" name="descripcion" disabled>
+  </div>
+    <div class="form-group">
+      <label for="rutReclamo">Fecha de ingreso:</label>
+      <input type="text" class="form-control" [(ngModel)]="values.fecha" name="fecha" #descripcion disabled>
+  </div>
+  <div class="form-group">
+      <label for="rutReclamo">Estado:</label>
+      <input type="text" class="form-control" [(ngModel)]="values.estado" name="estado" #estado disabled>
+  </div>
+    <div class="form-group">
+      <label for="rutReclamo">Comentarios de usuario:</label>
+      <input type="text" class="form-control" [(ngModel)]="values.comentarios" name="comentarios" #comentarios disabled>
+  </div>
+  <div class="form-group">
+    <label for="rutReclamo">Feedback:</label>
+    <input type="text" class="form-control" [(ngModel)]="values.antecedentes" name="antecedentes" #antecedentes>
+</div>
+    <button [mat-dialog-close]="true" mat-raised-button color="primary" style="margin-left: 6em;" (click)="guardar()">Guardar cambios</button>
+  </div>
+  

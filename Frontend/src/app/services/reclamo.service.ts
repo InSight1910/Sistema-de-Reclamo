@@ -60,9 +60,10 @@ export class ReclamoService {
   }
 
   actualizarAntecedente(reclamo: Reclamo) {
-    const url = 'insertarAntecedente/'
-    return this.http.put<Usuario>(this.api+url, reclamo);
-  }
+      const url = "insertarAntecedente"
+       return this.http.put<Reclamo>(this.api+url, reclamo)
+    }
+
 
   cambiarContraseña(usuario: Usuario) {
     const url = '/usuario/editarContraseña';
@@ -87,5 +88,19 @@ export class ReclamoService {
   asignarReclamo(usuario: Usuario, i){
     const url = "asignarReclamos/"
     return this.http.put(this.api + url + i, usuario)
+  }
+  obtenerReclamosPorRut(rut): Observable<Reclamo[]> {
+    const suffix = 'allUser/'
+    return this.http.get<Reclamo[]>(this.api+suffix+rut);
+  }
+
+  addComentarioUser(reclamo: Reclamo) {
+    const url = 'insertarComentario/'
+    return this.http.put<Usuario>(this.api+url, reclamo);
+  }
+
+  editarReclamoUser(reclamo: Reclamo) {
+    const url = "editarReclamo/"
+     return this.http.put<Reclamo>(this.api+url, reclamo)
   }
 }

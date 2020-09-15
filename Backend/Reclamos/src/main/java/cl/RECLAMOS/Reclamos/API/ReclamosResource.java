@@ -60,7 +60,7 @@ public class ReclamosResource {
         new ReclamoDAO().UPDATEESTADO(i);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "insertarAntecedente/{nreclamo}")
+    @RequestMapping(method = RequestMethod.PUT, value = "insertarAntecedente")
     public void antecedente(@RequestBody Reclamos u) throws SQLException {
         new ReclamoDAO().modificarAntecedente(u);
     }
@@ -70,4 +70,13 @@ public class ReclamosResource {
         new ReclamoDAO().asignarReclamoAdmin(u,i);
     }
 
+    @RequestMapping(method = RequestMethod.PUT, value = "insertarComentario/{nreclamo}")
+    public void comentarioUsuario(@RequestBody Reclamos u) throws SQLException {
+        new ReclamoDAO().modificarComentario(u);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "editarReclamo")
+    public void modifificarReclamo (@RequestBody Reclamos a) throws SQLException {
+        new ReclamoDAO().modificar(a);
+    }
 }

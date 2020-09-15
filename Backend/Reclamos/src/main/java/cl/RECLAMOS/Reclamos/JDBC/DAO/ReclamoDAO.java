@@ -1,5 +1,6 @@
 package cl.RECLAMOS.Reclamos.JDBC.DAO;
 
+
 import cl.RECLAMOS.Reclamos.JDBC.ConnectionManager;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.Reclamos;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.Usuario;
@@ -152,6 +153,22 @@ public class ReclamoDAO {
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1,u.getRut());
         ps.setInt(2, i);
+
+    public void modificarComentario(Reclamos u) throws SQLException {
+        String sql = "update reclamos set COMENTARIOS = ? where NUMERORECLAMO =?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, u.getComentarios());
+        ps.setInt(2, u.getNumeroReclamo());
+        ps.executeUpdate();
+    }
+
+    public void modificar(Reclamos a) throws SQLException {
+        String sql = "UPDATE RECLAMOS SET TIPORECLAMO = ?, DESCRIPCION = ?, COMENTARIOS = ? where NUMERORECLAMO = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, a.getTipoReclamo());
+        ps.setString(2, a.getDescripcion());
+        ps.setString(3, a.getComentarios());
+        ps.setInt(4, a.getNumeroReclamo());
         ps.executeUpdate();
     }
 }

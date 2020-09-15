@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ReclamoService } from 'src/app/services/reclamo.service';
+import { ReclamoService } from '../../services/reclamo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { EditarPerfilComponent } from 'src/app/dialogs/editar-perfil/editar-perfil.component';
+import { EditarPerfilComponent } from '../dialogs/editar-perfil/editar-perfil.component';
 
 @Component({
   selector: 'app-usuario',
