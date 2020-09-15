@@ -1,0 +1,17 @@
+<nav class="navbar  titulo-reclamos">
+	<a class="navbar-brand" href="/home">
+		<img src="/assets/img/logo/logo-white.png" width="17%" alt="">
+	</a>
+	<a class="btn-admin" href="/home">Cerrar Sesión</a>
+</nav>
+
+<div class="mat-elevation-z8">
+	<mat-table [dataSource]="dataSource">
+		<ng-container *ngFor="let column of columns" matColumnDef="{{column.name}}">
+        <mat-header-cell *matHeaderCellDef> {{column.title}} </mat-header-cell>
+        <mat-cell *matCellDef="let reclamo"> {{reclamo[column.name]}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="columnShow"></mat-header-row>
+		<mat-row *matRowDef="let myRowData; columns: columnShow"></mat-row>
+	</mat-table>
+</div>

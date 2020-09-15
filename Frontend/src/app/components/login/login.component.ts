@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'usuario';
   }
 
   form: FormGroup;

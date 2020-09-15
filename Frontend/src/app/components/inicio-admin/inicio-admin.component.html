@@ -1,0 +1,39 @@
+<p>inicio-admin works!</p>
+<nav class="navbar  titulo-reclamos">
+  <a class="navbar-brand" href="/home">
+    <img src="/assets/img/logo/logo-white.png" width="17%" alt="">
+  </a>
+  <a class="btn-admin" href="/home" (click)="logout()">Cerrar Sesión</a>
+</nav>
+
+<section class="usuario">
+  <div class="container">
+    <div class="row my-5">
+      <div class="col">
+        <h1>Hola <strong>{{usuarios.nombre}}</strong></h1>
+      </div>
+    </div>
+    <div class="row my-5">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 19px;">Reclamo</h5>
+
+            <a href="/AdminPersonal" class="Btn-login">Ver todos tus reclamos</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 19px;">Consultar </h5>
+
+            <a href="/admin" class="Btn-login">Ver todos los reclamos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>

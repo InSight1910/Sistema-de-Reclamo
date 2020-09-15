@@ -3,6 +3,8 @@ import { ReclamoService } from 'src/app/services/reclamo.service';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import swal from 'sweetalert';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -12,9 +14,19 @@ import swal from 'sweetalert';
 })
 export class LoginAdminComponent implements OnInit {
   @Input() usuario: Usuario;
-  constructor(private service: ReclamoService, private router: Router) { }
+  constructor(private service: ReclamoService, private router: Router, private fb: FormBuilder, private authService: AuthService) { }
+
+  form: FormGroup;
+  public loginInvalid: boolean;
+  private formSubmitAttempt: boolean;
+
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      username: ['', Validators.email],
+      password: ['', Validators.required]
+    });
+
   }
 
   loginAdmin(correo: String, contrasenha: String) {
@@ -32,13 +44,29 @@ export class LoginAdminComponent implements OnInit {
         'error')
     }
 
-    /*
-        verificación de logueo */
-    else {
-      this.service.loginAdmin({ correo, contrasenha } as Usuario).subscribe(userResponse => {
-
-        this.router.navigate(["admin"]);
-      });
+  }
+  onSubmit(){
+    this.loginInvalid = false;
+    this.formSubmitAttempt = false;
+    if(this.form.valid){
+      try {
+        const username = this.form.get('username').value;
+        const password = this.form.get('password').value;
+        let usuario: Usuario = {
+          correo: username,
+          contrasenha: password
+        } as Usuario;
+        this.authService.loginAdmin(usuario).subscribe(userResponse => {
+          localStorage.setItem("usuario", JSON.stringify(userResponse));
+          this.router.navigate(['inicioAdmin']);
+        });
+      }
+      catch (err) {
+        console.log(err);
+        this.loginInvalid = true;
+      }
+    } else {
+      this.formSubmitAttempt = true;
     }
   }
 }

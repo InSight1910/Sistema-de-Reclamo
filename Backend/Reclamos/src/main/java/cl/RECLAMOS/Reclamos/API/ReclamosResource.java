@@ -4,6 +4,7 @@ import cl.RECLAMOS.Reclamos.JDBC.DAO.ReclamoDAO;
 import cl.RECLAMOS.Reclamos.JDBC.DAO.UsuarioDAO;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.Reclamos;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.SendEmailService;
+import cl.RECLAMOS.Reclamos.JDBC.DTO.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,11 @@ public class ReclamosResource {
     @RequestMapping(method = RequestMethod.GET, value = "allReclamo/{id}")
     public List<Reclamos> GETALL(@PathVariable("id") int i) throws SQLException {
         List<Reclamos> r = new ReclamoDAO().GETxRECLAMO(i);
+        return r;
+    }
+    @RequestMapping(method = RequestMethod.GET, value = "reclamosAdmin/{rut}")
+    public List<Reclamos> GETALL(@PathVariable("rut") String rut) throws SQLException {
+        List<Reclamos> r = new ReclamoDAO().GETxADMIN(rut);
         return r;
     }
 
@@ -57,6 +63,11 @@ public class ReclamosResource {
     @RequestMapping(method = RequestMethod.PUT, value = "insertarAntecedente/{nreclamo}")
     public void antecedente(@RequestBody Reclamos u) throws SQLException {
         new ReclamoDAO().modificarAntecedente(u);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "asignarReclamos/{nreclamo}")
+    public void ASIGNARRECLAMO(@PathVariable("nreclamo") int i, @RequestBody Usuario u) throws SQLException {
+        new ReclamoDAO().asignarReclamoAdmin(u,i);
     }
 
 }

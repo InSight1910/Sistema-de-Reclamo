@@ -24,6 +24,10 @@ export class ReclamoService {
   obtenerAllAdmin(): Observable<Reclamo[]> {
     return this.http.get<Reclamo[]>(this.obtenerAdminURL);
   }
+  obtenerAdmin(rut): Observable<Reclamo[]> {
+    const suffix = 'reclamosAdmin/';
+    return this.http.get<Reclamo[]>(this.api + suffix + rut);
+  }
 
   obtenerUsuario(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.obtenerUserURL);
@@ -79,5 +83,9 @@ export class ReclamoService {
   ingresarReclamo(reclamo: Reclamo) {
     const url = "create"
     return this.http.post(this.api+url, reclamo)
+  }
+  asignarReclamo(usuario: Usuario, i){
+    const url = "asignarReclamos/"
+    return this.http.put(this.api + url + i, usuario)
   }
 }

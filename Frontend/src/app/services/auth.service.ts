@@ -15,6 +15,10 @@ export class AuthService {
     const url = 'loginUsuario/';
     return this.http.post<Usuario>(this.api + url, usuario);
   }
+  loginAdmin(usuario: Usuario): Observable<Usuario> {
+    const url = 'loginAdmin/';
+    return this.http.post<Usuario>(this.api + url, usuario);
+  }
 
   public   isAuthenticated(): boolean{
     const token = localStorage.getItem('usuario');

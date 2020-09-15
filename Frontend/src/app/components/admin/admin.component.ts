@@ -6,6 +6,7 @@ import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { EditarEstadoComponent } from '../dialogs/editar-estado/editar-estado.component';
 import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.component';
+import { AsignarReclamoComponent } from '../dialogs/asignar-reclamo/asignar-reclamo.component';
 
 
 @Component({
@@ -26,6 +27,15 @@ export class AdminComponent implements OnInit {
   search;
   datas: Reclamo[] = [];
   dataSource = new MatTableDataSource(this.datas);
+  usuarios: Usuario = {
+    correo: null,
+    nombre: null,
+    contrasenha: null,
+    rut: null,
+    rol: null,
+    numTelefono: null,
+    direccion: null
+  };
 
   //Constructor
   constructor(private service: ReclamoService, private dialog: MatDialog) { }
@@ -36,13 +46,6 @@ export class AdminComponent implements OnInit {
         this.datas = usuario;
         this.dataSource = new MatTableDataSource(this.datas);
       });
-
-    this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
-      return data.tipoReclamo.trim().toLocaleLowerCase().indexOf(filter.trim().toLowerCase()) >= 0;
-      //return data.TIPORECLAMO.trim().toLocaleLowerCase() = filter;
-    }
-    //this.dataSource.filterPredicate = (data: Reclamo, filter: string) => data.tipoReclamo.trim().toLowerCase().indexOf(filter) != -1;
-
   }
   openEstado(reclamo) {
     const dialogconfig = new MatDialogConfig();
@@ -80,6 +83,15 @@ export class AdminComponent implements OnInit {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.data = reclamo;
     const dialogRef = this.dialog.open(ViewReclamoComponent, dialogconfig);
+  }
+  obtenerDatosUsuario() {
+    const rut = JSON.parse(localStorage.getItem('usuario')).rut
+    this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
+  }
+  openAsignAdmin(reclamo: Reclamo){
+    const dialogconfig = new MatDialogConfig();
+    dialogconfig.data = reclamo.numeroReclamo;
+    const dialogRef = this.dialog.open(AsignarReclamoComponent, dialogconfig)
   }
 
 }

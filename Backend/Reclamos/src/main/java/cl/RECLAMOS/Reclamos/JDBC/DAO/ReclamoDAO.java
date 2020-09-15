@@ -1,7 +1,8 @@
-|package cl.RECLAMOS.Reclamos.JDBC.DAO;
+package cl.RECLAMOS.Reclamos.JDBC.DAO;
 
 import cl.RECLAMOS.Reclamos.JDBC.ConnectionManager;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.Reclamos;
+import cl.RECLAMOS.Reclamos.JDBC.DTO.Usuario;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -82,6 +83,29 @@ public class ReclamoDAO {
         }
         return  r;
     }
+    public List<Reclamos> GETxADMIN(String rutAdmin) throws SQLException {
+        String sql = "select * from RECLAMOS where RUT_ADMIN = ? and ESTADO = 'En revision' ";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, rutAdmin);
+        ResultSet rs = ps.executeQuery();
+        List<Reclamos> r = new ArrayList<>();
+        while (rs.next()){
+            Reclamos re = new Reclamos(
+                    rs.getString("TIPORECLAMO"),
+                    rs.getDate("FECHA_TOPE"),
+                    rs.getInt("NUMERORECLAMO"),
+                    rs.getString("DESCRIPCION"),
+                    rs.getDate("FECHA"),
+                    rs.getString("ESTADO"),
+                    rs.getString("ANTECEDENTES"),
+                    rs.getString("RUT"),
+                    rs.getString("COMENTARIOS"),
+                    rs.getString("RUT_ADMIN")
+            );
+            r.add(re);
+        }
+        return  r;
+    }
     public void CREATE(Reclamos r) throws SQLException{
         String fecha = "(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) ";
         String FechaTope = "(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(day, DATEADD(day, 2, getdate())) as varchar) as Date))";
@@ -121,6 +145,13 @@ public class ReclamoDAO {
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, u.getAntecedentes());
         ps.setInt(2, u.getNumeroReclamo());
+        ps.executeUpdate();
+    }
+    public void asignarReclamoAdmin(Usuario u, int i) throws SQLException {
+        String sql = "update Reclamos set rut_admin = ?, estado = 'En revision' where numeroREclamo = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1,u.getRut());
+        ps.setInt(2, i);
         ps.executeUpdate();
     }
 }

@@ -5,7 +5,7 @@
   <a class="btn-admin" href="/home">Cerrar Sesión</a>
 </nav>
 
-<div style="width: 90%; ;margin: 1em auto;" class="mat-elevation-z2">
+<div style="width: 90%; ;margin: 1em auto;" class="mat-elevation-z8">
   <span class="p-4">Filtrar por Rut</span>
   <input class="input-filtrar" matInput placeholder="Ingresa un rut" (keypress)="searchDef(search)"
     [(ngModel)]="search">
@@ -27,6 +27,9 @@
         </button>
         <button mat-mini-fab data-toggle="modal" (click)="openView(reclamo)">
           Ver
+        </button>
+        <button mat-mat-mini-fab data-toggle="modal" (click)="openAsignAdmin(reclamo, i)">
+            Asignar Reclamo
         </button>
       </mat-cell>
     </ng-container>

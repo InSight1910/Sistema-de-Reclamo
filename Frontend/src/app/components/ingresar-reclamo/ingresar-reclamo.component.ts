@@ -10,7 +10,7 @@ import { ReclamoService } from 'src/app/services/reclamo.service';
   styleUrls: ['./ingresar-reclamo.component.css']
 })
 export class IngresarReclamoComponent implements OnInit {
- 
+
   constructor(private router: Router, private service: ReclamoService, private ruta: ActivatedRoute) { }
   @Input() reclamos: Reclamo;
   @Input() usuario: Usuario;
@@ -35,7 +35,7 @@ export class IngresarReclamoComponent implements OnInit {
     this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
 
-  ingresarReclamo(rut: String,tipoReclamo: string, descripcion:string, fecha:string): void{
+  ingresarReclamo(rut: String,tipoReclamo: string, descripcion:string): void{
     this.service.ingresarReclamo({rut, tipoReclamo, descripcion} as Reclamo).subscribe()
   }
 }

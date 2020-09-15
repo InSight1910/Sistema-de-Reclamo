@@ -8,21 +8,21 @@
     <div class="container">
         <div class="row">
             <div class="col-6 mx-auto  mb-5">
-                <form class="formulario card">
+                <form [formGroup]="form" class="formulario card" (ngSubmit)="onSubmit()">
                     <img class="text-center mx-auto mb-3" src="/assets/img/icons/admin-logo.png" width="30%" alt="">
                     <h1 class="mx-auto text-center">Administración</h1>
                     <div class="form-group">
                         <label for="nombreUser">Correo</label>
-                        <input type="text" class="form-control" id="nombreUser" placeholder="Ingrese Correo" #correo>
+                        <input type="text" class="form-control" id="nombreUser" formControlName='username'
+                          placeholder="Ingrese Correo" #correo>
                     </div>
                     <div class="form-group">
                         <label for="contrasenhaUser">Contraseña</label>
-                        <input type="password" class="form-control" id="contrasenhaUser" #contrasena
+                        <input type="password" class="form-control" formControlName='password' id="contrasenhaUser" #contrasena
                             placeholder="Ingrese Contraseña">
                     </div>
 
-                    <button type="button" class="btn btn-lg Btn-login  btn-block" value="Acceder"
-                        (click)="loginAdmin(correo.value, contrasena.value)">Iniciar Sesión</button>
+                    <button class="btn btn-lg Btn-login  btn-block" value="Acceder">Iniciar Sesión</button>
                     <div class="form-group text-center mt-5">
                         <p>¿No tienes una cuenta? Registrate <a routerLink="/registro">aquí</a></p>
                         <p>Recupera tu contraseña <a routerLink="/recuperarContrasena">aquí</a></p>
