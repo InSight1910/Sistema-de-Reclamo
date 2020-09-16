@@ -103,4 +103,11 @@ export class ReclamoService {
     const url = "editarReclamo/"
      return this.http.put<Reclamo>(this.api+url, reclamo)
   }
+
+  obtenerReclamoPorNumreclamo(NUMERORECLAMO: number) {
+
+    const url = "allReclamo/"
+    return this.http.get<Reclamo[]>(this.api+url+NUMERORECLAMO)
+  }
+
 }

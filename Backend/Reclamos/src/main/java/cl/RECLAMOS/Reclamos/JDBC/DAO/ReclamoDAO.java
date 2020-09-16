@@ -155,7 +155,6 @@ public class ReclamoDAO {
         ps.setInt(2, i);
         ps.executeUpdate();
     }
-
     public void modificarComentario(Reclamos u) throws SQLException {
         String sql = "update reclamos set COMENTARIOS = ? where NUMERORECLAMO =?";
         PreparedStatement ps = conn.prepareStatement(sql);
