@@ -17,9 +17,9 @@
     <mat-header-row *matHeaderRowDef="columnasAMostrar"></mat-header-row>
     <mat-row *matRowDef="let myRowData; columns: columnasAMostrar"></mat-row>
     <ng-container matColumnDef="opciones">
-			<mat-header-cell *matHeaderCellDef> Eliminar o Modificar </mat-header-cell>
+			<mat-header-cell *matHeaderCellDef> Tomar o Eliminar </mat-header-cell>
 			<mat-cell *matCellDef="let reclamo; index as i">
-        <button mat-stroked-button color="primary" (mensaje)="traerConfirmacion($event, i)" (click)="openAsignAdmin(reclamo, i)">Tomar reclamo</button>
+        <button mat-stroked-button color="primary"  (click)="openAsignAdmin(reclamo, i)">Tomar reclamo</button>
 
 			</mat-cell>
 		  </ng-container>

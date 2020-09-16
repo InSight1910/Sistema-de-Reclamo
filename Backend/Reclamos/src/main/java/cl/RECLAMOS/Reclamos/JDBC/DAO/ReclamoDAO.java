@@ -24,15 +24,16 @@ public class ReclamoDAO {
         while (rs.next()){
             Reclamos re = new Reclamos(
                     rs.getString("TIPORECLAMO"),
-                    rs.getDate("FECHA_TOPE"),
                     rs.getInt("NUMERORECLAMO"),
                     rs.getString("DESCRIPCION"),
                     rs.getDate("FECHA"),
                     rs.getString("ESTADO"),
                     rs.getString("ANTECEDENTES"),
                     rs.getString("RUT"),
+                    rs.getDate("FECHA_TOPE"),
                     rs.getString("COMENTARIOS"),
-                    rs.getString("RUT_ADMIN")
+                    rs.getString("RUT_ADMIN"),
+                    rs.getString("SERVICIO")
             );
             r.add(re);
         }
@@ -47,15 +48,16 @@ public class ReclamoDAO {
         while (rs.next()){
             Reclamos re = new Reclamos(
                     rs.getString("TIPORECLAMO"),
-                    rs.getDate("FECHA_TOPE"),
                     rs.getInt("NUMERORECLAMO"),
                     rs.getString("DESCRIPCION"),
                     rs.getDate("FECHA"),
                     rs.getString("ESTADO"),
                     rs.getString("ANTECEDENTES"),
                     rs.getString("RUT"),
+                    rs.getDate("FECHA_TOPE"),
                     rs.getString("COMENTARIOS"),
-                    rs.getString("RUT_ADMIN")
+                    rs.getString("RUT_ADMIN"),
+                    rs.getString("SERVICIO")
             );
             r.add(re);
         }
@@ -70,15 +72,16 @@ public class ReclamoDAO {
         while (rs.next()){
             Reclamos re = new Reclamos(
                     rs.getString("TIPORECLAMO"),
-                    rs.getDate("FECHA_TOPE"),
                     rs.getInt("NUMERORECLAMO"),
                     rs.getString("DESCRIPCION"),
                     rs.getDate("FECHA"),
                     rs.getString("ESTADO"),
                     rs.getString("ANTECEDENTES"),
                     rs.getString("RUT"),
+                    rs.getDate("FECHA_TOPE"),
                     rs.getString("COMENTARIOS"),
-                    rs.getString("RUT_ADMIN")
+                    rs.getString("RUT_ADMIN"),
+                    rs.getString("SERVICIO")
             );
             r.add(re);
         }
@@ -93,15 +96,16 @@ public class ReclamoDAO {
         while (rs.next()){
             Reclamos re = new Reclamos(
                     rs.getString("TIPORECLAMO"),
-                    rs.getDate("FECHA_TOPE"),
                     rs.getInt("NUMERORECLAMO"),
                     rs.getString("DESCRIPCION"),
-                    rs.getDate("FECHA"),
+                    rs.getDate("FECHA_TOPE"),
                     rs.getString("ESTADO"),
                     rs.getString("ANTECEDENTES"),
                     rs.getString("RUT"),
+                    rs.getDate("FECHA"),
                     rs.getString("COMENTARIOS"),
-                    rs.getString("RUT_ADMIN")
+                    rs.getString("RUT_ADMIN"),
+                    rs.getString("SERVICIO")
             );
             r.add(re);
         }

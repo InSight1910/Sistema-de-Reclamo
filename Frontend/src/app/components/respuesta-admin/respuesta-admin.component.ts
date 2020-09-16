@@ -46,8 +46,8 @@ export class RespuestaAdminComponent implements OnInit {
 
   
 
-  IngresarRespuesta (numeroReclamo: number, rut: string, texto: string): void {
-    this.service.crearRespuesta({numeroReclamo, rut, texto} as Respuesta).subscribe(repuesta => this.respuesta = this.respuesta)
+  IngresarRespuesta (numeroReclamo, rut, texto) : void {
+    this.service.crearRespuesta({numeroReclamo, rut, texto} as Respuesta).subscribe(repuesta => console.log(this.respuesta))
     console.log(this.respuesta)
 
   }
