@@ -19,10 +19,8 @@
     <ng-container matColumnDef="opciones">
 			<mat-header-cell *matHeaderCellDef> Tomar o Eliminar </mat-header-cell>
 			<mat-cell *matCellDef="let reclamo; index as i">
-        <button mat-stroked-button color="primary" (click)="openAsignAdmin(reclamo, i)">Tomar reclamo</button>
-			  <button (click)="borrarReclamo(reclamo, i)" mat-mini-fab color="warn">
-          <mat-icon>delete</mat-icon>
-          </button>
+        <button mat-stroked-button color="primary"  (click)="openAsignAdmin(reclamo, i)">Tomar reclamo</button>
+
 			</mat-cell>
 		  </ng-container>
   </mat-table>
