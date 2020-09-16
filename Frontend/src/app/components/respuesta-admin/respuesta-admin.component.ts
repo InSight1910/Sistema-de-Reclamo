@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Reclamo } from 'src/app/interfaces/reclamo.model';
+import { Respuesta } from 'src/app/interfaces/respuesta.model';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import { ReclamoService } from 'src/app/services/reclamo.service';
 
@@ -10,11 +12,12 @@ import { ReclamoService } from 'src/app/services/reclamo.service';
 })
 export class RespuestaAdminComponent implements OnInit {
 
-  constructor(private service: ReclamoService) { }
-
+  constructor(private service: ReclamoService, private router: Router) { }
+  @Input() respuestas: Respuesta
   ngOnInit(): void {
     this.obtenerDatosUsuario();
-    this.obtenerDatosReclamo();
+     
+ 
   }
   usuarios: Usuario = {
     correo: null,
@@ -26,26 +29,26 @@ export class RespuestaAdminComponent implements OnInit {
     direccion: null
   };
 
-  reclamo: Reclamo = {
-    tipoReclamo: null,
+  respuesta: Respuesta = {
     numeroReclamo: null,
-    descripcion: null,
-    fecha: null,
-    estado: null,
-    antecendentes: null,
     rut: null,
-    comentarios: null,
-    fechaTope: null
-  };
+    texto: null,
+    fechaRespuesta: null,
+
+  }
+  
+  
 
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
     this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
 
-  obtenerDatosReclamo() {
-    const n = JSON.parse(localStorage.getItem('reclamo')).numeroReclamo
-    this.service.obtenerReclamoPorNumreclamo(n).subscribe(reclamo => this.reclamo = reclamo[0]);
-    console.log()
+  
+
+  IngresarRespuesta (numeroReclamo: number, rut: string, texto: string): void {
+    this.service.crearRespuesta({numeroReclamo, rut, texto} as Respuesta).subscribe(repuesta => this.respuesta = this.respuesta)
+    console.log(this.respuesta)
+
   }
 }
