@@ -22,7 +22,7 @@ public class RespuestaDAO {
         ResultSet rs = ps.executeQuery();
         List<Respuesta> res = new LinkedList<>();
         while (rs.next()){
-            Respuesta r = new Respuesta(rs.getInt("N_RECLAMO"),rs.getString("RUT"),rs.getString("TEXTO"), rs.getDate("FECHA_RESPUESTA"), rs.getDate("LIMITE_RESPUESTA"));
+            Respuesta r = new Respuesta(rs.getInt("N_RECLAMO"),rs.getString("RUT"),rs.getString("TEXTO"), rs.getDate("FECHA_RESPUESTA"));
             res.add(r);
         }
         return res;
@@ -34,7 +34,7 @@ public class RespuestaDAO {
     }
 
     public void createRespuesta(Respuesta r) throws SQLException, ParseException {
-        String sql = "Insert into RESPUESTA(N_RECLAMO, RUT, TEXTO, FECHA_RESPUESTA, LIMITE_RESPUESTA) VALUES(?,?,?, (cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) , (cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(day, DATEADD(day, 2, getdate())) as varchar) as Date)))";
+        String sql = "Insert into RESPUESTA(N_RECLAMO, RUT, TEXTO, FECHA_RESPUESTA) VALUES(?,?,?, (cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)))";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1,r.getN_reclamo());
         ps.setString(2,r.getRut());
