@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { MatTableDataSource } from '@angular/material/table';
 import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import { ReclamoService } from 'src/app/services/reclamo.service';
+import { EditarEstadoComponent } from '../dialogs/editar-estado/editar-estado.component';
+import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.component';
 
 @Component({
   selector: 'app-admin-personal',
@@ -11,10 +14,10 @@ import { ReclamoService } from 'src/app/services/reclamo.service';
 })
 export class AdminPersonalComponent implements OnInit {
 
-  constructor(private service: ReclamoService) { }
+  constructor(private service: ReclamoService, private dialog: MatDialog) { }
 
 
-  columnShow = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut'];
+  columnShow = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut', 'opciones'];
   columns = [
     { name: 'tipoReclamo', title: 'Tipo Reclamo' },
     { name: 'numeroReclamo', title: 'Numero Reclamo' },
@@ -37,9 +40,6 @@ export class AdminPersonalComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerDatosUsuario()
 
-
-
-
   }
 
 
@@ -54,5 +54,35 @@ export class AdminPersonalComponent implements OnInit {
       });
   }
 
+  openEstado(reclamo) {
+    const dialogconfig = new MatDialogConfig();
+    dialogconfig.data = {
+      numero: reclamo.numeroReclamo
+    };
+    const dialogRef = this.dialog.open(EditarEstadoComponent, dialogconfig);
 
+  }
+
+  borrarReclamo(reclamo, i) {
+
+
+    this.service.borrarReclamo(reclamo.numeroReclamo).subscribe(_ => this.obtenerReclamoAct())
+
+    this.data.splice(i, 1);
+    this.dataSource = new MatTableDataSource(this.data);
+  }
+
+
+
+  obtenerReclamoAct() {
+    this.service.obtenerAllAdmin().subscribe(reclamos => this.data = reclamos);
+  };
+
+  
+  openView(reclamo) {
+    const dialogconfig = new MatDialogConfig();
+    dialogconfig.data = reclamo;
+    const dialogRef = this.dialog.open(ViewReclamoComponent, dialogconfig);
+  }
+ 
 }
