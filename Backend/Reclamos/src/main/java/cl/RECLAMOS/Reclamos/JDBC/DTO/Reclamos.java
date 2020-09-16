@@ -16,6 +16,7 @@ public class Reclamos {
 
 
 
+
     public String getTipoReclamo() {
         return TipoReclamo;
     }
