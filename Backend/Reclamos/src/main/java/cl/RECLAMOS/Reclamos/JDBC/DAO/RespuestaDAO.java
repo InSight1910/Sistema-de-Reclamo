@@ -22,7 +22,7 @@ public class RespuestaDAO {
         ResultSet rs = ps.executeQuery();
         List<Respuesta> res = new LinkedList<>();
         while (rs.next()){
-            Respuesta r = new Respuesta(rs.getInt("N_RECLAMO"),rs.getString("RUT"),rs.getString("TEXTO"), rs.getDate("FECHA_RESPUESTA"), rs.getDate("LIMITE_RESPUESTA"));
+            Respuesta r = new Respuesta(rs.getInt("N_RECLAMO"),rs.getString("RUT"),rs.getString("TEXTO"), rs.getDate("FECHA_RESPUESTA"));
             res.add(r);
         }
         return res;
