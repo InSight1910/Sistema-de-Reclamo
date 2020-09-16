@@ -89,19 +89,14 @@ export class AdminComponent implements OnInit {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
     this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
-  openAsignAdmin(reclamo: Reclamo, i){
+  openAsignAdmin(reclamo: Reclamo, i) {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.data = reclamo.numeroReclamo;
     const dialogRef = this.dialog.open(AsignarReclamoComponent, dialogconfig)
-    dialogRef.afterClosed().subscribe(
-      art => {
-        if (art) {
-          this.datas.splice(i,1)
-          this.dataSource = new MatTableDataSource(this.datas);
-        }
-      }
-    )
+
   }
+
+
 
   logout() {
     localStorage.removeItem("usuario");
