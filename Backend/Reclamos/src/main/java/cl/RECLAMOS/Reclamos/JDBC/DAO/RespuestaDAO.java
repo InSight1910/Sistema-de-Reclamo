@@ -35,7 +35,6 @@ public class RespuestaDAO {
 
     public void createRespuesta(Respuesta r) throws SQLException, ParseException {
         String fecha = "(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) ";
-        String FechaTope = "(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(day, DATEADD(day, 2, getdate())) as varchar) as Date))";
         String sql = "Insert into RESPUESTA(N_RECLAMO, RUT, TEXTO, FECHA_RESPUESTA) VALUES(?,?,?," + fecha +")";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1,r.getN_reclamo());
