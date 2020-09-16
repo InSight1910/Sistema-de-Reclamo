@@ -29,6 +29,8 @@ import { AsignarReclamoComponent } from './components/dialogs/asignar-reclamo/as
 import { InicioAdminComponent } from './components/inicio-admin/inicio-admin.component';
 import { AdminPersonalComponent } from './components/admin-personal/admin-personal.component';
 import { ReclamoDetalleUSerComponent } from './components/dialogs/reclamo-detalle-user/reclamo-detalle-user.component';
+import { RespuestaAdminComponent } from './components/respuesta-admin/respuesta-admin.component';
+
 
 
 @NgModule({
@@ -53,6 +55,7 @@ import { ReclamoDetalleUSerComponent } from './components/dialogs/reclamo-detall
     InicioAdminComponent,
     AdminPersonalComponent,
     ReclamoDetalleUSerComponent,
+    RespuestaAdminComponent,
 
   ],
   imports: [

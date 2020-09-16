@@ -5,6 +5,9 @@
 	<a class="btn-admin" href="/home">Cerrar Sesión</a>
 </nav>
 
+<button type="button" button mat-stroked-button color="primary" routerLink="/respuestaAdmin">Ingresar respuesta</button> 
+<br>
+<br>
 <div class="mat-elevation-z8">
 	<mat-table [dataSource]="dataSource">
 		<ng-container *ngFor="let column of columns" matColumnDef="{{column.name}}">
@@ -20,12 +23,10 @@
 				<mat-icon>delete</mat-icon>
 			  </button>
 			  <div style="padding-right: 2em;"></div>
-			  <button (click)="openEstado(reclamo)" href="#contenido" data-toggle="modal" mat-mini-fab color="warn">
-				<mat-icon>edit</mat-icon>
-			  </button>
 			  <button mat-mini-fab data-toggle="modal" (click)="openView(reclamo)">
 				Ver
 			  </button>
+			  
 			</mat-cell>
 		  </ng-container>
 	</mat-table>

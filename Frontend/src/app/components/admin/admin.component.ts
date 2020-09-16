@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 
-  columnasAMostrar: string[] = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut'];
+  columnasAMostrar: string[] = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut', 'opciones'];
   columnas = [
     { name: 'tipoReclamo', title: 'Tipo Reclamo' },
     { name: 'numeroReclamo', title: 'Numero Reclamo' },
@@ -89,7 +89,7 @@ export class AdminComponent implements OnInit {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
     this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
-  openAsignAdmin(reclamo: Reclamo){
+  openAsignAdmin(reclamo: Reclamo, i){
     const dialogconfig = new MatDialogConfig();
     dialogconfig.data = reclamo.numeroReclamo;
     const dialogRef = this.dialog.open(AsignarReclamoComponent, dialogconfig)

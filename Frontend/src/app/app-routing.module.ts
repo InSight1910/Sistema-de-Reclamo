@@ -14,6 +14,7 @@ import { PreguntasFrecuentesComponent } from './components/preguntas-frecuentes/
 import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
 import { InicioAdminComponent } from './components/inicio-admin/inicio-admin.component';
 import { AdminPersonalComponent } from './components/admin-personal/admin-personal.component';
+import { RespuestaAdminComponent } from './components/respuesta-admin/respuesta-admin.component';
 
 
 
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: "ingresarReclamo", component: IngresarReclamoComponent },
   { path: "inicioAdmin", component: InicioAdminComponent },
   { path: "AdminPersonal", component: AdminPersonalComponent },
-  { path: 'usuario', component: UsuarioComponent }
+  { path: 'usuario', component: UsuarioComponent },
+  { path: "respuestaAdmin", component: RespuestaAdminComponent}
 
 ];
 export const appRoutingProviders: any[] = [];

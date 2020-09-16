@@ -42,7 +42,6 @@ public class Respuesta {
     }
 
 
-
     public Respuesta(Integer n_reclamo, String rut, String texto, Date fecha_respuesta) {
         N_reclamo = n_reclamo;
         Rut = rut;

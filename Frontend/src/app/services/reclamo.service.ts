@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from '../interfaces/usuario.model';
 import { Reclamo } from "../interfaces/reclamo.model";
+import { Respuesta } from "../interfaces/respuesta.model";
+
 import { UsuarioComponent } from '../components/usuario/usuario.component';
 
 @Injectable({
@@ -103,4 +105,16 @@ export class ReclamoService {
     const url = "editarReclamo/"
      return this.http.put<Reclamo>(this.api+url, reclamo)
   }
+
+  obtenerReclamoPorNumreclamo(NUMERORECLAMO: number) {
+
+    const url = "allReclamo/"
+    return this.http.get<Reclamo[]>(this.api+url+NUMERORECLAMO)
+  }
+
+  crearRespuesta(respuesta: Respuesta) {
+    const url = "createRespuesta/"
+    return this.http.post(this.api+url, respuesta)
+  }
+
 }
