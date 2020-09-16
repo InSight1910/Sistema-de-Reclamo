@@ -21,6 +21,7 @@ export class AsignarReclamoComponent implements OnInit {
     numTelefono: null,
     direccion: null
   };
+  acepto = false;
 
   ngOnInit(): void {
     this.obtenerDatosUsuario();
@@ -31,6 +32,8 @@ export class AsignarReclamoComponent implements OnInit {
   }
   asignarReclamo(){
     this.service.asignarReclamo(this.usuarios, this.values).subscribe()
+    this.acepto = true
+    return this.acepto;
   }
 
 }
