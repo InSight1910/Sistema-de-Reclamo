@@ -57,7 +57,7 @@ public class RespuestaDAO {
                 PreparedStatement ps1 = conn.prepareStatement(sql1);
                 ps1.setInt(1, i);
                 ps1.executeUpdate();
-            } else if(comparacion > 0){
+            } else{
                 String sql1 = "update Reclamos set SERVICIO = 'Ineficiente' where NUMERORECLAMO = ?";
                 PreparedStatement ps1 = conn.prepareStatement(sql1);
                 ps1.setInt(1, i);
