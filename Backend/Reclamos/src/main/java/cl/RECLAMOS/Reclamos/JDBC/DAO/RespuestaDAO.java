@@ -27,11 +27,8 @@ public class RespuestaDAO {
         }
         return res;
     }
-    public Date parseDate(String fecha) throws ParseException {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
-        Date newfecha = (Date) format.parse(fecha);
-        return newfecha;
-    }
+
+
 
     public void createRespuesta(Respuesta r) throws SQLException, ParseException {
         String fecha = "(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) ";
@@ -40,6 +37,33 @@ public class RespuestaDAO {
         ps.setInt(1,r.getN_reclamo());
         ps.setString(2,r.getRut());
         ps.setString(3, r.getTexto());
+        getFecha(r.getN_reclamo());
         ps.executeUpdate();
+    }
+    public void getFecha(int i) throws SQLException {
+        String sql = "select Fecha_respuesta, Fecha_tope from Respuesta Re inner join RECLAMOS r on r.NUMERORECLAMO = re.N_RECLAMO where N_reclamo = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, i);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()){
+
+            Date fecha = rs.getDate("Fecha_respuesta");
+            Date fechaTope = rs.getDate("Fecha_tope");
+            int comparacion = fecha.compareTo(fechaTope);
+
+            if (comparacion <= 0){
+                String sql1 = "update Reclamos set SERVICIO = 'Eficiente' where NUMERORECLAMO = ?";
+                PreparedStatement ps1 = conn.prepareStatement(sql1);
+                ps1.setInt(1, i);
+                ps1.executeUpdate();
+            } else if(comparacion > 0){
+                String sql1 = "update Reclamos set SERVICIO = 'Ineficiente' where NUMERORECLAMO = ?";
+                PreparedStatement ps1 = conn.prepareStatement(sql1);
+                ps1.setInt(1, i);
+                ps1.executeUpdate();
+            }
+        }
+
     }
 }
