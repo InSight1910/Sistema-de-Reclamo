@@ -117,4 +117,9 @@ export class ReclamoService {
     return this.http.post(this.api+url, respuesta)
   }
 
+  estadoResuelto(NUMERORECLAMO: number) {
+    const url = "EstadoResuelto"
+    return this.http.put(this.api+url, NUMERORECLAMO)
+  }
+
 }

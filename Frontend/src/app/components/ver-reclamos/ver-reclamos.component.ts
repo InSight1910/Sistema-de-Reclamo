@@ -58,5 +58,9 @@ export class VerReclamosComponent implements OnInit {
     dialogconfig.data = reclamo;
     const dialogRef = this.dialog.open(ReclamoDetalleUSerComponent, dialogconfig);
   }
+
+  actualizarResuelto(reclamo) {
+    this.service.updateEstado(reclamo.numeroReclamo).subscribe();
+  }
 }
 
