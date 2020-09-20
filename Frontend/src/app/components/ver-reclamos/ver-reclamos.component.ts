@@ -6,6 +6,7 @@ import { Reclamo } from '../../interfaces/reclamo.model';
 import { Usuario } from '../../interfaces/usuario.model';
 import { ReclamoService } from '../../services/reclamo.service';
 import { ReclamoDetalleUSerComponent } from '../dialogs/reclamo-detalle-user/reclamo-detalle-user.component';
+import swal from 'sweetalert'
 
 @Component({
   selector: 'app-ver-reclamos',
@@ -60,7 +61,12 @@ export class VerReclamosComponent implements OnInit {
   }
 
   actualizarResuelto(reclamo) {
-    this.service.updateEstado(reclamo.numeroReclamo).subscribe();
+    this.service.updateEstado(reclamo.numeroReclamo).subscribe(_ => swal('Reclamo resuelto',
+    'Nos alegra haberlo ayudado',
+    'success'));
+    this.dataSource = new MatTableDataSource(this.datas);
+
+    // no actualiza en tiempo real.
   }
 }
 
