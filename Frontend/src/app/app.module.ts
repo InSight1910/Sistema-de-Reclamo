@@ -30,6 +30,7 @@ import { InicioAdminComponent } from './components/inicio-admin/inicio-admin.com
 import { AdminPersonalComponent } from './components/admin-personal/admin-personal.component';
 import { ReclamoDetalleUSerComponent } from './components/dialogs/reclamo-detalle-user/reclamo-detalle-user.component';
 import { RespuestaAdminComponent } from './components/respuesta-admin/respuesta-admin.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -56,6 +57,7 @@ import { RespuestaAdminComponent } from './components/respuesta-admin/respuesta-
     AdminPersonalComponent,
     ReclamoDetalleUSerComponent,
     RespuestaAdminComponent,
+    NavbarComponent,
 
   ],
   imports: [

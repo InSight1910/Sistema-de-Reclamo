@@ -20,6 +20,6 @@ public class RespuestaResource {
     @RequestMapping(method = RequestMethod.POST, value = "createRespuesta")
     public void CREATE(@RequestBody Respuesta r) throws SQLException, ParseException {
         new RespuestaDAO().createRespuesta(r);
-        new RespuestaDAO().getFecha(r.getN_reclamo());
+        new RespuestaDAO().getFecha(r.getN_reclamo()); 
     }
 }

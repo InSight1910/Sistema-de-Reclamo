@@ -32,7 +32,7 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerDatosUsuario();
-
+    this.url()
   }
 
   obtenerDatosUsuario() {
@@ -54,6 +54,15 @@ export class UsuarioComponent implements OnInit {
   }
 
 
-
+  url(){
+    let iniciado = false;
+    let datos = JSON.parse(localStorage.getItem("usuario"))
+    if (datos){
+      iniciado = true;
+      return iniciado;
+    } else {
+      return iniciado
+    }
+  }
 
 }
