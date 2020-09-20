@@ -29,6 +29,7 @@ public class Reclamos {
         this.servicio = servicio;
     }
 
+
     public String getTipoReclamo() {
         return TipoReclamo;
     }

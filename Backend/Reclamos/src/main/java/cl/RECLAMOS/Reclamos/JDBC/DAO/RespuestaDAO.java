@@ -37,8 +37,8 @@ public class RespuestaDAO {
         ps.setInt(1,r.getN_reclamo());
         ps.setString(2,r.getRut());
         ps.setString(3, r.getTexto());
-        getFecha(r.getN_reclamo());
         ps.executeUpdate();
+        conn.commit();
     }
     public void getFecha(int i) throws SQLException {
         String sql = "select Fecha_respuesta, Fecha_tope from Respuesta Re inner join RECLAMOS r on r.NUMERORECLAMO = re.N_RECLAMO where N_reclamo = ?";
@@ -51,18 +51,19 @@ public class RespuestaDAO {
             Date fecha = rs.getDate("Fecha_respuesta");
             Date fechaTope = rs.getDate("Fecha_tope");
             int comparacion = fecha.compareTo(fechaTope);
-
             if (comparacion <= 0){
                 String sql1 = "update Reclamos set SERVICIO = 'Eficiente' where NUMERORECLAMO = ?";
                 PreparedStatement ps1 = conn.prepareStatement(sql1);
                 ps1.setInt(1, i);
                 ps1.executeUpdate();
-            } else{
+            } else if(comparacion > 0){
                 String sql1 = "update Reclamos set SERVICIO = 'Ineficiente' where NUMERORECLAMO = ?";
-                PreparedStatement ps1 = conn.prepareStatement(sql1);
-                ps1.setInt(1, i);
-                ps1.executeUpdate();
+                ps = conn.prepareStatement(sql1);
+                ps.setInt(1, i);
+                ps.executeUpdate();
+
             }
+
         }
 
     }
