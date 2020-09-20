@@ -12,7 +12,7 @@
           <mat-icon>delete</mat-icon>
         </button>
         <div style="padding-right: 2em;"></div>
-        <button href="#contenido" data-toggle="modal" mat-mini-fab color="warn">
+        <button href="#contenido" (click)="actualizarResuelto(reclamo)" data-toggle="modal" mat-mini-fab color="warn">
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-mini-fab data-toggle="modal" (click)="openView(reclamo)">

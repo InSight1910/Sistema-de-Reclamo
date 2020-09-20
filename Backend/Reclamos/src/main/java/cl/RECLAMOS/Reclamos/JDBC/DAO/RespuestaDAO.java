@@ -53,10 +53,9 @@ public class RespuestaDAO {
             int comparacion = fecha.compareTo(fechaTope);
             if (comparacion <= 0){
                 String sql1 = "update Reclamos set SERVICIO = 'Eficiente' where NUMERORECLAMO = ?";
-                ps = conn.prepareStatement(sql1);
-                ps.setInt(1, i);
-                ps.executeUpdate();
-
+                PreparedStatement ps1 = conn.prepareStatement(sql1);
+                ps1.setInt(1, i);
+                ps1.executeUpdate();
             } else if(comparacion > 0){
                 String sql1 = "update Reclamos set SERVICIO = 'Ineficiente' where NUMERORECLAMO = ?";
                 ps = conn.prepareStatement(sql1);

@@ -176,4 +176,5 @@ public class ReclamoDAO {
         ps.setInt(4, a.getNumeroReclamo());
         ps.executeUpdate();
     }
+
 }
