@@ -6,6 +6,10 @@
                 <form class="formulario card">
                     <h1 class="mx-auto text-center">Ingrese su respuesta</h1>
                     <div class="form-group">
+                        <div class="form-group">
+                            <label for="">Número de reclamo</label>
+                            <input type="text" class="form-control"  name="nreclamo" #nreclamo id="rutReclamo" placeholder="Ingrese número de reclamo ">
+                        </div>
                         <label for="rut">Rut</label>
                         <input type="text" class="form-control" [(ngModel)]="usuarios.rut" name="rut"  id="rutReclamo" placeholder="Ingrese Rut">
                     </div>

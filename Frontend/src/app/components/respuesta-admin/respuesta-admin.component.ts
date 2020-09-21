@@ -17,7 +17,6 @@ export class RespuestaAdminComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerDatosUsuario();
 
-
   }
   texto;
   nreclamo
