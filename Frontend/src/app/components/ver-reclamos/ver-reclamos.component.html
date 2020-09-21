@@ -1,5 +1,5 @@
-
-<mat-table [dataSource]="dataSource">
+<div class="" style="width: 90%; margin: 1rem auto;">
+  <mat-table [dataSource]="dataSource">
     <ng-container *ngFor="let columna of columnas" matColumnDef="{{columna.name}}">
       <mat-header-cell *matHeaderCellDef> {{columna.title}} </mat-header-cell>
       <mat-cell *matCellDef="let reclamo"> {{reclamo[columna.name]}} </mat-cell>
@@ -16,10 +16,11 @@
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-mini-fab data-toggle="modal" (click)="openView(reclamo)">
-            Ver
-          </button>
+          Ver
+        </button>
       </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="columnasAMostrar"></mat-header-row>
     <mat-row *matRowDef="let myRowData; columns: columnasAMostrar"></mat-row>
   </mat-table>
+</div>
