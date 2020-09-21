@@ -34,7 +34,7 @@ export class RespuestaAdminComponent implements OnInit {
     n_reclamo: null,
     rut: null,
     texto: null,
-    fechaRespuesta: null,
+    fecha_respuesta: null,
 
   }
 
@@ -48,6 +48,6 @@ export class RespuestaAdminComponent implements OnInit {
 
 
   IngresarRespuesta (rut, n_reclamo, texto) : void {
-    this.service.crearRespuesta({n_reclamo, rut, texto} as Respuesta).subscribe(repuesta => console.log(this.respuesta))
+    this.service.crearRespuesta({n_reclamo, rut, texto} as Respuesta).subscribe()
   }
 }
