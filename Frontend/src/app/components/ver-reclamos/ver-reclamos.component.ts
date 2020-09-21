@@ -51,7 +51,10 @@ export class VerReclamosComponent implements OnInit {
   }
 
   obtenerReclamoAct() {
-    this.service.obtenerAllAdmin().subscribe(reclamos => this.datas = reclamos);
+    this.service.obtenerAllAdmin().subscribe(reclamos => {
+      this.datas = reclamos
+      this.dataSource = new MatTableDataSource(this.datas);
+    });
   };
 
   openView(reclamo) {
@@ -64,7 +67,7 @@ export class VerReclamosComponent implements OnInit {
     this.service.updateEstado(reclamo.numeroReclamo).subscribe(_ => swal('Reclamo resuelto',
     'Nos alegra haberlo ayudado',
     'success'));
-    this.dataSource = new MatTableDataSource(this.datas);
+
 
     // no actualiza en tiempo real.
   }

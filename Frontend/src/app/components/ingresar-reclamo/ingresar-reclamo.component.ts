@@ -37,8 +37,6 @@ export class IngresarReclamoComponent implements OnInit {
   }
 
   ingresarReclamo(rut: String,tipoReclamo: string, descripcion:string): void{
-   
-
 
     if(!descripcion.trim()){
       swal('Campo vacío',

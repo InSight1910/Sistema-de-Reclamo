@@ -30,9 +30,9 @@ public class RespuestaDAO {
 
 
 
-    public void createRespuesta(Respuesta r) throws SQLException, ParseException {
+    public void createRespuesta(Respuesta r) throws SQLException {
         String fecha = "(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) ";
-        String sql = "Insert into RESPUESTA(N_RECLAMO, RUT, TEXTO, FECHA_RESPUESTA) VALUES(?,?,?," + fecha +")";
+        String sql = "Insert into RESPUESTA(N_RECLAMO, RUT, TEXTO, FECHA_RESPUESTA) VALUES(?,?,?," + fecha + ")";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1,r.getN_reclamo());
         ps.setString(2,r.getRut());

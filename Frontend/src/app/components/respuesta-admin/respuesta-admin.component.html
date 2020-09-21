@@ -11,17 +11,21 @@
                             <input type="text" class="form-control"  name="nreclamo" #nreclamo id="rutReclamo" placeholder="Ingrese número de reclamo ">
                         </div>
                         <label for="rut">Rut</label>
-                        <input type="text" class="form-control" [(ngModel)]="usuarios.rut" name="rut" #rut id="rutReclamo" >
+                        <input type="text" class="form-control" [(ngModel)]="usuarios.rut" name="rut"  id="rutReclamo" placeholder="Ingrese Rut">
                     </div>
                     <div class="form-group">
-                        <label for="contrasenhaUser">Descripción de su Reclamo</label>
-                        <textarea #texto name="texto" id="" cols="30" rows="10"></textarea>
+                        <label for="nreclamo">Número de reclamo</label>
+                        <input type="text" class="form-control"  name="nreclamo" [(ngModel)]="nreclamo" id="rutReclamo" placeholder="Ingrese Rut">
+                    </div>
+                    <div class="form-group">
+                        <label for="texto">Texto</label>
+                        <textarea [(ngModel)]="texto" name="texto" id="" cols="30" rows="10"></textarea>
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col"><button type="submit" class="Btn-cancelar  mt-3"
                                     routerLink="/AdminPersonal">Cancelar</button></div>
-                            <div class="col"> <button type="button" class="Btn-login  mt-3" (click)="IngresarRespuesta(nreclamo.value, rut.value, texto.value)">Enviar</button></div>
+                            <div class="col"> <button type="button" class="Btn-login  mt-3" (click)="IngresarRespuesta(usuarios.rut, nreclamo, texto)">Enviar</button></div>
                         </div>
                     </div>
                 </form>

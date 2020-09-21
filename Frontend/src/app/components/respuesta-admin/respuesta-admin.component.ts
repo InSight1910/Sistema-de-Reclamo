@@ -17,8 +17,9 @@ export class RespuestaAdminComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerDatosUsuario();
 
- 
   }
+  texto;
+  nreclamo
   usuarios: Usuario = {
     correo: null,
     nombre: null,
@@ -29,20 +30,24 @@ export class RespuestaAdminComponent implements OnInit {
     direccion: null
   };
 
-  nreclamo;
-  texto;
+  respuesta: Respuesta = {
+    n_reclamo: null,
+    rut: null,
+    texto: null,
+    fechaRespuesta: null,
 
-  
+  }
+
+
 
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
     this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
 
-  
 
-  IngresarRespuesta (numeroReclamo: number, rut: string, texto: string) : void {
-    this.service.crearRespuesta({numeroReclamo, rut, texto} as Respuesta).subscribe()
-    
+
+  IngresarRespuesta (rut, n_reclamo, texto) : void {
+    this.service.crearRespuesta({n_reclamo, rut, texto} as Respuesta).subscribe(repuesta => console.log(this.respuesta))
   }
 }

@@ -117,4 +117,9 @@ export class ReclamoService {
     return this.http.post(this.api+url, respuesta)
   }
 
+  obtenerRespuesta(n_reclamo: number): Observable<Respuesta[]> {
+    const url = 'getRespuesta/'
+    return this.http.get<Respuesta[]>(this.api+url+n_reclamo)
+  }
+
 }

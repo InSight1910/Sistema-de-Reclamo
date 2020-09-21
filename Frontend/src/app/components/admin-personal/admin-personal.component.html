@@ -1,9 +1,10 @@
 
 
-<button type="button" button mat-stroked-button color="primary" routerLink="/respuestaAdmin">Ingresar respuesta</button>
-<br>
-<br>
-<div class="mat-elevation-z8">
+
+<div style="width: 90%; margin: 1em auto;">
+  <button type="button" button mat-stroked-button color="primary" routerLink="/respuestaAdmin">Ingresar respuesta</button>
+</div>
+<div class="mat-elevation-z8" style="width: 90%; margin: 1em auto;">
 	<mat-table [dataSource]="dataSource">
 		<ng-container *ngFor="let column of columns" matColumnDef="{{column.name}}">
         <mat-header-cell *matHeaderCellDef> {{column.title}} </mat-header-cell>
