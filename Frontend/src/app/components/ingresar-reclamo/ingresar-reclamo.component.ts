@@ -37,7 +37,7 @@ export class IngresarReclamoComponent implements OnInit {
   }
 
   ingresarReclamo(rut: String,tipoReclamo: string, descripcion:string): void{
-    this.service.ingresarReclamo({rut, tipoReclamo, descripcion} as Reclamo).subscribe()
+   
 
 
     if(!descripcion.trim()){

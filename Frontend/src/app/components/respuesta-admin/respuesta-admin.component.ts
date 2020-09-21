@@ -16,7 +16,7 @@ export class RespuestaAdminComponent implements OnInit {
   @Input() respuestas: Respuesta
   ngOnInit(): void {
     this.obtenerDatosUsuario();
-     
+
  
   }
   usuarios: Usuario = {
@@ -29,14 +29,9 @@ export class RespuestaAdminComponent implements OnInit {
     direccion: null
   };
 
-  respuesta: Respuesta = {
-    numeroReclamo: null,
-    rut: null,
-    texto: null,
-    fechaRespuesta: null,
+  nreclamo;
+  texto;
 
-  }
-  
   
 
   obtenerDatosUsuario() {
@@ -46,9 +41,8 @@ export class RespuestaAdminComponent implements OnInit {
 
   
 
-  IngresarRespuesta (numeroReclamo, rut, texto) : void {
-    this.service.crearRespuesta({numeroReclamo, rut, texto} as Respuesta).subscribe(repuesta => console.log(this.respuesta))
-    console.log(this.respuesta)
-
+  IngresarRespuesta (numeroReclamo: number, rut: string, texto: string) : void {
+    this.service.crearRespuesta({numeroReclamo, rut, texto} as Respuesta).subscribe()
+    
   }
 }
