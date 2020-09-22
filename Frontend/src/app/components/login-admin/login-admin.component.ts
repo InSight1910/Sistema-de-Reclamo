@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ReclamoService } from 'src/app/services/reclamo.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import swal from 'sweetalert';
@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginAdminComponent implements OnInit {
   @Input() usuario: Usuario;
-  constructor(private service: ReclamoService, private router: Router, private fb: FormBuilder, private authService: AuthService) { }
+  constructor(private service: UsuariosService, private router: Router, private fb: FormBuilder, private authService: AuthService) { }
 
   form: FormGroup;
   public loginInvalid: boolean;

@@ -3,7 +3,8 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { MatTableDataSource } from '@angular/material/table';
 import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { Usuario } from 'src/app/interfaces/usuario.model';
-import { ReclamoService } from 'src/app/services/reclamo.service';
+import { ReclamosService } from 'src/app/services/reclamos.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import { EditarEstadoComponent } from '../dialogs/editar-estado/editar-estado.component';
 import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.component';
 
@@ -14,7 +15,7 @@ import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.compo
 })
 export class AdminPersonalComponent implements OnInit {
 
-  constructor(private service: ReclamoService, private dialog: MatDialog) { }
+  constructor(private service: ReclamosService, private dialog: MatDialog, private serviceUser: UsuariosService) { }
 
 
   columnShow = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut', 'opciones'];
@@ -45,7 +46,7 @@ export class AdminPersonalComponent implements OnInit {
 
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
-    this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
+    this.serviceUser.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
     console.log(rut)
     this.service.obtenerAdmin(rut).subscribe(
       usuario => {

@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { Respuesta } from 'src/app/interfaces/respuesta.model';
 import { Usuario } from 'src/app/interfaces/usuario.model';
-import { ReclamoService } from 'src/app/services/reclamo.service';
+import { RespuestasService } from 'src/app/services/respuestas.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import swal from 'sweetalert'
 
 @Component({
@@ -13,7 +14,7 @@ import swal from 'sweetalert'
 })
 export class RespuestaAdminComponent implements OnInit {
 
-  constructor(private service: ReclamoService, private router: Router) { }
+  constructor(private service: RespuestasService, private router: Router, private serviceUser: UsuariosService) { }
   @Input() respuestas: Respuesta
   ngOnInit(): void {
     this.obtenerDatosUsuario();
@@ -43,7 +44,7 @@ export class RespuestaAdminComponent implements OnInit {
 
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
-    this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
+    this.serviceUser.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
 
 

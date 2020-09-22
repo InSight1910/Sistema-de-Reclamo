@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Reclamo } from '../../interfaces/reclamo.model';
 import { Usuario } from '../../interfaces/usuario.model';
-import { ReclamoService } from '../../services/reclamo.service';
+import { ReclamosService } from '../../services/reclamos.service';
 import { ReclamoDetalleUSerComponent } from '../dialogs/reclamo-detalle-user/reclamo-detalle-user.component';
 import swal from 'sweetalert'
 import { Respuesta } from 'src/app/interfaces/respuesta.model';
@@ -16,7 +16,7 @@ import { Respuesta } from 'src/app/interfaces/respuesta.model';
 })
 export class VerReclamosComponent implements OnInit {
 
-  constructor(private service: ReclamoService, private ruta: ActivatedRoute, private dialog: MatDialog, private router: Router) { }
+  constructor(private service: ReclamosService, private ruta: ActivatedRoute, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerDatosUsuario();

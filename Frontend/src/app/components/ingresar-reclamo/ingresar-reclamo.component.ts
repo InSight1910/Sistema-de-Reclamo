@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { Usuario } from 'src/app/interfaces/usuario.model';
-import { ReclamoService } from 'src/app/services/reclamo.service';
+import { ReclamosService } from 'src/app/services/reclamos.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import swal from 'sweetalert'
 
 @Component({
@@ -12,7 +13,7 @@ import swal from 'sweetalert'
 })
 export class IngresarReclamoComponent implements OnInit {
 
-  constructor(private router: Router, private service: ReclamoService, private ruta: ActivatedRoute) { }
+  constructor(private router: Router, private service: ReclamosService, private ruta: ActivatedRoute, private serviceUser: UsuariosService) { }
   @Input() reclamos: Reclamo;
   @Input() usuario: Usuario;
   usuarios: Usuario = {
@@ -33,7 +34,7 @@ export class IngresarReclamoComponent implements OnInit {
 
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
-    this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
+    this.serviceUser.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
 
   ingresarReclamo(rut: String,tipoReclamo: string, descripcion:string): void{

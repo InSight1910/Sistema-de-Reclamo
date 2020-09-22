@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReclamoService } from "../../services/reclamo.service";
+import { ReclamosService } from "../../services/reclamos.service";
 import { Usuario } from '../../interfaces/usuario.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { Reclamo } from 'src/app/interfaces/reclamo.model';
@@ -9,6 +9,7 @@ import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.compo
 import { AsignarReclamoComponent } from '../dialogs/asignar-reclamo/asignar-reclamo.component';
 import { Router } from '@angular/router';
 import { fdatasync } from 'fs';
+import { UsuariosService } from "../../services/usuarios.service";
 
 
 @Component({
@@ -40,7 +41,7 @@ export class AdminComponent implements OnInit {
   };
 
   //Constructor
-  constructor(private service: ReclamoService, private dialog: MatDialog, private router: Router) { }
+  constructor(private service: ReclamosService, private dialog: MatDialog, private router: Router, private serviceUser: UsuariosService) { }
 
   ngOnInit(): void {
     this.service.obtenerAllAdmin().subscribe(
@@ -88,7 +89,7 @@ export class AdminComponent implements OnInit {
   }
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
-    this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
+    this.serviceUser.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
   openAsignAdmin(reclamo: Reclamo, i, confirmacion) {
     const dialogconfig = new MatDialogConfig();
