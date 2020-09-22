@@ -22,7 +22,7 @@
 </div>
   <div class="form-group">
     <label for="rutReclamo">Descripción del problema:</label>
-    <input type="text" class="form-control" [(ngModel)]="values.descripcion" name="descripcion">
+    <textarea type="text" class="form-control" [(ngModel)]="values.descripcion" name="descripcion"></textarea>
 </div>
   <div class="form-group">
     <label for="rutReclamo">Fecha de ingreso:</label>
@@ -34,7 +34,7 @@
 </div>
   <div class="form-group">
     <label for="rutReclamo">Antecedente/Respuesta de admin:</label>
-    <input type="text" class="form-control" [(ngModel)]="valueAns.texto" name="antecedentes" #antecedentes disabled>
+    <textarea type="text" class="form-control" [(ngModel)]="valueAns.texto" name="antecedentes" #antecedentes disabled></textarea>
 </div>
   <div class="form-group">
     <label for="rutReclamo">Añadir comentarios:</label>

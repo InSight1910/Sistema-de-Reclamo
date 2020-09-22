@@ -49,6 +49,6 @@ export class RespuestaAdminComponent implements OnInit {
 
 
   IngresarRespuesta (rut, n_reclamo, texto) : void {
-    this.service.crearRespuesta({n_reclamo, rut, texto} as Respuesta).subscribe(_ => { swal('¡Yayy!', 'Gracias por registrarte, esperamos que disfrutes de nuestros servicios', 'success'); this.router.navigate(['AdminPersonal'])});
+    this.service.crearRespuesta({n_reclamo, rut, texto} as Respuesta).subscribe(_ => { swal('¡Genial!', 'La respuesta fue ingresada con éxito. El usuario podrá verla como "Antecedente", esperamos esto resuelva la inquietud del mismo. Sino, continúen la comunicación por correo eléctrónico o llamada telefónica', 'success'); this.router.navigate(['AdminPersonal'])});
   }
 }

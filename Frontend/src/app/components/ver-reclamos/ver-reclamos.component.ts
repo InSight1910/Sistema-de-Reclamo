@@ -7,6 +7,7 @@ import { Usuario } from '../../interfaces/usuario.model';
 import { ReclamoService } from '../../services/reclamo.service';
 import { ReclamoDetalleUSerComponent } from '../dialogs/reclamo-detalle-user/reclamo-detalle-user.component';
 import swal from 'sweetalert'
+import { Respuesta } from 'src/app/interfaces/respuesta.model';
 
 @Component({
   selector: 'app-ver-reclamos',
@@ -37,6 +38,7 @@ export class VerReclamosComponent implements OnInit {
   usuario: Usuario;
   reclamo: Reclamo[];
 
+   
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut;
     this.service.obtenerReclamosPorRut(rut).subscribe(reclamo => {this.datas = reclamo; this.dataSource = new MatTableDataSource(this.datas)});;
@@ -44,7 +46,7 @@ export class VerReclamosComponent implements OnInit {
 
   borrarReclamo(reclamo, i) {
 
-    this.service.borrarReclamo(reclamo.numeroReclamo).subscribe(_ => this.obtenerReclamoAct())
+    this.service.borrarReclamo(reclamo.numeroReclamo).subscribe()
 
     this.datas.splice(i, 1);
     this.dataSource = new MatTableDataSource(this.datas);

@@ -106,7 +106,7 @@ export class RegistroComponent implements OnInit {
 
 
     this.service.registrarUsuario(this.user).subscribe(
-      _ => { swal('¡Yayy!', 'Gracias por registrarte, esperamos que disfrutes de nuestros servicios', 'success'); this.router.navigate(['usuario']) },
+      _ => { swal('¡Yayy!', 'Gracias por registrarte, esperamos que disfrutes de nuestros servicios', 'success'); this.router.navigate(['login']) },
       error => { swal('Este correo ya se encuentra en uso, o ingresaste un formato equivocado', 'error') }
     )
   }
