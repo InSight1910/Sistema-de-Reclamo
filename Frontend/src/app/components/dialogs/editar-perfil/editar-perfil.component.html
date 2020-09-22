@@ -23,7 +23,7 @@
           <br>
           <mat-form-field style="width:100%;">
             <mat-label #correo >Correo</mat-label>
-            <input matInput style="width:80%;" [(ngModel)]="usuarios.correo" name="correo">
+            <input matInput style="width:80%;" #correo [(ngModel)]="usuarios.correo" name="correo">
           </mat-form-field>
           <br>
           <mat-form-field style="width:100%;">
@@ -36,7 +36,7 @@
         <div class="col">
             <button [mat-dialog-close]="true" mat-raised-button color="primary" (click)="guardar()" style="margin-left: 6em;">Guardar cambios</button>
             <td class="text-left">
-                <button [mat-dialog-close]="true" class="btn btn-editar" (click)="borrar(usuarios.rut)">Eliminar mi cuenta</button>
+                <button [mat-dialog-close]="true" class="btn btn-editar" (click)="borrarPorCorreo()">Eliminar mi cuenta</button>
             </td>
             
         </div>

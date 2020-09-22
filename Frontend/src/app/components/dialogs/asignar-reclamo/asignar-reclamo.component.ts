@@ -2,6 +2,7 @@ import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import { ReclamoService } from 'src/app/services/reclamo.service';
+import swal from 'sweetalert'
 
 @Component({
   selector: 'app-asignar-reclamo',
@@ -34,7 +35,9 @@ export class AsignarReclamoComponent implements OnInit {
     this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
   asignarReclamo(){
-    this.service.asignarReclamo(this.usuarios, this.values).subscribe()
+    this.service.asignarReclamo(this.usuarios, this.values).subscribe(_ => swal('Reclamo asignado',
+    '¡Manos a la obra!',
+    'success'))
     this.acepto = true
     return this.mensaje.emit(this.acepto);
   }

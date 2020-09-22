@@ -73,4 +73,8 @@ public class UsuarioResource {
       return new UsuarioDAO().obtenerCorreoPorRut(rut);
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, value = "borrarUserCorreo/{correo}")
+    public void borrarUsuarioCorreo(@PathVariable("correo") String correo) throws SQLException {
+        new UsuarioDAO().borrarUserPorCorreo(correo);
+    }
 }

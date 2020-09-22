@@ -4,6 +4,7 @@ import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { Respuesta } from 'src/app/interfaces/respuesta.model';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import { ReclamoService } from 'src/app/services/reclamo.service';
+import swal from 'sweetalert'
 
 @Component({
   selector: 'app-respuesta-admin',
@@ -19,7 +20,7 @@ export class RespuestaAdminComponent implements OnInit {
 
   }
   texto;
-  nreclamo
+  n_reclamo
   usuarios: Usuario = {
     correo: null,
     nombre: null,
@@ -48,6 +49,6 @@ export class RespuestaAdminComponent implements OnInit {
 
 
   IngresarRespuesta (rut, n_reclamo, texto) : void {
-    this.service.crearRespuesta({n_reclamo, rut, texto} as Respuesta).subscribe()
+    this.service.crearRespuesta({n_reclamo, rut, texto} as Respuesta).subscribe(_ => { swal('¡Yayy!', 'Gracias por registrarte, esperamos que disfrutes de nuestros servicios', 'success'); this.router.navigate(['adminPersonal'])});
   }
 }

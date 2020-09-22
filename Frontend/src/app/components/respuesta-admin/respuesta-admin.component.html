@@ -11,7 +11,7 @@
           </div>
           <div class="form-group">
             <label for="nreclamo">Número de reclamo</label>
-            <input type="text" class="form-control" name="nreclamo" [(ngModel)]="nreclamo" id="rutReclamo"
+            <input type="text" class="form-control" [(ngModel)]="n_reclamo" name="n_reclamo" id="rutReclamo"
               placeholder="Ingrese Rut">
           </div>
           <div class="form-group">
@@ -23,7 +23,7 @@
               <div class="col"><button type="submit" class="Btn-cancelar  mt-3"
                   routerLink="/AdminPersonal">Cancelar</button></div>
               <div class="col"> <button type="button" class="Btn-login  mt-3"
-                  (click)="IngresarRespuesta(usuarios.rut, nreclamo, texto)">Enviar</button></div>
+                  (click)="IngresarRespuesta(usuarios.rut, n_reclamo, texto)">Enviar</button></div>
             </div>
           </div>
         </form>

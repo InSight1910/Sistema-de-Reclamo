@@ -21,8 +21,8 @@ usuarios: any;
     this.usuarioService.editarPerfil(this.usuarios).subscribe(data => console.log(data))
   }
 
-  borrar(rut){
+  borrarPorCorreo(){
     
-    this.usuarioService.eliminarUsuario(this.usuarios.rut).subscribe(_ =>  this.router.navigate(['home']));
+    this.usuarioService.eliminarUsuarioPorCorreo(this.usuarios.correo).subscribe(_ =>  this.router.navigate(['home']));
   }
 }

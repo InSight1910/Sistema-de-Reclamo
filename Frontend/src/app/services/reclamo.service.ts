@@ -122,4 +122,9 @@ export class ReclamoService {
     return this.http.get<Respuesta[]>(this.api+url+n_reclamo)
   }
 
+  
+  eliminarUsuarioPorCorreo(correo: string) {
+    const url = "borrarUserCorreo/"
+    return this.http.delete(this.api+url+correo)
+  }
 }
