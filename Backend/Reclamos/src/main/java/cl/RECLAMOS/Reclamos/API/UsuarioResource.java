@@ -35,8 +35,8 @@ public class UsuarioResource {
     @RequestMapping(method = RequestMethod.DELETE, value = "borrarUser/{rut}")
     public void borrarUsuario(@PathVariable("rut") String rut) throws SQLException {
         new UsuarioDAO().borrarUser(rut);
-    }
 
+    }
 
     @RequestMapping(method = RequestMethod.POST, value = "registrar")
     public void crearUsuario ( @RequestBody Usuario u) throws SQLException {
@@ -83,4 +83,6 @@ public class UsuarioResource {
                 "El equipo de Reclamos Chile";
         sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com", correo, "¡Hasta luego!", body);
     }
+
+
 }

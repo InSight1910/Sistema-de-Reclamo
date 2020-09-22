@@ -135,9 +135,11 @@ public class UsuarioDAO {
     }
 
     public void borrarUserPorCorreo(String correo) throws SQLException {
-        String sql = "DELETE FROM USUARIOS WHERE CORREO =?";
+        String sql = "DELETE FROM USUARIOS WHERE CORREO = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, correo);
+        ps.executeUpdate();
     }
+
 }
 

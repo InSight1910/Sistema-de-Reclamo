@@ -24,8 +24,14 @@ usuarios: any;
   }
 
   borrarPorCorreo(){
-    
-    this.usuarioService.eliminarUsuarioPorCorreo(this.usuarios.correo).subscribe(_ => {swal('Fue un gusto ayudarte',
+    const correo = JSON.parse(localStorage.getItem('usuario')).correo
+    this.usuarioService.eliminarUsuarioPorCorreo(correo).subscribe(_ => {swal('Fue un gusto ayudarte',
+    'Esperamos vuelvas pronto a utilizar nuestro servicios'); this.router.navigate(['home'])})
+  }
+
+  borrar(){
+    const rut = JSON.parse(localStorage.getItem('usuario')).rut
+    this.usuarioService.eliminarUsuario(rut).subscribe(_ => {swal('Fue un gusto ayudarte',
     'Esperamos vuelvas pronto a utilizar nuestro servicios'); this.router.navigate(['home'])})
   }
 } 
