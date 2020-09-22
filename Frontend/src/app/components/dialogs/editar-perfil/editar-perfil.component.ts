@@ -3,6 +3,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { ReclamoService } from 'src/app/services/reclamo.service';
 import { MAT_DATE_RANGE_SELECTION_STRATEGY } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
+import swal from 'sweetalert'
+
 
 @Component({
   selector: 'app-editar-perfil',
@@ -23,6 +25,8 @@ usuarios: any;
 
   borrarPorCorreo(){
     
-    this.usuarioService.eliminarUsuarioPorCorreo(this.usuarios.correo).subscribe(_ =>  this.router.navigate(['home']));
+    this.usuarioService.eliminarUsuarioPorCorreo(this.usuarios.correo).subscribe(_ => {swal('Fue un gusto ayudarte',
+    'Esperamos vuelvas pronto a utilizar nuestro servicios'); this.router.navigate(['home'])})
   }
-}
+} 
+
