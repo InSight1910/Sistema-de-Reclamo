@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ReclamoService } from 'src/app/services/reclamo.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import { RouteReuseStrategy, Router } from '@angular/router';
 import swal from 'sweetalert'
@@ -25,7 +25,7 @@ export class RegistroComponent implements OnInit {
   hasLower: boolean = false;
   hasNum: boolean = false;
 
-  constructor(private service: ReclamoService, private router: Router) { }
+  constructor(private service: UsuariosService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -106,7 +106,7 @@ export class RegistroComponent implements OnInit {
 
 
     this.service.registrarUsuario(this.user).subscribe(
-      _ => { swal('¡Yayy!', 'Gracias por registrarte, esperamos que disfrutes de nuestros servicios', 'success'); this.router.navigate(['usuario']) },
+      _ => { swal('¡Yayy!', 'Gracias por registrarte, esperamos que disfrutes de nuestros servicios', 'success'); this.router.navigate(['login']) },
       error => { swal('Este correo ya se encuentra en uso, o ingresaste un formato equivocado', 'error') }
     )
   }

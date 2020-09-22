@@ -11,7 +11,7 @@
 </div>
     <div class="form-group">
       <label for="rutReclamo">Descripción del problema:</label>
-      <input type="text" class="form-control" [(ngModel)]="values.descripcion" name="descripcion" disabled>
+      <textarea type="text" class="form-control" [(ngModel)]="values.descripcion" name="descripcion" disabled> </textarea>
   </div>
     <div class="form-group">
       <label for="rutReclamo">Fecha de ingreso:</label>
@@ -23,12 +23,9 @@
   </div>
     <div class="form-group">
       <label for="rutReclamo">Comentarios de usuario:</label>
-      <input type="text" class="form-control" [(ngModel)]="values.comentarios" name="comentarios" #comentarios disabled>
+      <textarea type="text" class="form-control" [(ngModel)]="values.comentarios" name="comentarios" #comentarios disabled></textarea>
   </div>
-  <div class="form-group">
-    <label for="rutReclamo">Feedback:</label>
-    <input type="text" class="form-control" [(ngModel)]="values.antecedentes" name="antecedentes" #antecedentes>
-</div>
-    <button [mat-dialog-close]="true" mat-raised-button color="primary" style="margin-left: 6em;" (click)="guardar()">Guardar cambios</button>
+  
+    <button [mat-dialog-close]="true" mat-raised-button color="primary" style="margin-left: 6em;" (click)="guardar()">¡Ok!</button>
   </div>
   

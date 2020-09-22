@@ -83,8 +83,12 @@ public class ReclamosResource {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "borrarReclamoRespuesta/{id}")
     public void borrarReclamoRespuesta(@PathVariable("id") int i) throws SQLException {
-        new RespuestaDAO().DELETE(i);
-        new ReclamoDAO().DELETE(i);
+        try {
+            new RespuestaDAO().DELETE(i);
+            new ReclamoDAO().DELETE(i);
+        } catch (SQLException e) {
+            new ReclamoDAO().DELETE(i);
+        }
     }
 
 }

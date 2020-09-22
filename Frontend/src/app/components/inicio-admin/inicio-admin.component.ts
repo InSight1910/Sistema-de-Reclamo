@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario.model';
-import { ReclamoService } from 'src/app/services/reclamo.service';
+import { ReclamosService } from 'src/app/services/reclamos.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-inicio-admin',
@@ -10,7 +11,7 @@ import { ReclamoService } from 'src/app/services/reclamo.service';
 })
 export class InicioAdminComponent implements OnInit {
 
-  constructor(private router: Router, private service: ReclamoService) { }
+  constructor(private router: Router, private service: ReclamosService, private serviceUser: UsuariosService) { }
 
   ngOnInit(): void {
     this.obtenerDatosUsuario();
@@ -26,7 +27,7 @@ export class InicioAdminComponent implements OnInit {
   };
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
-    this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
+    this.serviceUser.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
   logout() {
     localStorage.removeItem("usuario");

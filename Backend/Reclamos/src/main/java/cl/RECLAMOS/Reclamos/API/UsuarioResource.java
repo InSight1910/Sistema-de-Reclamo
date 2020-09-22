@@ -35,8 +35,8 @@ public class UsuarioResource {
     @RequestMapping(method = RequestMethod.DELETE, value = "borrarUser/{rut}")
     public void borrarUsuario(@PathVariable("rut") String rut) throws SQLException {
         new UsuarioDAO().borrarUser(rut);
-    }
 
+    }
 
     @RequestMapping(method = RequestMethod.POST, value = "registrar")
     public void crearUsuario ( @RequestBody Usuario u) throws SQLException {
@@ -72,5 +72,17 @@ public class UsuarioResource {
     public String getCorreoPorRut(@PathVariable("rut") String rut) throws SQLException{
       return new UsuarioDAO().obtenerCorreoPorRut(rut);
     }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "borrarUserCorreo/{correo}")
+    public void borrarUsuarioCorreo(@PathVariable("correo") String correo) throws SQLException {
+        new UsuarioDAO().borrarUserPorCorreo(correo);
+        String body = "¡Hola! \n Este es el último mail que te enviaremos, solo queriamos confirmarte que ya te hemos dado de baja en Reclamos Chile. \n" +
+                "toda tu información y datos de acceso han sido borrados permanentemente de nuestros sistemas.  \n" +
+                "Nos da mucha pena que te vayas :(, si deseas volver a usar Reclamos Chile, te estaremos esperando con los brazos abiertos. \n" +
+                "Un abrazo, \n" +
+                "El equipo de Reclamos Chile";
+        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com", correo, "¡Hasta luego!", body);
+    }
+
 
 }

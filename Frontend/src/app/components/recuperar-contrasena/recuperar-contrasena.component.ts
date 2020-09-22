@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReclamoService } from 'src/app/services/reclamo.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import swal from 'sweetalert'
 @Component({
@@ -9,7 +9,7 @@ import swal from 'sweetalert'
 })
 export class RecuperarContrasenaComponent implements OnInit {
 
-  constructor(private service: ReclamoService) { }
+  constructor(private service: UsuariosService) { }
 
   ngOnInit(): void {
 
@@ -21,7 +21,6 @@ export class RecuperarContrasenaComponent implements OnInit {
 
   recuperar(correo, contrasenha){
 
-    
       
     this.service.cambiarContraseña({correo, contrasenha} as Usuario).subscribe(data => console.log(data));
 

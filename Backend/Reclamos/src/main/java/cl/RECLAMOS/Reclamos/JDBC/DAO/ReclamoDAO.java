@@ -88,7 +88,7 @@ public class ReclamoDAO {
         return  r;
     }
     public List<Reclamos> GETxADMIN(String rutAdmin) throws SQLException {
-        String sql = "select * from RECLAMOS where RUT_ADMIN = ? and ESTADO = 'En revision' ";
+        String sql = "select * from RECLAMOS where RUT_ADMIN = ?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, rutAdmin);
         ResultSet rs = ps.executeQuery();

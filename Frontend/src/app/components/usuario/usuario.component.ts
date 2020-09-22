@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ReclamoService } from '../../services/reclamo.service';
+import { ReclamosService } from '../../services/reclamos.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditarPerfilComponent } from '../dialogs/editar-perfil/editar-perfil.component';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-usuario',
@@ -27,7 +28,7 @@ export class UsuarioComponent implements OnInit {
 
   user: Usuario[];
 
-  constructor(private router: Router, private service: ReclamoService, private ruta: ActivatedRoute, private dialog: MatDialog) { }
+  constructor(private router: Router, private service: ReclamosService, private ruta: ActivatedRoute, private dialog: MatDialog, private serviceUser: UsuariosService) { }
 
 
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class UsuarioComponent implements OnInit {
 
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
-    this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
+    this.serviceUser.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
 
 

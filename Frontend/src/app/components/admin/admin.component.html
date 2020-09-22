@@ -10,7 +10,7 @@
     <mat-header-row *matHeaderRowDef="columnasAMostrar"></mat-header-row>
     <mat-row *matRowDef="let myRowData; columns: columnasAMostrar"></mat-row>
     <ng-container matColumnDef="opciones">
-			<mat-header-cell *matHeaderCellDef> Tomar o Eliminar </mat-header-cell>
+			<mat-header-cell *matHeaderCellDef> Tomar </mat-header-cell>
 			<mat-cell *matCellDef="let reclamo; index as i">
         <button mat-stroked-button color="primary"  (click)="openAsignAdmin(reclamo, i)">Tomar reclamo</button>
 

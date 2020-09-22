@@ -4,9 +4,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Reclamo } from '../../interfaces/reclamo.model';
 import { Usuario } from '../../interfaces/usuario.model';
-import { ReclamoService } from '../../services/reclamo.service';
+import { ReclamosService } from '../../services/reclamos.service';
 import { ReclamoDetalleUSerComponent } from '../dialogs/reclamo-detalle-user/reclamo-detalle-user.component';
 import swal from 'sweetalert'
+import { Respuesta } from 'src/app/interfaces/respuesta.model';
 
 @Component({
   selector: 'app-ver-reclamos',
@@ -15,7 +16,7 @@ import swal from 'sweetalert'
 })
 export class VerReclamosComponent implements OnInit {
 
-  constructor(private service: ReclamoService, private ruta: ActivatedRoute, private dialog: MatDialog, private router: Router) { }
+  constructor(private service: ReclamosService, private ruta: ActivatedRoute, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerDatosUsuario();
@@ -37,17 +38,14 @@ export class VerReclamosComponent implements OnInit {
   usuario: Usuario;
   reclamo: Reclamo[];
 
+
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut;
     this.service.obtenerReclamosPorRut(rut).subscribe(reclamo => {this.datas = reclamo; this.dataSource = new MatTableDataSource(this.datas)});;
   }
 
   borrarReclamo(reclamo, i) {
-
-    this.service.borrarReclamo(reclamo.numeroReclamo).subscribe(_ => this.obtenerReclamoAct())
-
-    this.datas.splice(i, 1);
-    this.dataSource = new MatTableDataSource(this.datas);
+    this.service.borrarReclamoRespuesta(reclamo.numeroReclamo).subscribe(_ => this.obtenerDatosUsuario())
   }
 
   obtenerReclamoAct() {
@@ -64,12 +62,10 @@ export class VerReclamosComponent implements OnInit {
   }
 
   actualizarResuelto(reclamo) {
-    this.service.updateEstado(reclamo.numeroReclamo).subscribe(_ => swal('Reclamo resuelto',
-    'Nos alegra haberlo ayudado',
-    'success'));
-
-
-    // no actualiza en tiempo real.
+    this.service.updateEstado(reclamo.numeroReclamo).subscribe(_ => {
+      swal('Reclamo resuelto', 'Nos alegra haberlo ayudado', 'success')
+      this.obtenerDatosUsuario()
+    });
   }
 }
 

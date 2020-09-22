@@ -13,16 +13,13 @@
     <mat-header-row *matHeaderRowDef="columnShow"></mat-header-row>
 		<mat-row *matRowDef="let myRowData; columns: columnShow"></mat-row>
 		<ng-container matColumnDef="opciones">
-			<mat-header-cell *matHeaderCellDef> Eliminar o Modificar </mat-header-cell>
+			<mat-header-cell *matHeaderCellDef> Ver a detalle </mat-header-cell>
 			<mat-cell *matCellDef="let reclamo; index as i">
-			  <button (click)="borrarReclamo(reclamo, i)" mat-mini-fab color="warn">
-				<mat-icon>delete</mat-icon>
-			  </button>
 			  <div style="padding-right: 2em;"></div>
 			  <button mat-mini-fab data-toggle="modal" (click)="openView(reclamo)">
 				Ver
 			  </button>
-
+			  
 			</mat-cell>
 		  </ng-container>
 	</mat-table>

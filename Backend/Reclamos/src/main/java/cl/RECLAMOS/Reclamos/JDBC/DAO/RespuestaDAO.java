@@ -52,12 +52,12 @@ public class RespuestaDAO {
             Date fechaTope = rs.getDate("Fecha_tope");
             int comparacion = fecha.compareTo(fechaTope);
             if (comparacion <= 0){
-                String sql1 = "update Reclamos set SERVICIO = 'Eficiente' where NUMERORECLAMO = ?";
+                String sql1 = "update Reclamos set SERVICIO = 'Eficiente', ESTADO = 'Respondido' where NUMERORECLAMO = ?";
                 PreparedStatement ps1 = conn.prepareStatement(sql1);
                 ps1.setInt(1, i);
                 ps1.executeUpdate();
             } else if(comparacion > 0){
-                String sql1 = "update Reclamos set SERVICIO = 'Ineficiente' where NUMERORECLAMO = ?";
+                String sql1 = "update Reclamos set SERVICIO = 'Ineficiente', ESTADO = 'Respondido' where NUMERORECLAMO = ?";
                 ps = conn.prepareStatement(sql1);
                 ps.setInt(1, i);
                 ps.executeUpdate();
