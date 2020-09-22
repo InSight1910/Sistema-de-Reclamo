@@ -1,6 +1,7 @@
 package cl.RECLAMOS.Reclamos.API;
 
 import cl.RECLAMOS.Reclamos.JDBC.DAO.ReclamoDAO;
+import cl.RECLAMOS.Reclamos.JDBC.DAO.RespuestaDAO;
 import cl.RECLAMOS.Reclamos.JDBC.DAO.UsuarioDAO;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.Reclamos;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.SendEmailService;
@@ -78,6 +79,16 @@ public class ReclamosResource {
     @RequestMapping(method = RequestMethod.PUT, value = "editarReclamo")
     public void modifificarReclamo (@RequestBody Reclamos a) throws SQLException {
         new ReclamoDAO().modificar(a);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "borrarReclamoRespuesta/{id}")
+    public void borrarReclamoRespuesta(@PathVariable("id") int i) throws SQLException {
+        try {
+            new RespuestaDAO().DELETE(i);
+            new ReclamoDAO().DELETE(i);
+        } catch (SQLException e) {
+            new ReclamoDAO().DELETE(i);
+        }
     }
 
 }

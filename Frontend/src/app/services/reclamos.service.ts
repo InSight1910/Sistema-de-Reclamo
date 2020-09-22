@@ -46,6 +46,9 @@ export class ReclamosService {
   borrarReclamo(numeroReclamo) {
     return this.http.delete(`${this.api}delete/${numeroReclamo}`)
   }
+  borrarReclamoRespuesta(numeroReclamo) {
+    return this.http.delete(`${this.api}borrarReclamoRespuesta/${numeroReclamo}`)
+  }
 
   //Methods CREATE
   ingresarReclamo(reclamo: Reclamo) {
