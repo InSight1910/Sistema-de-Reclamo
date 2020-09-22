@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from '../interfaces/usuario.model';
 import { Reclamo } from "../interfaces/reclamo.model";
@@ -98,7 +98,7 @@ export class ReclamoService {
 
   addComentarioUser(reclamo: Reclamo) {
     const url = 'insertarComentario/'
-    return this.http.put<Usuario>(this.api+url, reclamo);
+    return this.http.put<Reclamo>(this.api+url, reclamo);
   }
 
   editarReclamoUser(reclamo: Reclamo) {

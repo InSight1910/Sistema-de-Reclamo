@@ -67,4 +67,11 @@ public class RespuestaDAO {
         }
 
     }
+
+    public void DELETE(int i) throws SQLException {
+        String sql = "delete from RECLAMOS where N_RECLAMO = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1,i);
+        ps.executeUpdate();
+    }
 }
