@@ -8,6 +8,7 @@ import { ReclamosService } from '../../services/reclamos.service';
 import { ReclamoDetalleUSerComponent } from '../dialogs/reclamo-detalle-user/reclamo-detalle-user.component';
 import swal from 'sweetalert'
 import { Respuesta } from 'src/app/interfaces/respuesta.model';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-ver-reclamos',
@@ -16,7 +17,7 @@ import { Respuesta } from 'src/app/interfaces/respuesta.model';
 })
 export class VerReclamosComponent implements OnInit {
 
-  constructor(private service: ReclamosService, private ruta: ActivatedRoute, private dialog: MatDialog, private router: Router) { }
+  constructor(private service: ReclamosService, private ruta: ActivatedRoute, private dialog: MatDialog, private router: Router, private location: Location) { }
 
   ngOnInit(): void {
     this.obtenerDatosUsuario();
@@ -70,8 +71,10 @@ export class VerReclamosComponent implements OnInit {
     'Nos alegra haberlo ayudado',
     'success'));
 
+    
 
     // no actualiza en tiempo real.
   }
+
 }
 
