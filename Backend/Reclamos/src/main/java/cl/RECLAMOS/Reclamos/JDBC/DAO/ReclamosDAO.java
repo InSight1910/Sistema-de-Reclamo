@@ -51,7 +51,7 @@ public class ReclamosDAO {
          */
         String sql = "select * from RECLAMOS where RUT = ?";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, i+ "%");
+        ps.setString(1, i);
         ResultSet rs = ps.executeQuery();
         List<Reclamos> r = new ArrayList<>();
         while (rs.next()){

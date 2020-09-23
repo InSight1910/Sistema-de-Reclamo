@@ -5,8 +5,11 @@ import cl.RECLAMOS.Reclamos.JDBC.DAO.UsuarioDAO;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.Reclamos;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.SendEmailService;
 import cl.RECLAMOS.Reclamos.JDBC.DTO.Usuario;
+import com.sun.mail.smtp.SMTPAddressFailedException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 
 import java.sql.SQLException;
@@ -16,7 +19,7 @@ import java.util.TimerTask;
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin(origins = "*",maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class UsuarioResource {
     //Metodo MAIL
     @Autowired
@@ -30,22 +33,22 @@ public class UsuarioResource {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "obtenerCorreo/{rut}")
-    public String getCorreoPorRut(@PathVariable("rut") String rut) throws SQLException{
+    public String getCorreoPorRut(@PathVariable("rut") String rut) throws SQLException {
         return new UsuarioDAO().obtenerCorreoPorRut(rut);
     }
 
     //Metodo PUT
     @RequestMapping(method = RequestMethod.PUT, value = "editarUsuario")
-    public void modifificarUsuario (@RequestBody Usuario a) throws SQLException {
+    public void modifificarUsuario(@RequestBody Usuario a) throws SQLException {
         new UsuarioDAO().modificar(a);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/usuario/editarContraseña")
-    public void editarContraseña (@RequestBody Usuario c) throws SQLException {
-        new UsuarioDAO().editarContraseña(c);
-        String correoUser = new UsuarioDAO().obtenerCorreoPorRut(c.getRut());
-        String body = "\nSu contraseña ha sido actualizado con éxito. \n Su nueva contraseña es " + c.getContrasenha();
-        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com", c.getCorreo(), "Cambio de contraseña ReclamosChile", body);
+    public void editarContraseña(@RequestBody Usuario c) throws SQLException {
+            new UsuarioDAO().editarContraseña(c);
+            String correoUser = new UsuarioDAO().obtenerCorreoPorRut(c.getRut());
+            String body = "\nSu contraseña ha sido actualizado con éxito. \n Su nueva contraseña es " + c.getContrasenha();
+            sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com", c.getCorreo(), "Cambio de contraseña ReclamosChile", body);
     }
 
     //Metodo DELETE
@@ -65,15 +68,16 @@ public class UsuarioResource {
                 "El equipo de Reclamos Chile";
         sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com", correo, "¡Hasta luego!", body);
     }
+
     //Metodo POST
     @RequestMapping(method = RequestMethod.POST, value = "registrar")
-    public void crearUsuario ( @RequestBody Usuario u) throws SQLException {
+    public void crearUsuario(@RequestBody Usuario u) throws SQLException {
         new UsuarioDAO().crearUsuario(u);
         String correoUser = new UsuarioDAO().obtenerCorreoPorRut(u.getRut());
-        String body = "Sr.(a) "+u.getNombre() +"\nSu cuenta ha sido creada exitosamente.\nEsperamos ser de mucha ayuda para usted." +
+        String body = "Sr.(a) " + u.getNombre() + "\nSu cuenta ha sido creada exitosamente.\nEsperamos ser de mucha ayuda para usted." +
                 "\n\nAtentamente el equipo de ReclamosChile.";
 
-        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",correoUser,"Registro ReclamosChile",body);
+        sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com", correoUser, "Registro ReclamosChile", body);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "loginAdmin")
@@ -85,10 +89,6 @@ public class UsuarioResource {
     public Usuario loginUsuario(@RequestBody Usuario a) throws SQLException {
         return new UsuarioDAO().loginUsuario(a);
     }
-
-
-
-
 
 
 }

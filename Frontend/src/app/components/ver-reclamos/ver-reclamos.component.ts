@@ -47,10 +47,9 @@ export class VerReclamosComponent implements OnInit {
 
   borrarReclamo(reclamo, i) {
 
-    this.service.borrarReclamo(reclamo.numeroReclamo).subscribe()
+    this.service.borrarReclamoRespuesta(reclamo.numeroReclamo).subscribe(_ => this.obtenerDatosUsuario())
 
-    this.datas.splice(i, 1);
-    this.dataSource = new MatTableDataSource(this.datas);
+    
   }
 
   obtenerReclamoAct() {

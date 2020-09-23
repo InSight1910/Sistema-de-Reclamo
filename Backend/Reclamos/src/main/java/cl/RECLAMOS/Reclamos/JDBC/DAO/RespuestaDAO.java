@@ -61,4 +61,15 @@ public class RespuestaDAO {
         }
 
     }
+
+
+    public void DELETE(int i) throws SQLException {
+          /*
+        Metodo para borrar una Respuesta por medio de el numero de reclamo
+         */
+        String sql = "delete from RESPUESTA where N_RECLAMO = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1,i);
+        ps.executeUpdate();
+    }
 }
