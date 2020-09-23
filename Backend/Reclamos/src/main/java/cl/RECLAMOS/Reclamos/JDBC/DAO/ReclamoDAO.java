@@ -121,15 +121,7 @@ public class ReclamoDAO {
         ps.setString(3, r.getRut());
         ps.executeUpdate();
     }
-    public void UPDATE(Reclamos r, int i) throws SQLException {
-        String sql = "UPDATE RECLAMOS" +
-                " SET TIPORECLAMO = ?, DESCRIPCION = ? WHERE NUMERORECLAMO = ?";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, r.getTipoReclamo());
-        ps.setString(2, r.getDescripcion());
-        ps.setInt(3,i);
-        ps.executeUpdate();
-    }
+
     public void UPDATEESTADO(int i) throws SQLException {
         String sql = "UPDATE RECLAMOS SET ESTADO = 'Resuelto' WHERE NUMERORECLAMO = ?";
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -159,13 +151,7 @@ public class ReclamoDAO {
         ps.setInt(2, i);
         ps.executeUpdate();
     }
-    public void modificarComentario(Reclamos u) throws SQLException {
-        String sql = "update reclamos set COMENTARIOS = ? where NUMERORECLAMO =?";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, u.getComentarios());
-        ps.setInt(2, u.getNumeroReclamo());
-        ps.executeUpdate();
-    }
+
 
     public void modificar(Reclamos a) throws SQLException {
         String sql = "UPDATE RECLAMOS SET TIPORECLAMO = ?, DESCRIPCION = ?, COMENTARIOS = ? where NUMERORECLAMO = ?";

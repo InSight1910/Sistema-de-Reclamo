@@ -11,6 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   api = "http://localhost:8080/";
+  
   loginUsuario(usuario: Usuario): Observable<Usuario> {
     const url = 'loginUsuario/';
     return this.http.post<Usuario>(this.api + url, usuario);

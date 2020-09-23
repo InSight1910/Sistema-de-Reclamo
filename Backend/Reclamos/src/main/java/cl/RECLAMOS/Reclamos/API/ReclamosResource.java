@@ -53,10 +53,7 @@ public class ReclamosResource {
         sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",correoUser,"Reclamo Ingresado",body);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "update/{id}")
-    public void UPDATE(@PathVariable("id") int i, @RequestBody Reclamos r) throws SQLException {
-        new ReclamoDAO().UPDATE(r, i);
-    }
+
     @RequestMapping(method = RequestMethod.PUT, value = "updateEstado/{id}")
     public void UPDATERESUELTO(@PathVariable("id") int i) throws SQLException {
         new ReclamoDAO().UPDATEESTADO(i);
@@ -70,11 +67,6 @@ public class ReclamosResource {
     @RequestMapping(method = RequestMethod.PUT, value = "asignarReclamos/{nreclamo}")
     public void ASIGNARRECLAMO(@PathVariable("nreclamo") int i, @RequestBody Usuario u) throws SQLException {
         new ReclamoDAO().asignarReclamoAdmin(u,i);
-    }
-
-    @RequestMapping(method = RequestMethod.PUT, value = "insertarComentario/{nreclamo}")
-    public void comentarioUsuario(@RequestBody Reclamos u) throws SQLException {
-        new ReclamoDAO().modificarComentario(u);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "editarReclamo")

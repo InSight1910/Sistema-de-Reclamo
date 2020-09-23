@@ -34,9 +34,6 @@ export class ReclamosService {
   actualizarAntecedente(reclamo: Reclamo) {
     return this.http.put(`${this.api}insertarAntecedentes`, reclamo)
   }
-  addComentarioUser(reclamo: Reclamo) {
-    return this.http.put<Reclamo>(`${this.api}insertarComentario/`, reclamo)
-  }
   editarReclamoUser(reclamo: Reclamo) {
     return this.http.put<Reclamo>(`${this.api}editarReclamo/`, reclamo)
   }
