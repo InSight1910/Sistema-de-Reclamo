@@ -19,7 +19,7 @@ public class UsuarioDAO {
 
     }
     //Metodo GET
-    private List<Usuario> obtenerUserPorRut(String rut) throws SQLException {
+    public List<Usuario> obtenerUserPorRut(String rut) throws SQLException {
         String sql = "select CORREO, NOMBRE, CONTRASEÑA, RUT, ROL, NUMEROTELEFONO, DIRECCION from USUARIOS where RUT = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, rut);

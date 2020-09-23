@@ -26,11 +26,11 @@ public class UsuarioResource {
     private SendEmailService sendEmailService;
 
     //Metodo GET
-    /*@RequestMapping(method = RequestMethod.GET, value = "usuarios/{rut}")
+    @RequestMapping(method = RequestMethod.GET, value = "usuarios/{rut}")
     public List<Usuario> getUsuarios (@PathVariable("rut") String rut) throws SQLException {
         List<Usuario> user = new UsuarioDAO().obtenerUserPorRut(rut);
         return user;
-    }*/
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "obtenerCorreo/{rut}")
     public String getCorreoPorRut(@PathVariable("rut") String rut) throws SQLException {
@@ -44,17 +44,13 @@ public class UsuarioResource {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/usuario/editarContraseña")
-    public void editarContraseña(@RequestBody Usuario c) throw SQLException, SMTPAddressFailedException {
-        try {
+    public void editarContraseña(@RequestBody Usuario c) throws SQLException {
+
             new UsuarioDAO().editarContraseña(c);
             String correoUser = new UsuarioDAO().obtenerCorreoPorRut(c.getRut());
             String body = "\nSu contraseña ha sido actualizado con éxito. \n Su nueva contraseña es " + c.getContrasenha();
             sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com", c.getCorreo(), "Cambio de contraseña ReclamosChile", body);
-        } catch (SQLException sql) {
-            throw new SQLException();
-        } catch (SMTPAddressFailedException ) {
-            throw new SMTPAddressFailedException()
-        }
+
     }
 
     //Metodo DELETE
@@ -66,6 +62,7 @@ public class UsuarioResource {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "borrarUserCorreo/{correo}")
     public void borrarUsuarioCorreo(@PathVariable("correo") String correo) throws SQLException {
+
         new UsuarioDAO().borrarUserPorCorreo(correo);
         String body = "¡Hola! \n Este es el último mail que te enviaremos, solo queriamos confirmarte que ya te hemos dado de baja en Reclamos Chile. \n" +
                 "toda tu información y datos de acceso han sido borrados permanentemente de nuestros sistemas.  \n" +

@@ -86,7 +86,7 @@ public class RespuestaDAO {
         /*
         Metodo para borrar una Respuesta por medio de el numero de reclamo
          */
-        String sql = "delete from RECLAMOS where N_RECLAMO = ?";
+        String sql = "delete from RESPUESTA where N_RECLAMO = ?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1,i);
         ps.executeUpdate();
