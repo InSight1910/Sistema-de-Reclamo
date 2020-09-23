@@ -30,9 +30,9 @@ public class RespuestaDAO {
 
 
 
-    public void createRespuesta(Respuesta r) throws SQLException {
+    public void createRespuesta(Respuesta r) throws SQLException, ParseException {
         String fecha = "(cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(dd ,getDAte())as varchar) as Date)) ";
-        String sql = "Insert into RESPUESTA(N_RECLAMO, RUT, TEXTO, FECHA_RESPUESTA) VALUES(?,?,?," + fecha + ")";
+        String sql = "Insert into RESPUESTA(N_RECLAMO, RUT, TEXTO, FECHA_RESPUESTA) VALUES(?,?,?," + fecha +")";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1,r.getN_reclamo());
         ps.setString(2,r.getRut());
@@ -52,26 +52,13 @@ public class RespuestaDAO {
             Date fechaTope = rs.getDate("Fecha_tope");
             int comparacion = fecha.compareTo(fechaTope);
             if (comparacion <= 0){
-                String sql1 = "update Reclamos set SERVICIO = 'Eficiente', ESTADO = 'Respondido' where NUMERORECLAMO = ?";
-                PreparedStatement ps1 = conn.prepareStatement(sql1);
-                ps1.setInt(1, i);
-                ps1.executeUpdate();
-            } else if(comparacion > 0){
-                String sql1 = "update Reclamos set SERVICIO = 'Ineficiente', ESTADO = 'Respondido' where NUMERORECLAMO = ?";
+                String sql1 = "update Reclamos set SERVICIO = 'Eficiente' where NUMERORECLAMO = ?";
                 ps = conn.prepareStatement(sql1);
                 ps.setInt(1, i);
                 ps.executeUpdate();
 
             }
-
         }
 
-    }
-
-    public void DELETE(int i) throws SQLException {
-        String sql = "delete from RECLAMOS where N_RECLAMO = ?";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setInt(1,i);
-        ps.executeUpdate();
     }
 }

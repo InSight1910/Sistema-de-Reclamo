@@ -25,6 +25,7 @@ usuarios: any;
 
   borrarPorCorreo(){
     const correo = JSON.parse(localStorage.getItem('usuario')).correo
+ 
     this.usuarioService.eliminarUsuarioPorCorreo(correo).subscribe(_ => {swal('Fue un gusto ayudarte',
     'Esperamos vuelvas pronto a utilizar nuestro servicios'); this.router.navigate(['home'])})
   }
