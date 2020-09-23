@@ -46,7 +46,7 @@ public class UsuarioDAO {
         rs.next();
         String correoU = rs.getString("CORREO");
         String nombresU = rs.getString("NOMBRE");
-        String contrasenhaU = rs.getString("CONTRASEÑA");
+        String contrasenhaU = null;
         String rutU = rs.getString("RUT");
         String rolU = rs.getString("ROL");
         String numTelefonoU = rs.getString("NUMEROTELEFONO");

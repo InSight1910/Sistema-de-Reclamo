@@ -44,7 +44,7 @@ public class ReclamosResource {
 
 
 
-    
+
     @RequestMapping(method = RequestMethod.PUT, value = "updateEstado/{id}")
     public void UPDATERESUELTO(@PathVariable("id") int i) throws SQLException {
         new ReclamosDAO().UPDATEESTADO(i);
