@@ -48,7 +48,7 @@ public class ReclamosResource {
     public void CREATE(@RequestBody Reclamos r) throws SQLException {
         new ReclamoDAO().CREATE(r);
         String correoUser = new UsuarioDAO().obtenerCorreoPorRut(r.getRut());
-        String body = "El reclamo ha sido ingresado con exito con fecha: "+r.getFecha() + "\n Pronto un admin se comunicará con usted" +
+        String body = "El reclamo ha sido ingresado con exito " +"\n Pronto un admin se comunicará con usted" +
                 "para poder resolver su inquietud";
         sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",correoUser,"Reclamo Ingresado",body);
     }
