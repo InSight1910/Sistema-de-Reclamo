@@ -16,17 +16,10 @@
                         <input type="password" class="form-control" name="password1" id="contrasenarecuperaruno" #contrasena
                             placeholder="Ingrese Contraseña">
                     </div>
-                    <div class="form-group">
-                        <label for="contrasenhaUser">Ingrese nuevamente su nueva contraseña</label>
-                        <input type="password" class="form-control" name="password2" id="contrasenarecuperardos" #contrasena
-                            placeholder="Ingrese Contraseña">
-                    </div>
-
-                    <button type="button" class="btn btn-lg Btn-login  btn-block" value="Acceder" (click)="recuperar(correo.value, contrasena.value)">Iniciar
-                        Sesión</button>
+        
+                    <button type="button" class="btn btn-lg Btn-login  btn-block" value="Acceder" (click)="recuperar(correo.value, contrasena.value)">Cambiar contraseña</button>
                     <div class="form-group text-center mt-5">
-                        <p>¿No tienes una cuenta? Registrate <a routerLink="/registro">aquí</a></p>
-                        <p>¿Tienes cuenta? Inicia Sesión <a routerLink="/login">aquí</a></p>
+                        
                     </div>
                 </form>
             </div>

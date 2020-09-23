@@ -89,7 +89,7 @@ export class RegistroComponent implements OnInit {
       }
 
       const emailValido = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if (emailValido.test(this.contrasenha)) {
+      if (emailValido.test(this.correo)) {
         swal('¡Error!',
           'Ingresa un correo válido. Ej: example@example.com',
           'error')

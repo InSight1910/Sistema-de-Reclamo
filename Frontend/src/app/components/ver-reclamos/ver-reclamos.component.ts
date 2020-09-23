@@ -67,9 +67,10 @@ export class VerReclamosComponent implements OnInit {
   }
 
   actualizarResuelto(reclamo) {
-    this.service.updateEstado(reclamo.numeroReclamo).subscribe(_ => swal('Reclamo resuelto',
+    this.service.updateEstado(reclamo.numeroReclamo).subscribe(_ => { swal('Reclamo resuelto',
     'Nos alegra haberlo ayudado',
-    'success'));
+    'success') 
+    this.obtenerDatosUsuario()});
 
     
 
