@@ -8,6 +8,7 @@ import { ReclamosService } from '../../services/reclamos.service';
 import { ReclamoDetalleUSerComponent } from '../dialogs/reclamo-detalle-user/reclamo-detalle-user.component';
 import swal from 'sweetalert'
 import { Respuesta } from 'src/app/interfaces/respuesta.model';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-ver-reclamos',
@@ -16,7 +17,7 @@ import { Respuesta } from 'src/app/interfaces/respuesta.model';
 })
 export class VerReclamosComponent implements OnInit {
 
-  constructor(private service: ReclamosService, private ruta: ActivatedRoute, private dialog: MatDialog, private router: Router) { }
+  constructor(private service: ReclamosService, private ruta: ActivatedRoute, private dialog: MatDialog, private router: Router, private location: Location) { }
 
   ngOnInit(): void {
     this.obtenerDatosUsuario();
@@ -38,14 +39,18 @@ export class VerReclamosComponent implements OnInit {
   usuario: Usuario;
   reclamo: Reclamo[];
 
-
+   
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut;
     this.service.obtenerReclamosPorRut(rut).subscribe(reclamo => {this.datas = reclamo; this.dataSource = new MatTableDataSource(this.datas)});;
   }
 
   borrarReclamo(reclamo, i) {
-    this.service.borrarReclamoRespuesta(reclamo.numeroReclamo).subscribe(_ => this.obtenerDatosUsuario())
+
+    this.service.borrarReclamo(reclamo.numeroReclamo).subscribe()
+
+    this.datas.splice(i, 1);
+    this.dataSource = new MatTableDataSource(this.datas);
   }
 
   obtenerReclamoAct() {
@@ -62,10 +67,15 @@ export class VerReclamosComponent implements OnInit {
   }
 
   actualizarResuelto(reclamo) {
-    this.service.updateEstado(reclamo.numeroReclamo).subscribe(_ => {
-      swal('Reclamo resuelto', 'Nos alegra haberlo ayudado', 'success')
-      this.obtenerDatosUsuario()
-    });
+    this.service.updateEstado(reclamo.numeroReclamo).subscribe(_ => { swal('Reclamo resuelto',
+    'Nos alegra haberlo ayudado',
+    'success') 
+    this.obtenerDatosUsuario()});
+
+    
+
+    // no actualiza en tiempo real.
   }
+
 }
 

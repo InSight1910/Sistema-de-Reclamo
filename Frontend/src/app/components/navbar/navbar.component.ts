@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router, private activedRouter: ActivatedRoute) { }
+  constructor(private router: Router, private activedRouter: ActivatedRoute, private location: Location) { }
 
   ngOnInit(): void {
 
@@ -34,6 +35,7 @@ export class NavbarComponent implements OnInit {
   }
 
 
+  
 
 
 }

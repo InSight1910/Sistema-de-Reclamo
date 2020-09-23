@@ -1,3 +1,7 @@
+<br>
+
+
+
 <div class="" style="width: 90%; margin: 1rem auto;">
   <mat-table [dataSource]="dataSource">
     <ng-container *ngFor="let columna of columnas" matColumnDef="{{columna.name}}">
@@ -23,4 +27,6 @@
     <mat-header-row *matHeaderRowDef="columnasAMostrar"></mat-header-row>
     <mat-row *matRowDef="let myRowData; columns: columnasAMostrar"></mat-row>
   </mat-table>
+
+  
 </div>

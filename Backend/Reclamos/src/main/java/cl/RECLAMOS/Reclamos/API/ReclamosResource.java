@@ -42,7 +42,8 @@ public class ReclamosResource {
         return r;
     }
 
-    //Metodos PUT
+
+
     
     @RequestMapping(method = RequestMethod.PUT, value = "updateEstado/{id}")
     public void UPDATERESUELTO(@PathVariable("id") int i) throws SQLException {
@@ -64,14 +65,15 @@ public class ReclamosResource {
     }
 
     //Metodos POST
+
     @RequestMapping(method = RequestMethod.POST, value = "create")
     public void CREATE(@RequestBody Reclamos r) throws SQLException {
         new ReclamosDAO().CREATE(r);
         String correoUser = new UsuarioDAO().obtenerCorreoPorRut(r.getRut());
-        String body = "El reclamo numero: #"+r.getNumeroReclamo()+" Ha sido ingresado con exito con fecha: "+r.getFecha();
+        String body = "El reclamo ha sido ingresado con exito " +"\n Pronto un admin se comunicará con usted" +
+                "para poder resolver su inquietud";
         sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",correoUser,"Reclamo Ingresado",body);
     }
-
     //Metodos DELETE
     @RequestMapping(method = RequestMethod.DELETE, value = "delete/{id}")
     public void DELETE(@PathVariable("id") int i) throws SQLException {
