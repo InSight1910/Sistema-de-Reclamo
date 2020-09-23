@@ -12,11 +12,14 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RequestMapping("/")
 public class RespuestaResource {
+    //Metodo GET
     @RequestMapping(method = RequestMethod.GET, value = "getRespuesta/{n_reclamo}")
     public List<Respuesta> GETALL(@PathVariable("n_reclamo") int i) throws SQLException {
         List<Respuesta> r = new RespuestaDAO().getRespuesta(i);
         return r;
     }
+
+    //Metodo POST
     @RequestMapping(method = RequestMethod.POST, value = "createRespuesta")
     public void CREATE(@RequestBody Respuesta r) throws SQLException, ParseException {
         new RespuestaDAO().createRespuesta(r);
