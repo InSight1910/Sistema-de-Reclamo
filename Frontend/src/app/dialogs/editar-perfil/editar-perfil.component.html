@@ -1,44 +1,46 @@
 <br>
-        
-        <div style="width:100%; padding:2em;">
-          <h6 class="display-4" style="text-align: center; font-size: 2.5em;">Actualice sus datos</h6>
-          <br>
-         <br>
-          <br>
-          <mat-form-field style="width:100%;">
-            <mat-label #nombre >Nombre</mat-label>
-            <input matInput style="width:80%;" [(ngModel)]="usuarios.nombre" name="nombre">
-          </mat-form-field>
-          <br>
-          <mat-form-field style="width:100%;">
-            <mat-label #direccion >Dirección</mat-label>
-            <input matInput style="width:80%;" [(ngModel)]="usuarios.direccion" name="direccion">
-          </mat-form-field>
-          <br>
-          <mat-form-field style="width:100%;">
-            <mat-label #telefono >Teléfono</mat-label>
-            <input matInput style="width:80%;" [(ngModel)]="usuarios.numTelefono" name="telefono">
-          </mat-form-field>
-          <br>
-          <mat-form-field style="width:100%;">
-            <mat-label #correo >Correo</mat-label>
-            <input matInput style="width:80%;" [(ngModel)]="usuarios.correo" name="correo">
-          </mat-form-field>
-          <br>
-          <mat-form-field style="width:100%;">
-            <mat-label #contra >Nueva contraseña</mat-label>
-            <input matInput style="width:80%;" [(ngModel)]="usuarios.contrasenha" name="contra">
-          </mat-form-field>
-         
-          <br>
-    <div class="row">
-        <div class="col">
-            <button [mat-dialog-close]="true" mat-raised-button color="primary" (click)="guardar()" style="margin-left: 6em;">Guardar cambios</button>
-            <td class="text-left">
-                <button [mat-dialog-close]="true" class="btn btn-editar" (click)="borrar(usuarios.rut)">Eliminar mi cuenta</button>
-            </td>
-            
-        </div>
+
+<div style="width:100%; padding:2em;">
+  <h6 class="display-4" style="text-align: center; font-size: 2.5em;">Actualice sus datos</h6>
+  <br>
+  <br>
+  <br>
+  <mat-form-field style="width:100%;">
+    <mat-label #nombre>Nombre</mat-label>
+    <input matInput style="width:80%;" [(ngModel)]="usuarios.nombre" name="nombre">
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width:100%;">
+    <mat-label #direccion>Dirección</mat-label>
+    <input matInput style="width:80%;" [(ngModel)]="usuarios.direccion" name="direccion">
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width:100%;">
+    <mat-label #telefono>Teléfono</mat-label>
+    <input matInput style="width:80%;" [(ngModel)]="usuarios.numTelefono" name="telefono">
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width:100%;">
+    <mat-label #correo>Correo</mat-label>
+    <input matInput style="width:80%;" [(ngModel)]="usuarios.correo" name="correo">
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width:100%;">
+    <mat-label #contra>Nueva contraseña</mat-label>
+    <input matInput style="width:80%;" [(ngModel)]="usuarios.contrasenha" name="contra">
+  </mat-form-field>
+
+  <br>
+  <div class="row">
+    <div class="col">
+      <button [mat-dialog-close]="true" mat-raised-button color="primary" (click)="guardar()"
+        style="margin-left: 6em;">Guardar cambios</button>
+      <td class="text-center">
+        <button [mat-dialog-close]="true" class="btn btn-editar text-center" style="margin-left: 4.5em;"
+          (click)="borrar(usuarios.rut)">Eliminar mi
+          cuenta</button>
+      </td>
+
     </div>
   </div>
-    
+</div>
