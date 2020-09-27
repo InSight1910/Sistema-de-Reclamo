@@ -41,30 +41,40 @@ public class RespuestaDAO {
         conn.commit();
     }
     public void getFecha(int i) throws SQLException {
-        String sql = "select Fecha_respuesta, Fecha_tope from Respuesta Re inner join RECLAMOS r on r.NUMERORECLAMO = re.N_RECLAMO where N_reclamo = ?";
+        /*
+        Metodo que trae la fecha en que se genero la respuesta y la fecha limite para responder el reclamo para luego hacer una
+        comparacion si se estubo en el plazo o no,si estubo en plazo el servicio se califica como Eficiente sino estubo en el
+        plazo se evalua como Ineficiente
+         */
+        String sql = "select FECHA_RESPUESTA, FECHA_TOPE from RESPUESTA re inner join RECLAMOS r on r.NUMERORECLAMO = re.N_RECLAMO where N_RECLAMO = ?";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1, i);
         ResultSet rs = ps.executeQuery();
 
         while (rs.next()){
 
-            Date fecha = rs.getDate("Fecha_respuesta");
-            Date fechaTope = rs.getDate("Fecha_tope");
+            Date fecha = rs.getDate("FECHA_RESPUESTA");
+            Date fechaTope = rs.getDate("FECHA_TOPE");
             int comparacion = fecha.compareTo(fechaTope);
             if (comparacion <= 0){
-                String sql1 = "update Reclamos set SERVICIO = 'Eficiente' where NUMERORECLAMO = ?";
+                String sql1 = "update RECLAMOS set SERVICIO = 'Eficiente', ESTADO = 'Respondido' where NUMERORECLAMO = ?";
+                PreparedStatement ps1 = conn.prepareStatement(sql1);
+                ps1.setInt(1, i);
+                ps1.executeUpdate();
+            } else if(comparacion > 0){
+                String sql1 = "update RECLAMOS set SERVICIO = 'Ineficiente', ESTADO = 'Respondido' where NUMERORECLAMO = ?";
                 ps = conn.prepareStatement(sql1);
                 ps.setInt(1, i);
                 ps.executeUpdate();
 
             }
+
         }
 
     }
 
-
     public void DELETE(int i) throws SQLException {
-          /*
+        /*
         Metodo para borrar una Respuesta por medio de el numero de reclamo
          */
         String sql = "delete from RESPUESTA where N_RECLAMO = ?";

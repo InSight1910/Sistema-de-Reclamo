@@ -39,7 +39,7 @@ export class VerReclamosComponent implements OnInit {
   usuario: Usuario;
   reclamo: Reclamo[];
 
-   
+
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut;
     this.service.obtenerReclamosPorRut(rut).subscribe(reclamo => {this.datas = reclamo; this.dataSource = new MatTableDataSource(this.datas)});;
@@ -47,9 +47,9 @@ export class VerReclamosComponent implements OnInit {
 
   borrarReclamo(reclamo, i) {
 
-    this.service.borrarReclamoRespuesta(reclamo.numeroReclamo).subscribe(_ => this.obtenerDatosUsuario())
+    this.service.borrarReclamoRespuesta(reclamo.numeroReclamo).subscribe(_=> this.obtenerDatosUsuario())
 
-    
+
   }
 
   obtenerReclamoAct() {
@@ -68,10 +68,10 @@ export class VerReclamosComponent implements OnInit {
   actualizarResuelto(reclamo) {
     this.service.updateEstado(reclamo.numeroReclamo).subscribe(_ => { swal('Reclamo resuelto',
     'Nos alegra haberlo ayudado',
-    'success') 
+    'success')
     this.obtenerDatosUsuario()});
 
-    
+
 
     // no actualiza en tiempo real.
   }

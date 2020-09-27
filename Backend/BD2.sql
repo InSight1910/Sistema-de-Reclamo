@@ -36,6 +36,7 @@ INSERT INTO USUARIOS([CORREO],[NOMBRE],[CONTRASEÑA],[RUT],[ROL],[NUMEROTELEFONO
 
 select (cast(cast(DATEPART(yy,getDAte())as varchar) +'-'+ cast(DATEPART(mm,getDAte())as varchar) +'-'+ cast(DATEPART(day, DATEADD(day, 2, getdate())) as varchar) as Date))
 SELECT * from usuarios where RUT_ADMIN = '10627211-5' And estado = 'Pendiente'
+
 CREATE TABLE RECLAMOS
 (
     TIPORECLAMO varchar(100),
@@ -48,23 +49,28 @@ CREATE TABLE RECLAMOS
     FECHA_TOPE DATE,
     COMENTARIOS varchar(8000),
     RUT_ADMIN varchar(10),
-    foreign key (RUT_ADMIN) references USUARIOS(rut),
-    foreign key (rut) REFERENCES USUARIOS(RUT)
+    foreign key (RUT_ADMIN) references USUARIOS(rut) ,
+    foreign key (rut) REFERENCES USUARIOS(RUT) on delete cascade 
 )
+DROP TABLE RESPUESTA
+DROP TABLE RECLAMOS
 ALTER table Reclamos add SERVICIO VARCHAR(200)  
 SELECT * from RECLAMOS
+drop table Respuesta
 CREATE TABLE RESPUESTA(
     N_RECLAMO INT,
     RUT VARCHAR(10),
     TEXTO VARCHAR(2000),
     FECHA_RESPUESTA DATE
-    FOREIGN KEY (N_RECLAMO) REFERENCES RECLAMOS(NUMERORECLAMO),
-    FOREIGN KEY (RUT) REFERENCES USUARIOS(RUT)
+    FOREIGN KEY (N_RECLAMO) REFERENCES RECLAMOS(NUMERORECLAMO) on delete cascade,
+    FOREIGN KEY (RUT) REFERENCES USUARIOS(RUT) 
 )   
 select * from Respuesta Re inner join RECLAMOS r on r.NUMERORECLAMO = re.N_RECLAMO where NUMERORECLAMO = 1002
 
 select * from RESPUESTA 
-select * from RECLAMOS
+select * from RECLAMOS where rut = '11632585-3'
 select * from USUARIOS
+
+delete from RESPUESTA where N_RECLAMO = 2007
 
 
