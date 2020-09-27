@@ -24,7 +24,14 @@ import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotr
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { FooterComponent } from './components/footer/footer.component';
-import { EditarPerfilComponent } from './dialogs/editar-perfil/editar-perfil.component';
+import { EditarPerfilComponent } from './components/dialogs/editar-perfil/editar-perfil.component';
+import { AsignarReclamoComponent } from './components/dialogs/asignar-reclamo/asignar-reclamo.component';
+import { InicioAdminComponent } from './components/inicio-admin/inicio-admin.component';
+import { AdminPersonalComponent } from './components/admin-personal/admin-personal.component';
+import { ReclamoDetalleUSerComponent } from './components/dialogs/reclamo-detalle-user/reclamo-detalle-user.component';
+import { RespuestaAdminComponent } from './components/respuesta-admin/respuesta-admin.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
 
 
 @NgModule({
@@ -45,6 +52,12 @@ import { EditarPerfilComponent } from './dialogs/editar-perfil/editar-perfil.com
     SobreNosotrosComponent,
     FooterComponent,
     EditarPerfilComponent,
+    AsignarReclamoComponent,
+    InicioAdminComponent,
+    AdminPersonalComponent,
+    ReclamoDetalleUSerComponent,
+    RespuestaAdminComponent,
+    NavbarComponent,
 
   ],
   imports: [

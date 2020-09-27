@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ReclamoService } from 'src/app/services/reclamo.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario.model';
 import swal from 'sweetalert';
@@ -14,7 +14,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   @Input() usuario: Usuario;
-  constructor(private fb: FormBuilder, private service: ReclamoService, private router: Router, private route: ActivatedRoute, private authService: AuthService) { }
+  constructor(private fb: FormBuilder, private service: UsuariosService, private router: Router, private route: ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit(): void {
 
@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'usuario';
   }
 
   form: FormGroup;

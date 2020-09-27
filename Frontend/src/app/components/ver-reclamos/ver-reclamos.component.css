@@ -17,3 +17,24 @@
     max-height: 48px;
     z-index: 1;
 }
+
+.tabla-reclamos{
+    min-height: 500px;
+}
+
+.p-back{
+    color: #0B4E85;
+    background: transparent;
+    border-radius: 50px;
+    padding: 6px 2px;
+    border: 1px solid#0B4E85;;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    min-width: 119px;
+    font-size: 0.9em;
+    max-height: 48px;
+    text-transform: uppercase;
+    min-width: 150px;
+    z-index: 1;
+}

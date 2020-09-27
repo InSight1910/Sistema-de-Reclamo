@@ -1,124 +1,119 @@
-<nav class="navbar  titulo-reclamos">
-    <a class="navbar-brand" href="/home">
-        <img src="/assets/img/logo/logo-white.png" width="17%" alt="">
-    </a>
-    <a class="btn-admin" href="/home" (click)="logout()">Cerrar Sesión</a>
-</nav>
-
 <section class="usuario">
-    <div class="container">
-        <div class="row my-5">
-            <div class="col">
-                <h1>Hola <strong>{{usuarios.nombre}}</strong></h1>
-            </div>
-        </div>
-        <div class="row my-5">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-size: 19px;">Reclamo</h5>
-                        <p class="card-text p-espacio">Ingréselo si una empresa ha vulnerado sus derechos como
-                            consumidor,
-                            generándole un problema de consumo particular. Enviaremos su reclamo a la empresa y
-                            buscaremos una respuesta a su solicitud.</p>
-                        <a href="/ingresarReclamo" class="Btn-login">Ingresar nuevo Reclamo</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-size: 19px;">Consultar </h5>
-                        <p class="card-text p-espacio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                            aperiam
-                            quas ipsum, aut omnis atque a eaque beatae dignissimos nemo unde ut, eius labore asperiores
-                            molestias quam! Debitis, fugit quis?</p>
-                        <a href="/verReclamos" class="Btn-login">Ver Reclamos</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="container bootstrap snippets bootdey">
-                            <div class="panel-body inf-content">
-                                <div class="row">
-                                    <div class="col">
-                                        <strong style="font-size: 19px;">Información de su Cuenta</strong><br>
-                                        <div class="table-responsive">
-                                            <table class="table table-user-information">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Rut
-                                                            </strong>
-                                                        </td>
-                                                        <td>
-                                                            <p>{{usuarios.rut}}</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Nombre
-                                                            </strong>
-                                                        </td>
-                                                        <td>
-                                                            <p>{{usuarios.nombre}}</p>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Dirección
-                                                            </strong>
-                                                        </td>
-                                                        <td>
-                                                            <p>{{usuarios.direccion}}</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Telefono
-                                                            </strong>
-                                                        </td>
-                                                        <td>
-                                                            <p>{{usuarios.numTelefono}}</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Correo
-                                                            </strong>
-                                                        </td>
-                                                        <td>
-                                                            <p>{{usuarios.correo}}</p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <span></span>
-                                                        </td>
-                                                        <td class="text-right">
-                                                            <button class="btn btn-editar" (click)="openEditar(usuarios)">Editar Perfil</button>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row my-5">
+      <div class="col">
+        <h1>Hola <strong>{{usuarios.nombre}}</strong></h1>
+      </div>
     </div>
+    <div class="row my-5">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 19px;">Reclamo</h5>
+            <p class="card-text p-espacio">Ingréselo si una empresa ha vulnerado sus derechos como
+              consumidor,
+              generándole un problema de consumo particular. Enviaremos su reclamo a la empresa y
+              buscaremos una respuesta a su solicitud.</p>
+            <a href="/ingresarReclamo" class="Btn-login">Ingresar nuevo Reclamo</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 19px;">Consultar </h5>
+            <p class="card-text p-espacio">Aquí puedes ver todos los reclamos que has hecho en nuestro sistema a lo
+              largo del tiempo.
+              Tambien puedes verificar el estado de algún reclamo.</p>
+            <a href="/verReclamos" class="Btn-login">Ver Reclamos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <div class="container bootstrap snippets bootdey">
+              <div class="panel-body inf-content">
+                <div class="row">
+                  <div class="col">
+                    <strong style="font-size: 19px;">Información de su Cuenta</strong><br>
+                    <div class="table-responsive">
+                      <table class="table table-user-information">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <strong>
+                                Rut
+                              </strong>
+                            </td>
+                            <td>
+                              <p>{{usuarios.rut}}</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>
+                                Nombre
+                              </strong>
+                            </td>
+                            <td>
+                              <p>{{usuarios.nombre}}</p>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <strong>
+                                Dirección
+                              </strong>
+                            </td>
+                            <td>
+                              <p>{{usuarios.direccion}}</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>
+                                Telefono
+                              </strong>
+                            </td>
+                            <td>
+                              <p>{{usuarios.numTelefono}}</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>
+                                Correo
+                              </strong>
+                            </td>
+                            <td>
+                              <p>{{usuarios.correo}}</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span></span>
+                            </td>
+                            <td class="text-right">
+                              <button class="btn btn-editar" (click)="openEditar(usuarios)">Editar Perfil</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>

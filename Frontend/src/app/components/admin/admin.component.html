@@ -1,36 +1,29 @@
-<nav class="navbar  titulo-reclamos">
-  <a class="navbar-brand" href="/home">
-    <img src="/assets/img/logo/logo-white.png" width="17%" alt="">
-  </a>
-  <a class="btn-admin" href="/home">Cerrar Sesión</a>
-</nav>
+<div class="container">
+  <div class="col">
+    <a class="p-back mt-4" href="/inicioAdmin"><span class="anterior">Página
+        Anterior</span></a>
+  </div>
+  <div class="row reclamos-titulo">
+    <h1>Reclamos sin Asignación</h1>
+  </div>
+  <div class="mat-elevation-z8 tabla-reclamos">
+    <span class="p-4">Filtrar por Rut o Numero de Reclamo</span>
+    <input class="input-filtrar" matInput placeholder="Ingrese dato" (keypress)="searchDef(search)"
+      [(ngModel)]="search">
+    <mat-table [dataSource]="dataSource">
+      <ng-container *ngFor="let columna of columnas" matColumnDef="{{columna.name}}">
+        <mat-header-cell *matHeaderCellDef> {{columna.title}} </mat-header-cell>
+        <mat-cell *matCellDef="let reclamo"> {{reclamo[columna.name]}} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="columnasAMostrar"></mat-header-row>
+      <mat-row *matRowDef="let myRowData; columns: columnasAMostrar"></mat-row>
+      <ng-container matColumnDef="opciones">
+        <mat-header-cell *matHeaderCellDef> Tomar </mat-header-cell>
+        <mat-cell *matCellDef="let reclamo; index as i">
+          <button class="btn-ver" (click)="openAsignAdmin(reclamo, i)">Tomar reclamo</button>
 
-<div style="width: 90%; margin: 1em auto;" class="mat-elevation-z2">
-  <span class="p-4">Filtrar por Rut</span>
-  <input class="input-filtrar" matInput placeholder="Ingresa un rut" (keypress)="searchDef(search)"
-    [(ngModel)]="search">
-  <mat-table [dataSource]="dataSource">
-    <ng-container *ngFor="let columna of columnas" matColumnDef="{{columna.name}}">
-      <mat-header-cell *matHeaderCellDef> {{columna.title}} </mat-header-cell>
-      <mat-cell *matCellDef="let reclamo"> {{reclamo[columna.name]}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="opciones">
-      <mat-header-cell *matHeaderCellDef> Eliminar o Modificar </mat-header-cell>
-      <mat-cell *matCellDef="let reclamo; index as i">
-        <button (click)="borrarReclamo(reclamo, i)" mat-mini-fab color="warn">
-          <mat-icon>delete</mat-icon>
-        </button>
-        <div style="padding-right: 2em;"></div>
-        <button (click)="openEstado(reclamo)" href="#contenido" data-toggle="modal" mat-mini-fab color="warn">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-mini-fab data-toggle="modal" (click)="openView(reclamo)">
-          Ver
-        </button>
-      </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="columnasAMostrar"></mat-header-row>
-    <mat-row *matRowDef="let myRowData; columns: columnasAMostrar"></mat-row>
-  </mat-table>
+        </mat-cell>
+      </ng-container>
+    </mat-table>
+  </div>
 </div>

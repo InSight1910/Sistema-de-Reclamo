@@ -7,7 +7,7 @@ public class Respuesta {
     private String Rut;
     private String Texto;
     private Date Fecha_respuesta;
-    private Date Limite_respuesta;
+
 
     public Integer getN_reclamo() {
         return N_reclamo;
@@ -41,19 +41,11 @@ public class Respuesta {
         Fecha_respuesta = fecha_respuesta;
     }
 
-    public Date getLimite_respuesta() {
-        return Limite_respuesta;
-    }
 
-    public void setLimite_respuesta(Date limite_respuesta) {
-        Limite_respuesta = limite_respuesta;
-    }
-
-    public Respuesta(Integer n_reclamo, String rut, String texto, Date fecha_respuesta, Date limite_respuesta) {
+    public Respuesta(Integer n_reclamo, String rut, String texto, Date fecha_respuesta) {
         N_reclamo = n_reclamo;
         Rut = rut;
         Texto = texto;
         Fecha_respuesta = fecha_respuesta;
-        Limite_respuesta = limite_respuesta;
     }
 }

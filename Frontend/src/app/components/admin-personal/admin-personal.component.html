@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="row">
+		<div class="col-6">
+			<div class="col">
+				<a class="p-back mt-4" href="/inicioAdmin"><span class="anterior">Página
+						Anterior</span></a>
+			</div>
+		</div>
+		<div class="col-6 text-right mt-4">
+			<button type="button" button class="respuesta-admin" routerLink="/respuestaAdmin">Ingresar
+				respuesta</button>
+		</div>
+	</div>
+</div>
+<div class="mat-elevation-z8 tabla-reclamos" style="width: 90%; margin: 1em auto;">
+	<mat-table [dataSource]="dataSource">
+		<ng-container *ngFor="let column of columns" matColumnDef="{{column.name}}">
+			<mat-header-cell *matHeaderCellDef> {{column.title}} </mat-header-cell>
+			<mat-cell *matCellDef="let reclamo"> {{reclamo[column.name]}} </mat-cell>
+		</ng-container>
+		<mat-header-row *matHeaderRowDef="columnShow"></mat-header-row>
+		<mat-row *matRowDef="let myRowData; columns: columnShow"></mat-row>
+		<ng-container matColumnDef="opciones">
+			<mat-header-cell *matHeaderCellDef> Ver a detalle </mat-header-cell>
+			<mat-cell *matCellDef="let reclamo; index as i">
+
+				<button class="btn btn-ver" data-toggle="modal" (click)="openView(reclamo)">
+					más información
+				</button>
+
+			</mat-cell>
+		</ng-container>
+	</mat-table>
+</div>

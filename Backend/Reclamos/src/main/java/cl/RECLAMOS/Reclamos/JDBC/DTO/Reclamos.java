@@ -12,7 +12,22 @@ public class Reclamos {
     private String Rut;
     private Date Fecha_tope;
     private String Comentarios;
+    private String RutAdmin;
+    private String servicio;
 
+    public Reclamos(String tipoReclamo, int numeroReclamo, String descripcion, Date fecha, String estado, String antecedentes, String rut, Date fecha_tope, String comentarios, String rutAdmin, String servicio) {
+        TipoReclamo = tipoReclamo;
+        NumeroReclamo = numeroReclamo;
+        Descripcion = descripcion;
+        Fecha = fecha;
+        Estado = estado;
+        Antecedentes = antecedentes;
+        Rut = rut;
+        Fecha_tope = fecha_tope;
+        Comentarios = comentarios;
+        RutAdmin = rutAdmin;
+        this.servicio = servicio;
+    }
 
 
     public String getTipoReclamo() {
@@ -21,6 +36,14 @@ public class Reclamos {
 
     public void setTipoReclamo(String tipoReclamo) {
         TipoReclamo = tipoReclamo;
+    }
+
+    public String getServicio() {
+        return servicio;
+    }
+
+    public void setServicio(String servicio) {
+        TipoReclamo = servicio;
     }
 
     public int getNumeroReclamo() {
@@ -87,15 +110,14 @@ public class Reclamos {
         Comentarios = comentarios;
     }
 
-    public Reclamos(String tipoReclamo, Date fecha_tope, int numeroReclamo, String descripcion, Date fecha, String estado, String antecedentes, String rut, String comentarios) {
-        TipoReclamo = tipoReclamo;
-        NumeroReclamo = numeroReclamo;
-        Descripcion = descripcion;
-        Fecha = fecha;
-        Estado = estado;
-        Antecedentes = antecedentes;
-        Rut = rut;
-        Fecha_tope = fecha_tope;
-        Comentarios = comentarios;
+    public String getRutAdmin() {
+        return RutAdmin;
     }
+
+    public void setRutAdmin(String rutAdmin) {
+        RutAdmin = rutAdmin;
+    }
+
+
+
 }

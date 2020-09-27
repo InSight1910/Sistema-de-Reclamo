@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ReclamoService } from "../../services/reclamo.service";
+import { ReclamosService } from "../../services/reclamos.service";
 import { Usuario } from '../../interfaces/usuario.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { EditarEstadoComponent } from '../dialogs/editar-estado/editar-estado.component';
 import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.component';
+import { AsignarReclamoComponent } from '../dialogs/asignar-reclamo/asignar-reclamo.component';
+import { Router } from '@angular/router';
+import { fdatasync } from 'fs';
+import { UsuariosService } from "../../services/usuarios.service";
 
 
 @Component({
@@ -15,23 +19,29 @@ import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.compo
 })
 export class AdminComponent implements OnInit {
 
-  columnasAMostrar: string[] = ['tipoReclamo', 'numeroReclamo', 'descripcion', 'fecha', 'estado', 'antecedentes', 'rut', 'opciones'];
+  columnasAMostrar: string[] = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut', 'opciones'];
   columnas = [
     { name: 'tipoReclamo', title: 'Tipo Reclamo' },
     { name: 'numeroReclamo', title: 'Numero Reclamo' },
-    { name: 'descripcion', title: 'Descripcion' },
     { name: 'fecha', title: 'Fecha' },
     { name: 'estado', title: 'Estado' },
-    { name: 'antecedentes', title: 'Antecedentes' },
-    { name: 'rut', title: 'Rut' },
-
+    { name: 'rut', title: 'Rut' }
   ]
   search;
   datas: Reclamo[] = [];
   dataSource = new MatTableDataSource(this.datas);
+  usuarios: Usuario = {
+    correo: null,
+    nombre: null,
+    contrasenha: null,
+    rut: null,
+    rol: null,
+    numTelefono: null,
+    direccion: null
+  };
 
   //Constructor
-  constructor(private service: ReclamoService, private dialog: MatDialog) { }
+  constructor(private service: ReclamosService, private dialog: MatDialog, private router: Router, private serviceUser: UsuariosService) { }
 
   ngOnInit(): void {
     this.service.obtenerAllAdmin().subscribe(
@@ -39,13 +49,6 @@ export class AdminComponent implements OnInit {
         this.datas = usuario;
         this.dataSource = new MatTableDataSource(this.datas);
       });
-
-    this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
-      return data.tipoReclamo.trim().toLocaleLowerCase().indexOf(filter.trim().toLowerCase()) >= 0;
-      //return data.TIPORECLAMO.trim().toLocaleLowerCase() = filter;
-    }
-    //this.dataSource.filterPredicate = (data: Reclamo, filter: string) => data.tipoReclamo.trim().toLowerCase().indexOf(filter) != -1;
-
   }
   openEstado(reclamo) {
     const dialogconfig = new MatDialogConfig();
@@ -73,8 +76,9 @@ export class AdminComponent implements OnInit {
 
   searchDef(filterValue) {
     this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
-      return data.numeroReclamo.toString() === filter;
+      return data.numeroReclamo.toString() === filter || data.rut === filter;
     };
+
     this.dataSource.filter = filterValue;
 
   }
@@ -82,6 +86,29 @@ export class AdminComponent implements OnInit {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.data = reclamo;
     const dialogRef = this.dialog.open(ViewReclamoComponent, dialogconfig);
+  }
+  obtenerDatosUsuario() {
+    const rut = JSON.parse(localStorage.getItem('usuario')).rut
+    this.serviceUser.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
+  }
+  openAsignAdmin(reclamo: Reclamo, i, confirmacion) {
+    const dialogconfig = new MatDialogConfig();
+    dialogconfig.data = reclamo.numeroReclamo;
+    const dialogRef = this.dialog.open(AsignarReclamoComponent, dialogconfig)
+    dialogRef.afterClosed().subscribe(si => this.traerConfirmacion(confirmacion, i))
+  }
+  traerConfirmacion(confirmacion, i) {
+    if (confirmacion) {
+      this.datas.splice(i, 1);
+      this.dataSource = new MatTableDataSource(this.datas);
+    }
+  }
+
+
+
+  logout() {
+    localStorage.removeItem("usuario");
+    this.router.navigate(['home'])
   }
 
 }

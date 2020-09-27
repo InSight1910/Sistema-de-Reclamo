@@ -1,6 +1,35 @@
-<nav class="navbar  titulo-reclamos">
-    <a class="navbar-brand" href="/home">
-        <img src="/assets/img/logo/logo-white.png" width="17%" alt="">
-    </a>
-    <a class="btn-admin" href="/home">Cerrar Sesión</a>
-</nav>
+<br>
+<div class="" style="width: 90%; margin: 1rem auto;">
+  <div class="row">
+    <div class="col">
+      <a class="p-back" href="/usuario"><span class="anterior">Página
+          Anterior</span></a>
+    </div>
+  </div>
+  <mat-table class="tabla-reclamos" [dataSource]="dataSource">
+    <ng-container *ngFor="let columna of columnas" matColumnDef="{{columna.name}}">
+      <mat-header-cell *matHeaderCellDef> {{columna.title}} </mat-header-cell>
+      <mat-cell *matCellDef="let reclamo"> {{reclamo[columna.name]}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="opciones">
+      <mat-header-cell *matHeaderCellDef> Eliminar o Modificar </mat-header-cell>
+      <mat-cell *matCellDef="let reclamo; index as i">
+        <button (click)="borrarReclamo(reclamo, i)" mat-mini-fab color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <div style="padding-right: 2em;"></div>
+        <button href="#contenido" (click)="actualizarResuelto(reclamo)" data-toggle="modal" mat-mini-fab color="warn">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab data-toggle="modal" (click)="openView(reclamo)">
+          Ver
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="columnasAMostrar"></mat-header-row>
+    <mat-row *matRowDef="let myRowData; columns: columnasAMostrar"></mat-row>
+  </mat-table>
+
+
+</div>

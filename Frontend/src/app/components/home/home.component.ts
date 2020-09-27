@@ -9,8 +9,8 @@ import { Usuario } from 'src/app/interfaces/usuario.model';
 export class HomeComponent implements OnInit {
   @Input() datos: Usuario[];
   constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(){
+    
   }
 
 }
