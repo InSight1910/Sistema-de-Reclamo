@@ -20,7 +20,7 @@ usuarios: any;
   }
 
   guardar(){
-    this.usuarioService.editarPerfil(this.usuarios).subscribe(data => console.log(data))
+    this.usuarioService.editarPerfil(this.usuarios).subscribe()
   }
 
   borrarPorCorreo(){
@@ -30,5 +30,5 @@ usuarios: any;
   }
 
 
-} 
+}
 
