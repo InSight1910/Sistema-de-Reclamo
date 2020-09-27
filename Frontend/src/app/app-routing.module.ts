@@ -26,17 +26,14 @@ const routes: Routes = [
   {
     path: 'recuperarContrasena',
     component: RecuperarContrasenaComponent,
-    canActivate: [UsuarioGuard],
   },
   {
     path: 'preguntasFrecuentes',
     component: PreguntasFrecuentesComponent,
-    canActivate: [UsuarioGuard],
   },
   {
     path: 'sobreNosotros',
     component: SobreNosotrosComponent,
-    canActivate: [UsuarioGuard],
   },
   {
     path: 'registro',
@@ -84,4 +81,4 @@ export const routing = RouterModule.forRoot(routes);
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

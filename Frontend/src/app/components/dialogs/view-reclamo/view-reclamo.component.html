@@ -1,31 +1,43 @@
 <div style="height:500px; width:400px;">
-  <h2 mat-dialog-title style="background-color: darkblue; color:white; text-align: center; box-shadow: 0px 3px 3px; width:100%; height:50px; padding-top:7px; text-shadow: 0 0 1em white
-;">Detalle</h2>
-  <div class="form-group">
-      <label for="rutReclamo">Rut de usuario:</label>
-      <input type="text" class="form-control" [(ngModel)]="values.rut" name="rut" #rut id="rutReclamo" disabled>
+  <h2 mat-dialog-title class="tl-ep">
+    Información del Reclamo</h2>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label for="rutReclamo">Rut de usuario:</label>
+        <input type="text" class="form-control" [(ngModel)]="values.rut" name="rut" #rut id="rutReclamo" disabled>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label for="rutReclamo">Tipo de problema:</label>
+        <input type="text" class="form-control" [(ngModel)]="values.tipoReclamo" name="tipoReclamo" disabled>
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="rutReclamo">Tipo de problema:</label>
-    <input type="text" class="form-control" [(ngModel)]="values.tipoReclamo" name="tipoReclamo" disabled>
+    <label for="rutReclamo">Descripción del problema:</label>
+    <textarea type="text" class="form-control" [(ngModel)]="values.descripcion" name="descripcion" disabled> </textarea>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label for="rutReclamo">Fecha de ingreso:</label>
+        <input type="text" class="form-control" [(ngModel)]="values.fecha" name="fecha" #descripcion disabled>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label for="rutReclamo">Estado:</label>
+        <input type="text" class="form-control" [(ngModel)]="values.estado" name="estado" #estado disabled>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="rutReclamo">Comentarios de usuario:</label>
+    <textarea type="text" class="form-control" [(ngModel)]="values.comentarios" name="comentarios" #comentarios
+      disabled></textarea>
+  </div>
+
+  <button [mat-dialog-close]="true" class="btn-block btn-ok" (click)="guardar()">CERRAR</button>
 </div>
-    <div class="form-group">
-      <label for="rutReclamo">Descripción del problema:</label>
-      <textarea type="text" class="form-control" [(ngModel)]="values.descripcion" name="descripcion" disabled> </textarea>
-  </div>
-    <div class="form-group">
-      <label for="rutReclamo">Fecha de ingreso:</label>
-      <input type="text" class="form-control" [(ngModel)]="values.fecha" name="fecha" #descripcion disabled>
-  </div>
-  <div class="form-group">
-      <label for="rutReclamo">Estado:</label>
-      <input type="text" class="form-control" [(ngModel)]="values.estado" name="estado" #estado disabled>
-  </div>
-    <div class="form-group">
-      <label for="rutReclamo">Comentarios de usuario:</label>
-      <textarea type="text" class="form-control" [(ngModel)]="values.comentarios" name="comentarios" #comentarios disabled></textarea>
-  </div>
-  
-    <button [mat-dialog-close]="true" mat-raised-button color="primary" style="margin-left: 6em;" (click)="guardar()">¡Ok!</button>
-  </div>
-  
