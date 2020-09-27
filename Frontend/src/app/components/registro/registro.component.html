@@ -10,7 +10,7 @@
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
                 <label for="rutUser">Rut</label>
-                <input type="text" class="form-control"  name="rut" id="rut" (keydown)="ValidadorRut(rut)" placeholder="Ingrese  Rut" [(ngModel)]="rut">
+                <input type="text" class="form-control"  name="rut" id="rut" (keydown)="ValidadorRut(rut)" placeholder="Ingrese  Rut (xxxxxxxx-x)" [(ngModel)]="rut">
               </div>
             </div>
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
@@ -25,14 +25,14 @@
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
                 <label for="direccionUser">Dirección</label>
-                <input type="text" class="form-control" name="direccion" placeholder="Ingrese Dirección"
+                <input type="text" class="form-control" name="direccion" placeholder="Ingresa tu domicilio"
                   [(ngModel)]="direccion">
               </div>
             </div>
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
                 <label for="telefonoUser">Telefono</label>
-                <input type="text" class="form-control" name="numerotelefono" placeholder="Ingrese Telefono"
+                <input type="text" class="form-control" name="numerotelefono" placeholder="Ingrese Telefono (9xxxxxxxx)"
                   [(ngModel)]="numerotelefono">
               </div>
             </div>
@@ -41,7 +41,7 @@
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
                 <label for="correoUser">Correo</label>
-                <input type="correo" class="form-control" name="correo" placeholder="Ingrese Correo"
+                <input type="correo" class="form-control" name="correo" placeholder="Ingrese Correo (example@domain.com)"
                   [(ngModel)]="correo">
               </div>
             </div>

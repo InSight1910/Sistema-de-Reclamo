@@ -88,7 +88,13 @@ export class RegistroComponent implements OnInit {
 
       }
 
-      
+      const emailValido = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
+      if (emailValido.test(this.correo)) {
+        swal('¡Error!',
+          'Ingresa un correo válido. Ej: example@example.com',
+          'error')
+        return;
+      }
 
     } else {
       swal('¡Contraseña débil!',
