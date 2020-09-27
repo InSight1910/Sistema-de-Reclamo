@@ -13,7 +13,7 @@ import { RespuestasService } from 'src/app/services/respuestas.service';
 })
 export class ReclamoDetalleUSerComponent implements OnInit {
 
-  constructor(private serviceR: RespuestasService, private service: ReclamosService, private dialogRef: MatDialogRef<ReclamoDetalleUSerComponent>, @Inject(MAT_DIALOG_DATA) data) {this.values = data }
+  constructor(private serviceR: RespuestasService, private service: ReclamosService, private dialogRef: MatDialogRef<ReclamoDetalleUSerComponent>, @Inject(MAT_DIALOG_DATA) data) { this.values = data }
 
   values: Reclamo = {
     antecendentes: null,
@@ -23,24 +23,24 @@ export class ReclamoDetalleUSerComponent implements OnInit {
     fecha: null,
     fechaTope: null,
     numeroReclamo: null,
-    rut: null,
+    rut: '',
     tipoReclamo: null
   };
   valueAns: Respuesta = {
     fecha_respuesta: null,
     n_reclamo: null,
-    rut: null,
-    texto: undefined
+    rut: '',
+    texto: null
   };
   ngOnInit(): void {
     this.obtenerRespuestas()
   }
 
 
-  guardar(){
+  guardar() {
     this.service.editarReclamoUser(this.values).subscribe(data => this.values = data)
   }
-  obtenerRespuestas(){
+  obtenerRespuestas() {
     this.serviceR.obtenerRespuesta(this.values.numeroReclamo).subscribe(data => this.valueAns = data[0])
   }
 

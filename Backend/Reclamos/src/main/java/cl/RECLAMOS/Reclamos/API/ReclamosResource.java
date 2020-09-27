@@ -58,7 +58,8 @@ public class ReclamosResource {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "editarReclamo")
-    public void modifificarReclamo (@RequestBody Reclamos a) throws SQLException {
+    public void modificarReclamo (@RequestBody Reclamos a) throws SQLException {
+        new ReclamosDAO().modificar(a);
     }
 
     //Metodos POST
@@ -67,8 +68,8 @@ public class ReclamosResource {
     public void CREATE(@RequestBody Reclamos r) throws SQLException {
         new ReclamosDAO().CREATE(r);
         String correoUser = new UsuarioDAO().obtenerCorreoPorRut(r.getRut());
-        String body = "El reclamo ha sido ingresado con exito " +"\n Pronto un admin se comunicará con usted" +
-                "para poder resolver su inquietud";
+        String body = "El reclamo ha sido ingresado con exito " +"\n Pronto un admin se comunicará con usted " +
+                "para poder resolver su inquietud.";
         sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com",correoUser,"Reclamo Ingresado",body);
     }
     //Metodos DELETE

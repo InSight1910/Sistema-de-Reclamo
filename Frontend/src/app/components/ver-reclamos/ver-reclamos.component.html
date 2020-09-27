@@ -13,7 +13,7 @@
     </ng-container>
 
     <ng-container matColumnDef="opciones">
-      <mat-header-cell *matHeaderCellDef> Eliminar o Modificar </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Eliminar | Actualizar resuelto | ver detalle </mat-header-cell>
       <mat-cell *matCellDef="let reclamo; index as i">
         <button (click)="borrarReclamo(reclamo, i)" mat-mini-fab color="warn">
           <mat-icon>delete</mat-icon>
