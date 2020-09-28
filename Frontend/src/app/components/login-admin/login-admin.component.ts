@@ -38,13 +38,6 @@ export class LoginAdminComponent implements OnInit {
       swal('¡Oh no!', 'Por favor ingresa tu correo', 'error');
     } else if (!this.form.get('password').value.trim()) {
       swal('Campo vacio', 'Por favor ingresa tu contraseña', 'error');
-    } else if (this.loginInvalid) {
-      console.log(this.loginInvalid);
-      swal(
-        '¡Oh no!',
-        'El correo que ingresaste no esta ingresado en nuestro sistema, Prueba otro correo',
-        'error'
-      );
     }
   }
 
@@ -66,7 +59,6 @@ export class LoginAdminComponent implements OnInit {
       } catch (err) {
         console.log(err);
         this.loginInvalid = true;
-        this.loginAdmin();
       }
     } else {
       this.formSubmitAttempt = true;
