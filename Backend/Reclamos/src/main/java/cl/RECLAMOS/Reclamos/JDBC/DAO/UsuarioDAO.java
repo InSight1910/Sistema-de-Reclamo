@@ -138,8 +138,8 @@ public class UsuarioDAO {
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             return true;
-            //SI ENTRA ES PORQUE LA HORA ESTÁ TOMADA
-        } return false;//QUIERE DECIR QUE LA HORA NO ESTÁ TOMADA;
+
+        } return false;//Este método verifica si el correo existe
     }
 }
 
