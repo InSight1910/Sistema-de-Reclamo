@@ -48,8 +48,6 @@ public class UsuarioResource {
     public void editarContraseña(@RequestBody Usuario c) throws SQLException, IOException {
         if (new UsuarioDAO().CorreoExiste(c.getCorreo())){
             new UsuarioDAO().editarContraseña(c);
-            String body = "\nSu contraseña ha sido actualizado con éxito. \n Su nueva contraseña es " + c.getContrasenha();
-            sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com", c.getCorreo(), "¡Cambio de contraseña exitoso!", body);
         }else {
             System.out.println("No existe");
             HttpServletResponse response = null;

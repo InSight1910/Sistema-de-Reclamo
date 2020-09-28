@@ -39,7 +39,7 @@ export class AsignarReclamoComponent implements OnInit {
     this.service.asignarReclamo(this.usuarios, this.values).subscribe(_ => {
       swal('Reclamo asignado',
         '¡Manos a la obra!',
-        'success'); this.router.navigate(['inicioAdmin'])
+        'success')
     })
     this.acepto = true
     return this.mensaje.emit(this.acepto);
