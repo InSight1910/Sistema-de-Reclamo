@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Timer;
@@ -42,13 +44,18 @@ public class UsuarioResource {
     public void modifificarUsuario(@RequestBody Usuario a) throws SQLException {
         new UsuarioDAO().modificar(a);
     }
-
     @RequestMapping(method = RequestMethod.PUT, value = "/usuario/editarContraseña")
-    public void editarContraseña(@RequestBody Usuario c) throws SQLException {
+    public void editarContraseña(@RequestBody Usuario c) throws SQLException, IOException {
+        if (new UsuarioDAO().CorreoExiste(c.getCorreo())){
             new UsuarioDAO().editarContraseña(c);
-            String correoUser = new UsuarioDAO().obtenerCorreoPorRut(c.getRut());
             String body = "\nSu contraseña ha sido actualizado con éxito. \n Su nueva contraseña es " + c.getContrasenha();
-            sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com", c.getCorreo(), "Cambio de contraseña ReclamosChile", body);
+            sendEmailService.sendEmail("reclamos.chile.solutions@gmail.com", c.getCorreo(), "¡Cambio de contraseña exitoso!", body);
+        }else {
+            System.out.println("No existe");
+            HttpServletResponse response = null;
+            response.sendError(500);
+        }
+
     }
 
     //Metodo DELETE

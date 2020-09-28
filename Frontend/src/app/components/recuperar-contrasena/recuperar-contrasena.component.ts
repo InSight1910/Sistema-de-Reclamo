@@ -21,25 +21,27 @@ export class RecuperarContrasenaComponent implements OnInit {
   hasLower: boolean = false;
   hasNum: boolean = false;
 
-  recuperar(correo, contrasenha){
+  recuperar(correo, contrasenha) {
 
     const numRegex = new RegExp("(?=.*\\d)");
     const lowercaseRegex = new RegExp("(?=.*[a-z])"); // Que tenga al menos un num
     if (numRegex.test(contrasenha) && lowercaseRegex.test(contrasenha) && contrasenha.length > 3) {
       this.hasNum = true;
-      this.hasLower= true;
-      
-    this.service.cambiarContraseña({correo, contrasenha} as Usuario).subscribe(_ => {swal('Cambio de contraseña exitoso',
-    'Nos alegra que tengas una contraseña nueva',
-    'success'); this.router.navigate(['login'])});
-      
+      this.hasLower = true;
+
+      this.service.cambiarContraseña({ correo, contrasenha } as Usuario).subscribe(_ => {
+        swal('Cambio de contraseña exitoso',
+          'Nos alegra que tengas una contraseña nueva',
+          'success'); this.router.navigate(['login'])
+      }, error => { swal('Este correo no existe', 'Por favor, ingrese un correo existente.', 'error') });
+
     }
-      else {
-        swal('¡Contraseña débil!',
-          'Tu contraseña debe tener al menos: 4 carácteres, una letra y un número',
-          'error')
-        return;
-      }
+    else {
+      swal('¡Contraseña débil!',
+        'Tu contraseña debe tener al menos: 4 carácteres, una letra y un número',
+        'error')
+      return;
+    }
 
 
   }

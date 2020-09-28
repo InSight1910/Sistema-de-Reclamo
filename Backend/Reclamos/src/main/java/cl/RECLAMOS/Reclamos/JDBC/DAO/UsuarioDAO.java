@@ -96,9 +96,10 @@ public class UsuarioDAO {
         ps.executeUpdate();
     }
     public void editarContraseña(Usuario c) throws SQLException {
-        String sql = "update USUARIOS set CONTRASEÑA = ? where CORREO ='" + c.getCorreo()+ "'";
+        String sql = "update USUARIOS set CONTRASEÑA = ? where CORREO = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, c.getContrasenha());
+        ps.setString(2, c.getCorreo());
         ps.executeUpdate();
     }
 
@@ -130,6 +131,18 @@ public class UsuarioDAO {
 
     }
 
+    public boolean CorreoExiste(String correo) throws SQLException {
+        String sql = "Select * from usuarios where correo = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, correo);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            return true;
+            //SI ENTRA ES PORQUE LA HORA ESTÁ TOMADA
+        } return false;//QUIERE DECIR QUE LA HORA NO ESTÁ TOMADA;
+    }
+}
+
 
 
 
@@ -141,5 +154,5 @@ public class UsuarioDAO {
 
 
 
-}
+
 
