@@ -53,7 +53,11 @@
               <div class="form-group">
                 <label for="contrasenhaUser">Contraseña</label>
                 <input type="password" class="form-control" name="contrasenha" placeholder="Ingrese Contraseña"
-                  [(ngModel)]="contrasenha">
+                  [(ngModel)]="contrasenha" [type]="hide ? 'password' : 'text'">
+
+                <mat-icon style="margin-left:-30px" matSuffix style="float:right" (click)="hide = !hide">
+                  {{hide ? 'visibility_off' : 'visibility'}}
+                </mat-icon>
               </div>
             </div>
           </div>

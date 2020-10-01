@@ -30,5 +30,14 @@
 
 			</mat-cell>
 		</ng-container>
+		<ng-container matColumnDef="tomarReclamo">
+			<mat-header-cell *matHeaderCellDef> Tomar </mat-header-cell>
+			<mat-cell *matCellDef="let reclamo; index as i">
+
+				<button type="button" button class="respuesta-admin" routerLink="/respuestaAdmin">Ingresar
+					respuesta</button>
+
+			</mat-cell>
+		</ng-container>
 	</mat-table>
 </div>

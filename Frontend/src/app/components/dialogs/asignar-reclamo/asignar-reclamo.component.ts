@@ -4,6 +4,7 @@ import { Usuario } from 'src/app/interfaces/usuario.model';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import swal from 'sweetalert';
 import { Router } from '@angular/router';
+import { ReclamosService } from 'src/app/services/reclamos.service';
 
 @Component({
   selector: 'app-asignar-reclamo',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AsignarReclamoComponent implements OnInit {
 
-  constructor(private router: Router, private service: UsuariosService, private dialogref: MatDialogRef<AsignarReclamoComponent>, @Inject(MAT_DIALOG_DATA) data) { this.values = data }
+  constructor(private serviceReclamos: ReclamosService, private router: Router, private service: UsuariosService, private dialogref: MatDialogRef<AsignarReclamoComponent>, @Inject(MAT_DIALOG_DATA) data) { this.values = data }
   values;
   usuarios: Usuario = {
     correo: null,
@@ -28,18 +29,23 @@ export class AsignarReclamoComponent implements OnInit {
   mensaje = new EventEmitter<boolean>();
 
 
+  obtenerReclamoAct() {
+    this.serviceReclamos.obtenerAllAdmin().subscribe(reclamos => this.values = reclamos);
+  };
   ngOnInit(): void {
     this.obtenerDatosUsuario();
+
   }
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut
     this.service.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
   }
+
   asignarReclamo() {
     this.service.asignarReclamo(this.usuarios, this.values).subscribe(_ => {
       swal('Reclamo asignado',
         '¡Manos a la obra!',
-        'success')
+        'success'), this.obtenerReclamoAct()
     })
     this.acepto = true
     return this.mensaje.emit(this.acepto);

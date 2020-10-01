@@ -1,32 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { ReclamosService } from "../../services/reclamos.service";
+import { ReclamosService } from '../../services/reclamos.service';
 import { Usuario } from '../../interfaces/usuario.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { Reclamo } from 'src/app/interfaces/reclamo.model';
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditarEstadoComponent } from '../dialogs/editar-estado/editar-estado.component';
 import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.component';
 import { AsignarReclamoComponent } from '../dialogs/asignar-reclamo/asignar-reclamo.component';
 import { Router } from '@angular/router';
 import { fdatasync } from 'fs';
-import { UsuariosService } from "../../services/usuarios.service";
-
+import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-
-  columnasAMostrar: string[] = ['tipoReclamo', 'numeroReclamo', 'fecha', 'estado', 'rut', 'opciones'];
+  columnasAMostrar: string[] = [
+    'tipoReclamo',
+    'numeroReclamo',
+    'fecha',
+    'estado',
+    'rut',
+    'opciones',
+  ];
   columnas = [
     { name: 'tipoReclamo', title: 'Tipo Reclamo' },
     { name: 'numeroReclamo', title: 'Numero Reclamo' },
     { name: 'fecha', title: 'Fecha' },
     { name: 'estado', title: 'Estado' },
-    { name: 'rut', title: 'Rut' }
-  ]
+    { name: 'rut', title: 'Rut' },
+  ];
   search;
   datas: Reclamo[] = [];
   dataSource = new MatTableDataSource(this.datas);
@@ -37,42 +42,45 @@ export class AdminComponent implements OnInit {
     rut: null,
     rol: null,
     numTelefono: null,
-    direccion: null
+    direccion: null,
   };
 
   //Constructor
-  constructor(private service: ReclamosService, private dialog: MatDialog, private router: Router, private serviceUser: UsuariosService) { }
+  constructor(
+    private service: ReclamosService,
+    private dialog: MatDialog,
+    private router: Router,
+    private serviceUser: UsuariosService
+  ) {}
 
   ngOnInit(): void {
-    this.service.obtenerAllAdmin().subscribe(
-      usuario => {
-        this.datas = usuario;
-        this.dataSource = new MatTableDataSource(this.datas);
-      });
+    this.service.obtenerAllAdmin().subscribe((usuario) => {
+      this.datas = usuario;
+      this.dataSource = new MatTableDataSource(this.datas);
+    });
   }
   openEstado(reclamo) {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.data = {
-      numero: reclamo.numeroReclamo
+      numero: reclamo.numeroReclamo,
     };
     const dialogRef = this.dialog.open(EditarEstadoComponent, dialogconfig);
-
   }
 
   borrarReclamo(reclamo, i) {
-
-
-    this.service.borrarReclamo(reclamo.numeroReclamo).subscribe(_ => this.obtenerReclamoAct())
+    this.service
+      .borrarReclamo(reclamo.numeroReclamo)
+      .subscribe((_) => this.obtenerReclamoAct());
 
     this.datas.splice(i, 1);
     this.dataSource = new MatTableDataSource(this.datas);
   }
 
-
-
   obtenerReclamoAct() {
-    this.service.obtenerAllAdmin().subscribe(reclamos => this.datas = reclamos);
-  };
+    this.service
+      .obtenerAllAdmin()
+      .subscribe((reclamos) => (this.datas = reclamos));
+  }
 
   searchDef(filterValue) {
     this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
@@ -80,7 +88,6 @@ export class AdminComponent implements OnInit {
     };
 
     this.dataSource.filter = filterValue;
-
   }
   openView(reclamo) {
     const dialogconfig = new MatDialogConfig();
@@ -88,14 +95,18 @@ export class AdminComponent implements OnInit {
     const dialogRef = this.dialog.open(ViewReclamoComponent, dialogconfig);
   }
   obtenerDatosUsuario() {
-    const rut = JSON.parse(localStorage.getItem('usuario')).rut
-    this.serviceUser.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0]);
+    const rut = JSON.parse(localStorage.getItem('usuario')).rut;
+    this.serviceUser
+      .obtenerUsuarioPorId(rut)
+      .subscribe((usuario) => (this.usuarios = usuario[0]));
   }
   openAsignAdmin(reclamo: Reclamo, i, confirmacion) {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.data = reclamo.numeroReclamo;
-    const dialogRef = this.dialog.open(AsignarReclamoComponent, dialogconfig)
-    dialogRef.afterClosed().subscribe(si => this.traerConfirmacion(confirmacion, i))
+    const dialogRef = this.dialog.open(AsignarReclamoComponent, dialogconfig);
+    dialogRef
+      .afterClosed()
+      .subscribe((si) => this.traerConfirmacion(confirmacion, i));
   }
   traerConfirmacion(confirmacion, i) {
     if (confirmacion) {
@@ -104,11 +115,8 @@ export class AdminComponent implements OnInit {
     }
   }
 
-
-
   logout() {
-    localStorage.removeItem("usuario");
-    this.router.navigate(['home'])
+    localStorage.removeItem('usuario');
+    this.router.navigate(['home']);
   }
-
 }

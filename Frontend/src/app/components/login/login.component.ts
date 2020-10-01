@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
         this.authService.loginUsuario(usuario).subscribe(userResponse => {
           localStorage.setItem("usuario", JSON.stringify(userResponse));
           this.router.navigate(['usuario'])
-        });
+        }, error => { swal('¡Hey', 'Los datos no coinciden', 'error') });
 
       } catch (err) {
         console.log(err);
