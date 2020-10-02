@@ -32,13 +32,18 @@
           (click)="actualizarResuelto(reclamo)"
           data-toggle="modal"
           mat-mini-fab
-          color="warn"
+          color="primary"
         >
-          <mat-icon>edit</mat-icon>
+          <mat-icon>check_circle</mat-icon>
         </button>
         <div style="padding-right: 2em"></div>
-        <button mat-mini-fab data-toggle="modal" (click)="openView(reclamo)">
-          Ver
+        <button
+          mat-mini-fab
+          data-toggle="modal"
+          (click)="openView(reclamo)"
+          color="primary"
+        >
+          <mat-icon>remove_red_eye</mat-icon>
         </button>
       </mat-cell>
     </ng-container>

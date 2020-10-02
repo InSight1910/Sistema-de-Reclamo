@@ -49,8 +49,9 @@
     <textarea type="text" class="form-control" [(ngModel)]="valueAns.texto" name="antecedentes" disabled></textarea>
   </div>
   <div class="form-group">
-    <label for="rutReclamo">Añadir comentarios:</label>
-    <input type="text" class="form-control" [(ngModel)]="values.comentarios" name="comentarios" #comentarios>
+    <label for="texto">Añadir comentarios:</label>
+    <textarea type="text" class="form-control" [(ngModel)]="values.comentarios" name="comentarios"
+      #comentarios></textarea>
   </div>
   <button class="btn-ok btn-block" [mat-dialog-close]="true" (click)="guardar()">Guardar cambios</button>
   <br>

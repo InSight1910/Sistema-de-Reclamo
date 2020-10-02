@@ -2,34 +2,70 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <a class="p-back mt-4" href="/AdminPersonal"><span class="anterior">Página
-            Anterior</span></a>
+        <a class="p-back mt-4" href="/AdminPersonal"
+          ><span class="anterior">Página Anterior</span></a
+        >
       </div>
     </div>
     <div class="row">
-      <div class="col-6 mx-auto  mb-5">
+      <div class="col-6 mx-auto mb-5">
         <form class="formulario card">
           <h1 class="mx-auto text-center">Ingrese su respuesta</h1>
           <div class="form-group">
             <label for="rut">Rut</label>
-            <input type="text" class="form-control" [(ngModel)]="usuarios.rut" name="rut" id="rutReclamo"
-              placeholder="Ingrese Rut">
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="usuarios.rut"
+              name="rut"
+              id="rutReclamo"
+              placeholder="Ingrese Rut"
+            />
           </div>
           <div class="form-group">
             <label for="nreclamo">Número de reclamo</label>
-            <input type="text" class="form-control" [(ngModel)]="n_reclamo" name="n_reclamo" id="rutReclamo"
-              placeholder="Ingrese número de reclamo">
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="reclamo.numeroReclamo"
+              name="n_reclamo"
+              id="rutReclamo"
+              placeholder="Ingrese número de reclamo"
+            />
           </div>
           <div class="form-group">
             <label for="texto">Texto</label>
-            <textarea [(ngModel)]="texto" name="texto" id="" cols="30" rows="10"></textarea>
+            <textarea
+              [(ngModel)]="texto"
+              name="texto"
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
           </div>
           <div class="form-group">
             <div class="row">
-              <div class="col"><button type="submit" class="Btn-cancelar  mt-3"
-                  routerLink="/AdminPersonal">Cancelar</button></div>
-              <div class="col"> <button type="button" class="Btn-login  mt-3"
-                  (click)="IngresarRespuesta(usuarios.rut, n_reclamo, texto)">Enviar</button></div>
+              <div class="col">
+                <button
+                  type="submit"
+                  class="Btn-cancelar mt-3"
+                  routerLink="/AdminPersonal"
+                >
+                  Cancelar
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  type="button"
+                  class="Btn-login mt-3"
+                  (click)="
+                    IngresarRespuesta(usuarios.rut, n_reclamo, texto);
+                    eliminarReclamoLocal()
+                  "
+                >
+                  Enviar
+                </button>
+              </div>
             </div>
           </div>
         </form>

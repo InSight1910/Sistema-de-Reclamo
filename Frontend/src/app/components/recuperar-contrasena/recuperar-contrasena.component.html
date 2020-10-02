@@ -1,5 +1,3 @@
-
-
 <section class="mt-5 login-user">
     <div class="container">
         <div class="row">
@@ -9,17 +7,23 @@
                     <h1 class="mx-auto text-center">Recuperar Contraseña</h1>
                     <div class="form-group">
                         <label for="nombreUser">Correo</label>
-                        <input type="email" class="form-control" name="mail" id="correo" placeholder="Ingrese  Correo" #correo>
+                        <input type="email" class="form-control" name="mail" id="correo" placeholder="Ingrese  Correo"
+                            #correo>
                     </div>
                     <div class="form-group">
                         <label for="contrasenhaUser">Ingrese su nueva contraseña</label>
-                        <input type="password" class="form-control" name="password1" id="contrasenarecuperaruno" #contrasena
-                            placeholder="Ingrese Contraseña">
+                        <input type="password" class="form-control" name="password1" id="contrasenarecuperaruno"
+                            #contrasena placeholder="Ingrese Contraseña" [(ngModel)]="contrasenha1">
                     </div>
-        
-                    <button type="button" class="btn btn-lg Btn-login  btn-block" value="Acceder" (click)="recuperar(correo.value, contrasena.value)">Cambiar contraseña</button>
+                    <div class="form-group">
+                        <label for="contrasenhaUser">Aquí verás tu nueva contraseña</label>
+                        <P>{{contrasenha1}}</P>
+                    </div>
+
+                    <button type="button" class="btn btn-lg Btn-login  btn-block" value="Acceder"
+                        (click)="recuperar(correo.value, contrasena.value)">Cambiar contraseña</button>
                     <div class="form-group text-center mt-5">
-                        
+
                     </div>
                 </form>
             </div>

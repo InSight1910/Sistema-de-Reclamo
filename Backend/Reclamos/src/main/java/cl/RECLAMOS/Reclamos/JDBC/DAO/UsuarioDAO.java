@@ -131,6 +131,18 @@ public class UsuarioDAO {
 
     }
 
+    public boolean CorreoExiste(String correo) throws SQLException {
+        String sql = "Select * from usuarios where correo = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, correo);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            return true;
+
+        } return false;//Este método verifica si el correo existe
+    }
+}
+
 
 
 
@@ -142,5 +154,5 @@ public class UsuarioDAO {
 
 
 
-}
+
 

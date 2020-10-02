@@ -21,6 +21,7 @@ export class RespuestaAdminComponent implements OnInit {
   @Input() respuestas: Respuesta;
   ngOnInit(): void {
     this.obtenerDatosUsuario();
+    this.obtenerReclamoLocal();
   }
   texto;
   n_reclamo;
@@ -40,6 +41,13 @@ export class RespuestaAdminComponent implements OnInit {
     texto: null,
     fecha_respuesta: null,
   };
+  reclamo: Reclamo = {} as Reclamo;
+  obtenerReclamoLocal() {
+    this.reclamo = JSON.parse(localStorage.getItem('reclamo'));
+  }
+  eliminarReclamoLocal() {
+    localStorage.removeItem('reclamo');
+  }
 
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut;

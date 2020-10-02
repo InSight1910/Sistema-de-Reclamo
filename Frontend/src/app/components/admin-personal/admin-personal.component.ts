@@ -18,7 +18,7 @@ export class AdminPersonalComponent implements OnInit {
     private service: ReclamosService,
     private dialog: MatDialog,
     private serviceUser: UsuariosService
-  ) { }
+  ) {}
 
   columnShow = [
     'tipoReclamo',
@@ -78,7 +78,9 @@ export class AdminPersonalComponent implements OnInit {
     this.data.splice(i, 1);
     this.dataSource = new MatTableDataSource(this.data);
   }
-
+  guardarReclamo(reclamo: Reclamo) {
+    localStorage.setItem('reclamo', JSON.stringify(reclamo));
+  }
   obtenerReclamoAct() {
     this.service
       .obtenerAllAdmin()
