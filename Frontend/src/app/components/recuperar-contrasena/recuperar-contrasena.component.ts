@@ -20,6 +20,7 @@ export class RecuperarContrasenaComponent implements OnInit {
   contrasenha;
   hasLower: boolean = false;
   hasNum: boolean = false;
+  hide = true;
 
   recuperar(correo, contrasenha) {
 

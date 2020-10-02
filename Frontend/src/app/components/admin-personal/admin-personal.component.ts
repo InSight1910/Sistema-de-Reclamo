@@ -27,6 +27,7 @@ export class AdminPersonalComponent implements OnInit {
     'estado',
     'rut',
     'opciones',
+    'tomarReclamo'
   ];
   columns = [
     { name: 'tipoReclamo', title: 'Tipo Reclamo' },

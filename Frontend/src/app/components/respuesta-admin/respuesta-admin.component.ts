@@ -49,6 +49,18 @@ export class RespuestaAdminComponent implements OnInit {
     localStorage.removeItem('reclamo');
   }
 
+  reclamo: Reclamo = {
+    tipoReclamo: null,
+    numeroReclamo: null,
+    descripcion: null,
+    fecha: null,
+    estado: null,
+    antecendentes: null,
+    rut: null,
+    comentarios: null,
+    fechaTope: null,
+  };
+
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut;
     this.serviceUser
@@ -57,19 +69,15 @@ export class RespuestaAdminComponent implements OnInit {
   }
 
   IngresarRespuesta(rut, n_reclamo, texto): void {
-    try {
-      this.service
-        .crearRespuesta({ n_reclamo, rut, texto } as Respuesta)
-        .subscribe((_) => {
-          swal(
-            '¡Genial!',
-            'La respuesta fue ingresada con éxito. El usuario podrá verla como "Antecedente", esperamos esto resuelva la inquietud del mismo. Sino, continúen la comunicación por correo eléctrónico o llamada telefónica',
-            'success'
-          );
-          this.router.navigate(['AdminPersonal']);
-        });
-    } catch (error) {
-      swal('¡Oh No!', 'El numero de reclamo que ingresaste no existe', 'error');
-    }
+    this.service
+      .crearRespuesta({ n_reclamo, rut, texto } as Respuesta)
+      .subscribe((_) => {
+        swal(
+          '¡Genial!',
+          'La respuesta fue ingresada con éxito. El usuario podrá verla como "Antecedente", esperamos esto resuelva la inquietud del mismo. Sino, continúen la comunicación por correo eléctrónico o llamada telefónica',
+          'success'
+        );
+        this.router.navigate(['AdminPersonal']);
+      });
   }
 }

@@ -24,6 +24,7 @@ export class RegistroComponent implements OnInit {
   contrasenha;
   hasLower: boolean = false;
   hasNum: boolean = false;
+  hide = true;
 
   constructor(private service: UsuariosService, private router: Router) { }
 

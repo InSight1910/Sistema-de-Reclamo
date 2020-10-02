@@ -19,7 +19,7 @@ export class LoginAdminComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private authService: AuthService
-  ) {}
+  ) { }
 
   form: FormGroup;
   public loginInvalid: boolean;
@@ -55,7 +55,7 @@ export class LoginAdminComponent implements OnInit {
         this.authService.loginAdmin(usuario).subscribe((userResponse) => {
           localStorage.setItem('usuario', JSON.stringify(userResponse));
           this.router.navigate(['inicioAdmin']);
-        });
+        }, error => { swal('¡Hey', 'Los datos no coinciden', 'error') });
       } catch (err) {
         console.log(err);
         this.loginInvalid = true;
