@@ -4,12 +4,9 @@ import { Usuario } from '../../interfaces/usuario.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { Reclamo } from 'src/app/interfaces/reclamo.model';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { EditarEstadoComponent } from '../dialogs/editar-estado/editar-estado.component';
-import { ViewReclamoComponent } from '../dialogs/view-reclamo/view-reclamo.component';
-import { AsignarReclamoComponent } from '../dialogs/asignar-reclamo/asignar-reclamo.component';
 import { Router } from '@angular/router';
-import { fdatasync } from 'fs';
 import { UsuariosService } from '../../services/usuarios.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-admin',
@@ -51,76 +48,54 @@ export class AdminComponent implements OnInit {
     private dialog: MatDialog,
     private router: Router,
     private serviceUser: UsuariosService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.service.obtenerAllAdmin().subscribe((usuario) => {
       this.datas = usuario;
       this.dataSource = new MatTableDataSource(this.datas);
     });
-  }
-  openEstado(reclamo) {
-    const dialogconfig = new MatDialogConfig();
-    dialogconfig.data = {
-      numero: reclamo.numeroReclamo,
-    };
-    const dialogRef = this.dialog.open(EditarEstadoComponent, dialogconfig);
-  }
 
-  borrarReclamo(reclamo, i) {
-    this.service
-      .borrarReclamo(reclamo.numeroReclamo)
-      .subscribe((_) => this.obtenerReclamoAct());
+    const rut = JSON.parse(localStorage.getItem('usuario')).rut
+    this.serviceUser.obtenerUsuarioPorId(rut).subscribe(usuario => this.usuarios = usuario[0])
 
-    this.datas.splice(i, 1);
-    this.dataSource = new MatTableDataSource(this.datas);
   }
 
   obtenerReclamoAct() {
     this.service
       .obtenerAllAdmin()
-      .subscribe((reclamos) => (this.datas = reclamos));
+      .subscribe(reclamos => {
+        this.datas = reclamos
+        this.dataSource = new MatTableDataSource(this.datas);
+      });
   }
 
   searchDef(filterValue) {
+
     this.dataSource.filterPredicate = (data: Reclamo, filter: string) => {
-      return data.numeroReclamo.toString() === filter || data.rut === filter;
+      return filter.includes(data.rut) || data.numeroReclamo.toString() == filter
     };
 
     this.dataSource.filter = filterValue;
   }
-  openView(reclamo) {
-    const dialogconfig = new MatDialogConfig();
-    dialogconfig.data = reclamo;
-    const dialogRef = this.dialog.open(ViewReclamoComponent, dialogconfig);
-  }
+
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut;
     this.serviceUser
       .obtenerUsuarioPorId(rut)
       .subscribe((usuario) => (this.usuarios = usuario[0]));
   }
-  openAsignAdmin(reclamo: Reclamo, i) {
-    const dialogconfig = new MatDialogConfig();
-    dialogconfig.data = reclamo.numeroReclamo;
-    const dialogRef = this.dialog.open(AsignarReclamoComponent, dialogconfig);
-<<<<<<< HEAD
-    dialogRef.afterClosed().subscribe((si) => this.obtenerReclamoAct());
-=======
-    dialogRef
-      .afterClosed()
-      .subscribe((si) => this.traerConfirmacion(confirmacion, i));
-  }
-  traerConfirmacion(confirmacion, i) {
-    if (confirmacion) {
-      this.datas.splice(i, 1);
-      this.dataSource = new MatTableDataSource(this.datas);
-    }
->>>>>>> dcb87d23e75654b59258ce7f7de48055f23f6021
-  }
 
   logout() {
     localStorage.removeItem('usuario');
     this.router.navigate(['home']);
+  }
+
+  asignarReclamo(reclamo) {
+
+    this.serviceUser.asignarReclamo(this.usuarios, reclamo.numeroReclamo).subscribe((_) => {
+      this.obtenerReclamoAct();
+      swal('Reclamo asignado', '¡Manos a la obra!', 'success');
+    });
   }
 }

@@ -25,7 +25,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { FooterComponent } from './components/footer/footer.component';
 import { EditarPerfilComponent } from './components/dialogs/editar-perfil/editar-perfil.component';
-import { AsignarReclamoComponent } from './components/dialogs/asignar-reclamo/asignar-reclamo.component';
 import { InicioAdminComponent } from './components/inicio-admin/inicio-admin.component';
 import { AdminPersonalComponent } from './components/admin-personal/admin-personal.component';
 import { ReclamoDetalleUSerComponent } from './components/dialogs/reclamo-detalle-user/reclamo-detalle-user.component';
@@ -52,7 +51,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     SobreNosotrosComponent,
     FooterComponent,
     EditarPerfilComponent,
-    AsignarReclamoComponent,
     InicioAdminComponent,
     AdminPersonalComponent,
     ReclamoDetalleUSerComponent,

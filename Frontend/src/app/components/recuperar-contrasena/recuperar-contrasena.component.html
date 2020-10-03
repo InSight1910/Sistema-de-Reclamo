@@ -13,12 +13,11 @@
                     <div class="form-group">
                         <label for="contrasenhaUser">Ingrese su nueva contraseña</label>
                         <input type="password" [type]="hide ? 'password' : 'text'" class="form-control" name="password1"
-                            id="contrasenarecuperaruno" #contrasena placeholder="Ingrese Contraseña"
-                            [(ngModel)]="contrasenha1">
-
-                        <mat-icon style="margin-left:-30px" matSuffix style="float:right" (click)="hide = !hide">
-                            {{hide ? 'visibility_off' : 'visibility'}}
-                        </mat-icon>
+                            id="contrasenarecuperaruno" #contrasena placeholder="Ingrese Contraseña">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
 
 
                     </div>

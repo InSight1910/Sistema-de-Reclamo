@@ -20,7 +20,7 @@
       <ng-container matColumnDef="opciones">
         <mat-header-cell *matHeaderCellDef> Tomar </mat-header-cell>
         <mat-cell *matCellDef="let reclamo; index as i">
-          <button class="btn-ver" (click)="openAsignAdmin(reclamo, i)">Tomar reclamo</button>
+          <button class="btn-ver" (click)="asignarReclamo(reclamo)">Tomar reclamo</button>
 
         </mat-cell>
       </ng-container>
