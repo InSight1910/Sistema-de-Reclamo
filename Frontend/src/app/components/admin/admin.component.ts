@@ -104,9 +104,6 @@ export class AdminComponent implements OnInit {
     const dialogconfig = new MatDialogConfig();
     dialogconfig.data = reclamo.numeroReclamo;
     const dialogRef = this.dialog.open(AsignarReclamoComponent, dialogconfig);
-<<<<<<< HEAD
-    dialogRef.afterClosed().subscribe((si) => this.obtenerReclamoAct());
-=======
     dialogRef
       .afterClosed()
       .subscribe((si) => this.traerConfirmacion(confirmacion, i));
@@ -116,7 +113,6 @@ export class AdminComponent implements OnInit {
       this.datas.splice(i, 1);
       this.dataSource = new MatTableDataSource(this.datas);
     }
->>>>>>> dcb87d23e75654b59258ce7f7de48055f23f6021
   }
 
   logout() {
