@@ -63,13 +63,6 @@ export class AdminPersonalComponent implements OnInit {
     });
   }
 
-  openEstado(reclamo) {
-    const dialogconfig = new MatDialogConfig();
-    dialogconfig.data = {
-      numero: reclamo.numeroReclamo,
-    };
-    const dialogRef = this.dialog.open(EditarEstadoComponent, dialogconfig);
-  }
 
   borrarReclamo(reclamo, i) {
     this.service
