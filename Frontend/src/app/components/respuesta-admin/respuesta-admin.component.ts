@@ -59,7 +59,7 @@ export class RespuestaAdminComponent implements OnInit {
 
   IngresarRespuesta(rut, n_reclamo, texto): void {
     this.service
-      .crearRespuesta({ n_reclamo, rut, texto } as Respuesta)
+      .crearRespuesta({ rut, n_reclamo, texto } as Respuesta)
       .subscribe((_) => {
         swal(
           '¡Genial!',
