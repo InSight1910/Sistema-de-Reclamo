@@ -40,7 +40,7 @@ public class UsuarioDAO {
         return usuarios;
     }
     public Usuario loginAdmin(Usuario u) throws SQLException {
-        String sql = "select * from USUARIOS where CORREO = '" + u.getCorreo() + "' and CONTRASEÑA = '" + u.getContrasenha() + "' and ROL = 'Admin'";
+        String sql = "select CORREO, NOMBRE, CONTRASEÑA, RUT, ROL, NUMEROTELEFONO, DIRECCION from USUARIOS where CORREO = '" + u.getCorreo() + "' and CONTRASEÑA = '" + u.getContrasenha() + "' and ROL = 'Admin'";
         PreparedStatement ps = connection.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         rs.next();
@@ -56,7 +56,7 @@ public class UsuarioDAO {
     }
 
     public Usuario loginUsuario(Usuario a) throws SQLException {
-        String sql = "select * from USUARIOS where CORREO = '" + a.getCorreo() + "' and CONTRASEÑA = '" + a.getContrasenha() + "' and ROL = 'Usuario'";
+        String sql = "select CORREO, NOMBRE, CONTRASEÑA, RUT, ROL, NUMEROTELEFONO, DIRECCION from USUARIOS where CORREO = '" + a.getCorreo() + "' and CONTRASEÑA = '" + a.getContrasenha() + "' and ROL = 'Usuario'";
         PreparedStatement ps = connection.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         rs.next();

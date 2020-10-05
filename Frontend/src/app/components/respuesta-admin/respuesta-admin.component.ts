@@ -17,7 +17,7 @@ export class RespuestaAdminComponent implements OnInit {
     private service: RespuestasService,
     private router: Router,
     private serviceUser: UsuariosService
-  ) {}
+  ) { }
   @Input() respuestas: Respuesta;
   ngOnInit(): void {
     this.obtenerDatosUsuario();
@@ -49,17 +49,6 @@ export class RespuestaAdminComponent implements OnInit {
     localStorage.removeItem('reclamo');
   }
 
-  reclamo: Reclamo = {
-    tipoReclamo: null,
-    numeroReclamo: null,
-    descripcion: null,
-    fecha: null,
-    estado: null,
-    antecendentes: null,
-    rut: null,
-    comentarios: null,
-    fechaTope: null,
-  };
 
   obtenerDatosUsuario() {
     const rut = JSON.parse(localStorage.getItem('usuario')).rut;
