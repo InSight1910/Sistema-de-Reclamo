@@ -1,27 +1,44 @@
 <section class="mt-5 login-user">
   <div class="container">
     <div class="col">
-      <a class="p-back mb-4" href="/home"><span class="anterior">Página
-          Anterior</span></a>
+      <a class="p-back mb-4" href="/home"
+        ><span class="anterior">Página Anterior</span></a
+      >
     </div>
     <div class="row">
-      <div class="col-9 mx-auto  mb-5">
+      <div class="col-9 mx-auto mb-5">
         <form class="formulario card">
-          <img class="text-center mx-auto mb-3" src="/assets/img/icons/user-registro.png" width="20%" alt="">
+          <img
+            class="text-center mx-auto mb-3"
+            src="/assets/img/icons/user-registro.png"
+            width="20%"
+            alt=""
+          />
           <h1 class="mx-auto text-center">Formulario de Registro</h1>
           <div class="row">
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
                 <label for="rutUser">Rut</label>
-                <input type="text" class="form-control" name="rut" id="rut" (keydown)="ValidadorRut(rut)"
-                  placeholder="Ingrese  Rut (xxxxxxxx-x)" [(ngModel)]="rut">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="rut"
+                  id="rut"
+                  placeholder="Ingrese  Rut (xxxxxxxx-x)"
+                  [(ngModel)]="rut"
+                />
               </div>
             </div>
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
                 <label for="nombreUser">Nombre de usuario</label>
-                <input type="text" class="form-control" name="usuario" placeholder="Ingrese Usuario"
-                  [(ngModel)]="usuario">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="usuario"
+                  placeholder="Ingrese Usuario"
+                  [(ngModel)]="usuario"
+                />
               </div>
             </div>
           </div>
@@ -29,15 +46,25 @@
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
                 <label for="direccionUser">Dirección</label>
-                <input type="text" class="form-control" name="direccion" placeholder="Ingresa tu domicilio"
-                  [(ngModel)]="direccion">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="direccion"
+                  placeholder="Ingresa tu domicilio"
+                  [(ngModel)]="direccion"
+                />
               </div>
             </div>
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
                 <label for="telefonoUser">Telefono</label>
-                <input type="text" class="form-control" name="numerotelefono" placeholder="Ingrese Telefono (9xxxxxxxx)"
-                  [(ngModel)]="numerotelefono">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="numerotelefono"
+                  placeholder="Ingrese Telefono (9xxxxxxxx)"
+                  [(ngModel)]="numerotelefono"
+                />
               </div>
             </div>
           </div>
@@ -45,25 +72,49 @@
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
                 <label for="correoUser">Correo</label>
-                <input type="correo" class="form-control" name="correo"
-                  placeholder="Ingrese Correo (example@domain.com)" [(ngModel)]="correo">
+                <input
+                  type="correo"
+                  class="form-control"
+                  name="correo"
+                  placeholder="Ingrese Correo (example@domain.com)"
+                  [(ngModel)]="correo"
+                />
               </div>
             </div>
             <div class="col-6 col-md-6 col-sm-12 col-xs-12">
               <div class="form-group">
                 <label for="contrasenhaUser">Contraseña</label>
-                <input type="password" class="form-control" name="contrasenha" placeholder="Ingrese Contraseña"
-                  [(ngModel)]="contrasenha" [type]="hide ? 'password' : 'text'">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="contrasenha"
+                  placeholder="Ingrese Contraseña"
+                  [(ngModel)]="contrasenha"
+                  [type]="hide ? 'password' : 'text'"
+                />
 
-                <mat-icon style="margin-left:-30px" matSuffix style="float:right" (click)="hide = !hide">
-                  {{hide ? 'visibility_off' : 'visibility'}}
+                <mat-icon
+                  style="margin-left: -30px"
+                  matSuffix
+                  style="float: right"
+                  (click)="hide = !hide"
+                >
+                  {{ hide ? "visibility_off" : "visibility" }}
                 </mat-icon>
               </div>
             </div>
           </div>
-          <button type="button" class="Btn-login btn-block mt-3" (click)="registrarUsuario()">Registrarse</button>
+          <button
+            type="button"
+            class="Btn-login btn-block mt-3"
+            (click)="registrarUsuario()"
+          >
+            Registrarse
+          </button>
           <div class="form-group text-center mt-5">
-            <p>¿Ya tienes una cuenta? Inicia Sesión <a href="/login"> aquí</a></p>
+            <p>
+              ¿Ya tienes una cuenta? Inicia Sesión <a href="/login"> aquí</a>
+            </p>
           </div>
         </form>
       </div>
