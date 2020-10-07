@@ -5,15 +5,20 @@ import { Respuesta } from 'src/app/interfaces/respuesta.model';
 import { ReclamosService } from 'src/app/services/reclamos.service';
 import { RespuestasService } from 'src/app/services/respuestas.service';
 
-
 @Component({
   selector: 'app-reclamo-detalle-user',
   templateUrl: './reclamo-detalle-user.component.html',
-  styleUrls: ['./reclamo-detalle-user.component.css']
+  styleUrls: ['./reclamo-detalle-user.component.css'],
 })
 export class ReclamoDetalleUSerComponent implements OnInit {
-
-  constructor(private serviceR: RespuestasService, private service: ReclamosService, private dialogRef: MatDialogRef<ReclamoDetalleUSerComponent>, @Inject(MAT_DIALOG_DATA) data) { this.values = data }
+  constructor(
+    private serviceR: RespuestasService,
+    private service: ReclamosService,
+    private dialogRef: MatDialogRef<ReclamoDetalleUSerComponent>,
+    @Inject(MAT_DIALOG_DATA) data
+  ) {
+    this.values = data;
+  }
 
   values: Reclamo = {
     antecendentes: null,
@@ -24,25 +29,26 @@ export class ReclamoDetalleUSerComponent implements OnInit {
     fechaTope: null,
     numeroReclamo: null,
     rut: '',
-    tipoReclamo: null
+    tipoReclamo: null,
   };
   valueAns: Respuesta = {
     fecha_respuesta: null,
     n_reclamo: null,
     rut: '',
-    texto: null
+    texto: '',
   };
   ngOnInit(): void {
-    this.obtenerRespuestas()
+    this.obtenerRespuestas();
   }
-
 
   guardar() {
-    this.service.editarReclamoUser(this.values).subscribe(data => this.values = data)
+    this.service
+      .editarReclamoUser(this.values)
+      .subscribe((data) => (this.values = data));
   }
   obtenerRespuestas() {
-    this.serviceR.obtenerRespuesta(this.values.numeroReclamo).subscribe(data => this.valueAns = data[0])
+    this.serviceR
+      .obtenerRespuesta(this.values.numeroReclamo)
+      .subscribe((data) => (this.valueAns = data[0]));
   }
-
-
 }
